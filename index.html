@@ -1,819 +1,890 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Nguyễn Hữu Thuật</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body>
-        <!-- Start coding here-->
-        <!--Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <span class="d-block d-lg-none">Nguyễn Hữu Thuật</span>
-                <span class="d-none d-lg-block">
-                    <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg">
-                </span>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#About">Về tôi</a> </li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Education">Học vấn</a> </li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Experience">Kinh nghiệm</a> </li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Skill">Kỹ năng</a> </li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Interests">Hoạt động</a> </li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Awards">Giải thưởng</a> </li>
-                </ul>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Nguyễn Hữu Thuật — Senior Data Scientist & AI Engineer tại Vietcombank"/>
+<title>Nguyễn Hữu Thuật — Senior Data Scientist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --sans:'Bricolage Grotesque',sans-serif;
+  --serif:'Instrument Serif',serif;
+  --mono:'JetBrains Mono',monospace;
+  --em:#059669;--eml:#d1fae5;--emm:#6ee7b7;
+  --bg:#f7f8f5;--wh:#fff;
+  --ink:#111827;--ink2:#374151;--ink3:#6b7280;--ink4:#9ca3af;
+  --bd:#e5e7eb;--bd2:#d1d5db;
+  --sw:280px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:15px;line-height:1.7}
+a{color:var(--em);text-decoration:none}
+a:hover{text-decoration:underline}
 
-            </div>
-        </nav>
+/* ── SIDEBAR ── */
+#sb{position:fixed;top:0;left:0;width:var(--sw);height:100vh;background:var(--wh);border-right:1px solid var(--bd);display:flex;flex-direction:column;padding:0;overflow-y:auto;z-index:50}
+.sb-top{padding:1.75rem 1.5rem 1.25rem;border-bottom:1px solid var(--bd)}
+.av{width:64px;height:64px;border-radius:50%;background:var(--eml);border:2.5px solid var(--em);display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--em);margin-bottom:.8rem;overflow:hidden;flex-shrink:0}
+.av img{width:100%;height:100%;object-fit:cover}
+.sn{font-family:var(--serif);font-size:1.1rem;color:var(--ink);line-height:1.25;margin-bottom:3px}
+.sr{font-family:var(--mono);font-size:.58rem;color:var(--em);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.75rem}
+.sb-pills{display:flex;gap:.3rem;flex-wrap:wrap}
+.sb-pill{font-size:.6rem;padding:.15rem .45rem;border-radius:20px;background:var(--eml);color:var(--em);font-weight:500}
 
-        <!--Page Content-->
-        <div class="container-fluid p-0">
-            <!--Về Tôi-->
-            <section class="resume-section" id="About">
-                <div class="resume-section-content">
-                    <h1 class="mb-0">
-                        <span class="text-primary">Nguyễn Hữu</span>
-                        Thuật
-                    </h1>
-                    <div class="subheading mb-5">
-                        <div> Địa chỉ: Gia Lâm, Hà Nội</div>
+.sb-nav{padding:.6rem 0;flex:1}
+.nl{font-family:var(--mono);font-size:.55rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink4);padding:.35rem 1.25rem .25rem;display:block}
+.nv{list-style:none}
+.nv li a{display:flex;align-items:center;gap:.55rem;padding:.4rem 1.1rem;color:var(--ink3);font-size:.79rem;transition:all .14s}
+.nv li a i{width:13px;font-size:.7rem;opacity:.5;flex-shrink:0}
+.nv li a:hover,.nv li a.act{color:var(--em);background:var(--eml);text-decoration:none}
+.nv li a.act i,.nv li a:hover i{opacity:1}
 
-                        <!-- <div>SĐT: (+84) 36-405-8928</div> -->
-                        <a href="Email: thuatngh@gmail.com">thuatngh@gmail.com</a>
-                    </div>
-                    <p class="lead mb-5">
-                        Tôi tốt nghiệp đại học và thạc sĩ chuyên ngành Toán - Tin tại Khoa Toán - Tin, Đại học Bách khoa Hà Nội. <br> 
-                        Định hướng nghiên cứu của tôi tập trung vào Trí tuệ nhân tạo (Artificial Intelligence), với các lĩnh vực tôi đang nghiên cứu và ứng dụng bao gồm: 
-                        Khoa học dữ liệu (Data Science), Máy học (Machine Learning), Học sâu (Deep Learning), Thị giác máy tính (Computer Vision) và Xử lý ngôn ngữ tự nhiên (Natural Language Processing). 
-                    </p>
-                    <div class="social-icons">
-                        <a class="social-icon" href="https://www.linkedin.com/in/nguyenhuuthuatbk//"><i class="fab fa-linkedin-in"></i> </a>
-                        <a class="social-icon" href="https://github.com/NguyenHuuThuat"><i class="fab fa-github"></i> </a>
-                        <a class="social-icon" href="https://twitter.com/HuuThuatBK"><i class="fab fa-twitter"></i> </a>
-                        <a class="social-icon" href="https://www.facebook.com/NguyenHuuThuatBK/"><i class="fab fa-facebook"></i> </a>
-                    </div>
-                    <br>
-                    <!-- <a class="social-icon" href="https://drive.google.com/drive/folders/1w613yUVRWhAchnh0rm4xSvJtO--oWq6u?usp=sharing">(CV của tôi)</a> -->
-                </div>
-            </section>
-            <hr class="m-0">
-<!------------------------------------------------------------->
-            <!--Học Vấn-->
-            <section class="resume-section" id="Education">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Học vấn</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Trường Trung học Phổ thông Tuệ Tĩnh</h3>
-                            <p></p>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">08/2014 - 06/2017</span> </div>
-                    </div>
+.sb-foot{padding:1rem 1.25rem;border-top:1px solid var(--bd);background:#fafaf8}
+.cr{display:flex;align-items:center;gap:.5rem;padding:.22rem 0;font-size:.72rem;color:var(--ink3)}
+.cr i{color:var(--em);width:12px;font-size:.66rem;flex-shrink:0}
+.cr a{color:var(--ink3)}
+.cr a:hover{color:var(--em);text-decoration:none}
+.ss{display:flex;gap:.35rem;margin-top:.65rem}
+.ss a{width:28px;height:28px;border-radius:7px;border:1px solid var(--bd2);display:flex;align-items:center;justify-content:center;color:var(--ink3);font-size:.7rem;transition:all .14s}
+.ss a:hover{color:var(--em);border-color:var(--em);background:var(--eml);text-decoration:none}
 
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Đại học Bách khoa Hà Nội</h3>
-                            <div>Viện Toán Ứng dụng và Tin học</div>
-                            <div>Trình độ đào tạo: Đại học</div>
-                            <div>Ngành đào tạo: Toán - Tin</div>
-                            <P>Điểm trung bình tích luỹ: 3.44 (Thang điểm 10: 8.6)</P>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">08/2018 - 09/2022</span> </div>
-                    </div>
-                    <div>
+.mt{display:none;position:fixed;top:.85rem;left:.85rem;z-index:100;background:var(--wh);border:1px solid var(--bd2);width:36px;height:36px;border-radius:8px;align-items:center;justify-content:center;color:var(--ink2);cursor:pointer;font-size:.85rem;box-shadow:0 1px 4px rgba(0,0,0,.07)}
 
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Đại học Bách khoa Hà Nội</h3>
-                            <div>Khoa Toán Tin</div>
-                            <div>Trình độ đào tạo: Cao học</div>
-                            <div>Ngành đào tạo: Toán - Tin</div>
-                            <P>Điểm trung bình tích luỹ: 3.60 (Thang điểm 10: 9.0)</P>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">06/2023 - nay</span> </div>
-                    </div>
-                    <div>
+/* ── MAIN ── */
+#mn{margin-left:var(--sw)}
 
-                   
-            </section>
-            <hr class="m-0">
-<!------------------------------------------------------------->
-<!-- Kinh Nghiệm -->
-<section class="resume-section" id="Experience">
-    <div class="resume-section-content">
-        <h2 class="mb-5">Kinh nghiệm</h2>
+/* ── HERO ── */
+#hero{background:var(--wh);border-bottom:1px solid var(--bd);padding:4.5rem 4rem 4rem}
+.ey{display:inline-flex;align-items:center;gap:.45rem;background:var(--eml);color:var(--em);padding:.22rem .8rem;border-radius:20px;font-family:var(--mono);font-size:.62rem;letter-spacing:.07em;text-transform:uppercase;margin-bottom:1.4rem}
+.ey::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--em)}
+h1.hn{font-family:var(--serif);font-size:clamp(2.2rem,3.8vw,3.6rem);font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:.45rem}
+h1.hn em{font-style:italic;color:var(--em)}
+.ht{font-family:var(--mono);font-size:.78rem;color:var(--ink3);margin-bottom:1.6rem;letter-spacing:.04em}
+.ht b{color:var(--em);font-weight:500}
+.hb{font-size:.95rem;color:var(--ink2);max-width:640px;line-height:1.85;margin-bottom:2rem}
+.hb strong{color:var(--ink);font-weight:500}
+.h-stats{display:flex;gap:0;margin-bottom:2rem;border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:var(--wh);max-width:560px}
+.hst{flex:1;padding:.9rem 1rem;text-align:center;border-right:1px solid var(--bd)}
+.hst:last-child{border-right:none}
+.hst-n{font-family:var(--serif);font-size:1.6rem;color:var(--em);line-height:1;font-style:italic}
+.hst-l{font-family:var(--mono);font-size:.57rem;color:var(--ink4);margin-top:.22rem;text-transform:uppercase;letter-spacing:.07em}
+.hc{display:flex;flex-wrap:wrap;gap:.35rem}
+.ch{padding:.26rem .7rem;border-radius:20px;border:1px solid var(--bd2);font-size:.7rem;color:var(--ink3);background:var(--wh);transition:all .14s;cursor:default}
+.ch:hover{border-color:var(--em);color:var(--em);background:var(--eml)}
 
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="flex-grow-1">
-                <h3 class="mb-0">Chuyên viên khoa học dữ liệu</h3>
-                <div class="subheading mb-3">Vietcombank</div>
-                <ul>
-                    <li>Phát triển mô hình, hệ thống và công cụ sử dụng xử lý dữ liệu nâng cao, 
-                        học máy, học sâu, thị giác máy tính và mô hình ngôn ngữ lớn nhằm nâng cao 
-                        hiệu quả hoạt động ngân hàng và kinh doanh.</li>
-                    <li>Các dự án tiêu biểu bao gồm:
-                        <ul>
-                            <li>Ứng dụng thị giác máy tính trong giám sát kho quỹ.</li>
-                            <li>Công cụ tự động làm sạch dữ liệu doanh nghiệp.</li>
-                            <li>Hệ thống xác định thời điểm tối ưu để bán bảo hiểm cho khách hàng tiềm năng.</li>
-                            <li>Mô hình định giá tài sản bất động sản.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="flex-shrink-0"><span class="text-primary">03/2024 - Hiện tại</span></div>
+/* ── SECTION WRAPPER ── */
+.cs{padding:3.5rem 4rem;border-bottom:1px solid var(--bd)}
+.sl{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.14em;color:var(--em);margin-bottom:.35rem}
+h2.st{font-family:var(--serif);font-size:1.9rem;font-weight:400;color:var(--ink);margin-bottom:2rem;line-height:1.2}
+
+/* ── EXPERIENCE TIMELINE ── */
+.tl{display:flex;flex-direction:column}
+.tl-item{display:grid;grid-template-columns:1fr;padding:2rem 0;border-bottom:1px solid var(--bd);position:relative}
+.tl-item:first-child{padding-top:0}
+.tl-item:last-child{border-bottom:none;padding-bottom:0}
+.tl-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem;gap:1rem}
+.tl-co{font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.09em;color:var(--em)}
+.tl-date{font-family:var(--mono);font-size:.65rem;color:var(--ink4);white-space:nowrap;flex-shrink:0}
+.tl-role{font-size:1.05rem;font-weight:500;color:var(--ink);margin-bottom:.5rem}
+.tl-summary{font-size:.88rem;color:var(--ink2);margin-bottom:.9rem;line-height:1.75}
+.tl-summary strong{color:var(--ink);font-weight:500}
+
+/* Project cards inside experience */
+.prj-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.8rem}
+.prj-card{background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:.95rem 1.1rem;transition:border-color .15s}
+.prj-card:hover{border-color:var(--emm)}
+.prj-title{font-size:.83rem;font-weight:500;color:var(--ink);margin-bottom:.3rem}
+.prj-desc{font-size:.77rem;color:var(--ink3);line-height:1.6;margin-bottom:.45rem}
+.prj-stack{display:flex;flex-wrap:wrap;gap:.25rem}
+.stk{font-family:var(--mono);font-size:.58rem;color:var(--em);background:var(--eml);padding:.1rem .38rem;border-radius:4px}
+
+/* simple bullet list */
+.bl{list-style:none;display:flex;flex-direction:column;gap:.3rem;margin-bottom:.6rem}
+.bl li{font-size:.85rem;color:var(--ink2);padding-left:1rem;position:relative;line-height:1.65}
+.bl li::before{content:'';position:absolute;left:0;top:.6rem;width:4px;height:4px;border-radius:50%;background:var(--em)}
+.bl li strong{font-weight:500;color:var(--ink)}
+
+/* ── SKILLS ── */
+.sk-wrap{display:flex;flex-direction:column;gap:2rem}
+.sk-group{background:var(--wh);border:1px solid var(--bd);border-radius:12px;padding:1.5rem}
+.sk-group-title{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--em);margin-bottom:1rem}
+.sk-rows{display:flex;flex-direction:column;gap:.85rem}
+.sk-row{display:grid;grid-template-columns:160px 1fr auto;align-items:center;gap:.75rem}
+.sk-name{font-size:.88rem;font-weight:500;color:var(--ink)}
+.sk-bar{height:4px;background:var(--bd);border-radius:3px;overflow:hidden}
+.sk-fill{height:100%;background:linear-gradient(90deg,#34d399,#059669);border-radius:3px}
+.sk-yr{font-family:var(--mono);font-size:.62rem;color:var(--em);white-space:nowrap}
+.sk-tools{display:flex;flex-wrap:wrap;gap:.28rem;margin-top:.4rem;padding-left:160px}
+.sk-tool{font-family:var(--mono);font-size:.6rem;color:var(--ink3);background:var(--bg);border:1px solid var(--bd);padding:.12rem .4rem;border-radius:4px}
+
+/* ── EDUCATION ── */
+.edu-cards{display:flex;flex-direction:column;gap:.75rem}
+.edu-card{background:var(--wh);border:1px solid var(--bd);border-radius:12px;padding:1.4rem 1.6rem;transition:border-color .15s}
+.edu-card:hover{border-color:var(--em)}
+.edu-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem}
+.edu-school{font-size:1rem;font-weight:500;color:var(--ink)}
+.edu-badge{background:var(--eml);color:var(--em);font-family:var(--mono);font-size:.6rem;padding:.18rem .6rem;border-radius:20px;white-space:nowrap;letter-spacing:.04em}
+.edu-deg{font-size:.88rem;color:var(--em);margin-bottom:.25rem}
+.edu-meta{font-size:.82rem;color:var(--ink3);margin-bottom:.5rem}
+.edu-detail{font-size:.82rem;color:var(--ink2);line-height:1.65}
+.edu-tags{display:flex;flex-wrap:wrap;gap:.28rem;margin-top:.5rem}
+.edu-tag{font-family:var(--mono);font-size:.6rem;color:var(--ink4);background:var(--bg);border:1px solid var(--bd);padding:.12rem .4rem;border-radius:4px}
+
+/* ── PROJECTS ── */
+.pj-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.pj-card{background:var(--wh);border:1px solid var(--bd);border-radius:12px;padding:1.2rem 1.3rem;transition:all .15s;display:flex;flex-direction:column}
+.pj-card:hover{border-color:var(--em);transform:translateY(-2px);box-shadow:0 4px 14px rgba(5,150,105,.07)}
+.pj-cat{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--em);margin-bottom:.3rem}
+.pj-name{font-size:.9rem;font-weight:500;color:var(--ink);margin-bottom:.35rem;line-height:1.35}
+.pj-desc{font-size:.8rem;color:var(--ink3);line-height:1.65;margin-bottom:.65rem;flex:1}
+.pj-stack{display:flex;flex-wrap:wrap;gap:.25rem}
+.pj-stk{font-family:var(--mono);font-size:.58rem;color:var(--em);background:var(--eml);padding:.1rem .38rem;border-radius:4px}
+
+/* ── AWARDS ── */
+.aw-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.aw-card{display:flex;gap:.65rem;align-items:flex-start;background:var(--wh);border:1px solid var(--bd);border-radius:10px;padding:.9rem 1rem;transition:border-color .15s}
+.aw-card.top{border-left:3px solid var(--em);background:#f0fdf4}
+.aw-ic{width:28px;height:28px;border-radius:7px;background:var(--eml);display:flex;align-items:center;justify-content:center;color:var(--em);font-size:.7rem;flex-shrink:0;margin-top:.05rem}
+.aw-txt{font-size:.81rem;color:var(--ink2);line-height:1.55}
+.aw-txt strong{color:var(--ink);font-weight:500}
+.aw-year{font-family:var(--mono);font-size:.6rem;color:var(--ink4);margin-top:.15rem;display:block}
+
+/* ── CERTS ── */
+.ce-list{display:flex;flex-direction:column;gap:.45rem}
+.ce-row{display:flex;justify-content:space-between;align-items:center;background:var(--wh);border:1px solid var(--bd);border-radius:9px;padding:.8rem 1.1rem;transition:border-color .15s}
+.ce-row:hover{border-color:var(--em)}
+.ce-nm{font-size:.84rem;color:var(--ink)}
+.ce-is{font-family:var(--mono);font-size:.62rem;color:var(--em);white-space:nowrap;margin-left:.8rem}
+
+/* ── ACTIVITIES ── */
+.ac-list{display:flex;flex-direction:column;gap:.6rem}
+.ac-item{display:flex;gap:.85rem;align-items:flex-start;background:var(--wh);border:1px solid var(--bd);border-radius:10px;padding:.95rem 1.1rem}
+.ac-ic{width:33px;height:33px;border-radius:8px;background:var(--eml);display:flex;align-items:center;justify-content:center;color:var(--em);font-size:.78rem;flex-shrink:0}
+.ac-title{font-size:.88rem;font-weight:500;color:var(--ink);margin-bottom:.18rem}
+.ac-sub{font-size:.78rem;color:var(--ink3)}
+
+/* ── FOOTER ── */
+footer{padding:1.5rem 4rem;font-family:var(--mono);font-size:.63rem;color:var(--ink4);letter-spacing:.04em;border-top:1px solid var(--bd);background:var(--wh)}
+
+/* ── ANIMATIONS ── */
+.fi{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.fi.on{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  #sb{transform:translateX(-100%);transition:transform .25s;box-shadow:4px 0 16px rgba(0,0,0,.07)}
+  #sb.open{transform:none}
+  #mn{margin-left:0}
+  .mt{display:flex}
+  #hero,.cs{padding:2.5rem 1.4rem}
+  .prj-grid,.pj-grid,.aw-grid{grid-template-columns:1fr}
+  .sk-row{grid-template-columns:120px 1fr auto}
+  .sk-tools{padding-left:120px}
+  h1.hn{font-size:2rem}
+}
+</style>
+</head>
+<body>
+
+<button class="mt" onclick="document.getElementById('sb').classList.toggle('open')" aria-label="Menu">
+  <i class="fas fa-bars"></i>
+</button>
+
+<!-- SIDEBAR -->
+<nav id="sb">
+  <div class="sb-top">
+    <div class="av"><i class="fas fa-user"></i></div>
+    <div class="sn">Nguyễn Hữu Thuật</div>
+    <div class="sr">Data Scientist · AI Engineer</div>
+    <div class="sb-pills">
+      <span class="sb-pill">Vietcombank</span>
+      <span class="sb-pill">7+ năm</span>
+      <span class="sb-pill">HUST Top 3</span>
+    </div>
+  </div>
+  <div class="sb-nav">
+    <span class="nl">Menu</span>
+    <ul class="nv">
+      <li><a href="#hero" class="act"><i class="fas fa-user"></i>Giới thiệu</a></li>
+      <li><a href="#experience"><i class="fas fa-briefcase"></i>Kinh nghiệm</a></li>
+      <li><a href="#education"><i class="fas fa-graduation-cap"></i>Học vấn</a></li>
+      <li><a href="#skills"><i class="fas fa-code"></i>Kỹ năng</a></li>
+      <li><a href="#projects"><i class="fas fa-flask"></i>Dự án cá nhân</a></li>
+      <li><a href="#awards"><i class="fas fa-trophy"></i>Thành tích</a></li>
+      <li><a href="#certs"><i class="fas fa-certificate"></i>Chứng chỉ</a></li>
+      <li><a href="#activities"><i class="fas fa-hands-helping"></i>Hoạt động</a></li>
+    </ul>
+  </div>
+  <div class="sb-foot">
+    <div class="cr"><i class="fas fa-map-marker-alt"></i>Hà Nội, Việt Nam</div>
+    <div class="cr"><i class="fas fa-phone"></i>(+84) 364 058 928</div>
+    <div class="cr"><i class="fas fa-envelope"></i><a href="mailto:thuatngh@gmail.com">thuatngh@gmail.com</a></div>
+    <div class="ss">
+      <a href="https://www.linkedin.com/in/nguyenhuuthuatbk/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/NguyenHuuThuat" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://twitter.com/HuuThuatBK" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.facebook.com/NguyenHuuThuatBK/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<div id="mn">
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="fi">
+    <div class="ey">Hà Nội · Mở cửa với cơ hội phù hợp</div>
+    <h1 class="hn">Nguyễn Hữu <em>Thuật</em></h1>
+    <div class="ht">Data Scientist &nbsp;·&nbsp; <b>AI Engineer</b> &nbsp;·&nbsp; Vietcombank</div>
+    <p class="hb">
+      Tốt nghiệp loại <strong>Xuất sắc (Top 3)</strong> cả Đại học lẫn Thạc sĩ ngành Toán–Tin tại HUST.
+      Làm việc trong lĩnh vực AI và Data Science từ năm 2021, chủ yếu với các bài toán thực tế:
+      xây dựng mô hình tín dụng, computer vision ứng dụng trong ngân hàng, các hệ thống NLP và RAG.
+      Hiện là Data Scientist tại <strong>Vietcombank</strong> — trực tiếp phát triển và vận hành
+      các mô hình AI phục vụ nghiệp vụ ngân hàng.
+    </p>
+    <div class="h-stats">
+      <div class="hst"><div class="hst-n">7+</div><div class="hst-l">Năm kinh nghiệm</div></div>
+      <div class="hst"><div class="hst-n">15+</div><div class="hst-l">Dự án đã làm</div></div>
+      <div class="hst"><div class="hst-n">Top 3</div><div class="hst-l">ĐH &amp; Thạc sĩ HUST</div></div>
+      <div class="hst"><div class="hst-n">5+</div><div class="hst-l">Giải thưởng 2024–25</div></div>
+    </div>
+    <div class="hc">
+      <span class="ch">Machine Learning</span><span class="ch">Deep Learning</span>
+      <span class="ch">Computer Vision</span><span class="ch">NLP / LLM</span>
+      <span class="ch">RAG</span><span class="ch">Feature Engineering</span>
+      <span class="ch">Credit Scoring</span><span class="ch">MLOps</span>
+      <span class="ch">Python</span><span class="ch">PyTorch</span>
+      <span class="ch">Scikit-learn</span><span class="ch">SQL</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE ═══ -->
+<section class="cs" id="experience">
+  <div class="sl">Work Experience</div>
+  <h2 class="st">Kinh nghiệm làm việc</h2>
+  <div class="tl">
+
+    <!-- VCB DS -->
+    <div class="tl-item fi">
+      <div class="tl-head">
+        <div>
+          <div class="tl-co">Vietcombank — NHTMCP Ngoại thương Việt Nam</div>
+          <div class="tl-role">Data Scientist</div>
         </div>
-
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="flex-grow-1">
-                <h3 class="mb-0">Chuyên viên kiểm định mô hình</h3>
-                <div class="subheading mb-3">Vietcombank</div>
-                <ul>
-                    <li>Kiểm định các mô hình kinh doanh, chấm điểm tín dụng và quản lý rủi ro nhằm đảm bảo độ chính xác và hiệu quả.</li>
-                    <li>Các dự án tiêu biểu bao gồm:
-                        <ul>
-                            <li>Mô hình dự đoán xu hướng, ước lượng thu nhập, BU Network, Greenfield.</li>
-                            <li>Hệ thống cảnh báo sớm (EWS) cho khách hàng cá nhân.</li>
-                            <li>Các mô hình chấm điểm tín dụng (Momo, C06).</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="flex-shrink-0"><span class="text-primary">01/2023 - 02/2024</span></div>
+        <div class="tl-date">03/2024 — Nay</div>
+      </div>
+      <p class="tl-summary">
+        Xây dựng và triển khai các mô hình AI/ML phục vụ nghiệp vụ ngân hàng và phân tích khách hàng.
+        Làm việc trực tiếp trên dữ liệu thực tế quy mô lớn, phối hợp với các phòng ban để đưa mô hình vào sử dụng thực tế.
+      </p>
+      <div class="prj-grid">
+        <div class="prj-card">
+          <div class="prj-title">Camera &amp; Computer Vision</div>
+          <div class="prj-desc">Giám sát hoạt động kho quỹ; nhận diện đại biểu tự động tại đại hội cổ đông; hỗ trợ điều tra các vụ việc cần phân tích hình ảnh (cướp, gian lận).</div>
+          <div class="prj-stack"><span class="stk">YOLO</span><span class="stk">OpenCV</span><span class="stk">FaceNet</span><span class="stk">DeepFace</span><span class="stk">FastAPI</span></div>
         </div>
-
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="flex-grow-1">
-                <h3 class="mb-0">Kỹ sư AI (Cộng tác viên)</h3>
-                <div class="subheading mb-3">Công ty TNHH Dragon Media</div>
-                <ul>
-                    <li>Phát triển các mô hình và hệ thống để tự động hóa quy trình thủ công cho quản trị viên và người bán trên các nền tảng thương mại điện tử hoạt động tại Hoa Kỳ.</li>
-                    <li>Các dự án tiêu biểu bao gồm:
-                        <ul>
-                            <li>Chatbot hỗ trợ trả lời câu hỏi của khách hàng.</li>
-                            <li>Hệ thống phát hiện hình ảnh thiết kế kém chất lượng.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="flex-shrink-0"><span class="text-primary">01/2025 - Hiện tại</span></div>
+        <div class="prj-card">
+          <div class="prj-title">Chuyển tiền bằng Giọng nói</div>
+          <div class="prj-desc">Tính năng chuyển tiền bằng giọng nói trên App ngân hàng: nhận dạng giọng nói tiếng Việt → trích xuất thông tin giao dịch → xác nhận. Hỗ trợ nhiều phương ngữ.</div>
+          <div class="prj-stack"><span class="stk">Whisper</span><span class="stk">LLM</span><span class="stk">NER</span><span class="stk">FastAPI</span><span class="stk">Streaming</span></div>
         </div>
-
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="flex-grow-1">
-                <h3 class="mb-0">Giảng viên (Cộng tác viên)</h3>
-                <div class="subheading mb-3">Công ty TNHH Datapot</div>
-                <ul>
-                    <li>Tham gia giảng dạy khóa học Khai phá dữ liệu (Data Mining) tại Trường Đại học Ngoại thương, Hà Nội.</li>
-                </ul>
-            </div>
-            <div class="flex-shrink-0"><span class="text-primary">03/2023 - 05/2023</span></div>
+        <div class="prj-card">
+          <div class="prj-title">Chuẩn hóa Dữ liệu Địa chỉ</div>
+          <div class="prj-desc">Mô hình làm sạch và chuẩn hóa hàng triệu bản ghi địa chỉ — xử lý viết tắt, lỗi chính tả, nhiều định dạng khác nhau. Kèm pipeline tự động thu thập và cập nhật dữ liệu.</div>
+          <div class="prj-stack"><span class="stk">NLP</span><span class="stk">Fuzzy Matching</span><span class="stk">Rule Engine</span><span class="stk">Pandas</span><span class="stk">Selenium</span></div>
         </div>
-
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="flex-grow-1">
-                <h3 class="mb-0">Kỹ sư AI</h3>
-                <div class="subheading mb-3">Tima Group Corporation</div>
-                <ul>
-                    <li>Nghiên cứu và phát triển các hệ thống chấm điểm tín dụng và trích xuất thông tin từ giấy tờ tùy thân:</li>
-                    <ul>
-                        <li>Xây dựng mô hình chấm điểm tín dụng (Gini > 0.60, độ chính xác >95% trong việc dự đoán khách hàng tốt).</li>
-                        <li>Triển khai hệ thống chấm điểm tự động xử lý hơn 5000 hồ sơ vay mỗi tháng, giúp giảm tỷ lệ nợ xấu xuống còn 3.2% (so với mức kỳ vọng 3.5%).</li>
-                        <li>Thiết kế và triển khai hệ thống trích xuất thông tin từ giấy tờ tùy thân (độ chính xác >95%).</li>
-                        <li>Triển khai thành công trong hoạt động kinh doanh và mở rộng hợp tác với các đối tác như F88.</li>
-                    </ul>
-                </ul>
-            </div>
-            <div class="flex-shrink-0"><span class="text-primary">08/2021 - 12/2022</span></div>
+        <div class="prj-card">
+          <div class="prj-title">Chatbot Nghiệp vụ Ngân hàng (RAG)</div>
+          <div class="prj-desc">Chatbot tra cứu tài liệu nội bộ (quy chế, quy trình, hướng dẫn nghiệp vụ) dùng cho cán bộ ngân hàng. Trả lời có trích dẫn nguồn cụ thể.</div>
+          <div class="prj-stack"><span class="stk">LangChain</span><span class="stk">FAISS</span><span class="stk">BM25</span><span class="stk">Reranking</span><span class="stk">LLM</span></div>
         </div>
-    
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="flex-grow-1">
-                <h3 class="mb-0">Thực tập sinh AI</h3>
-                <div class="subheading mb-3">Samsung Display Vietnam</div>
-                <ul>
-                    <li>Tìm hiểu văn hóa doanh nghiệp và môi trường làm việc tại Samsung Display Vietnam.</li>
-                    <li>Khám phá các công nghệ tiên tiến trong lĩnh vực nghiên cứu và sản xuất màn hình.</li>
-                    <li>Trải nghiệm môi trường làm việc của một công ty hàng đầu thế giới trong lĩnh vực hiển thị.</li>
-                </ul>
-            </div>
-            <div class="flex-shrink-0"><span class="text-primary">07/2021</span></div>
+        <div class="prj-card">
+          <div class="prj-title">Mô hình Tìm kiếm Khách hàng Tiềm năng</div>
+          <div class="prj-desc">Propensity model và event-trigger phân tích hành vi giao dịch, xác định thời điểm phù hợp để tiếp cận khách hàng Priority Banking, thẻ tín dụng, bảo hiểm.</div>
+          <div class="prj-stack"><span class="stk">XGBoost</span><span class="stk">LightGBM</span><span class="stk">Feature Eng.</span><span class="stk">SHAP</span><span class="stk">Airflow</span></div>
         </div>
-
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="flex-grow-1">
-                <h3 class="mb-0">Thực tập sinh AI/Machine Learning</h3>
-                <div class="subheading mb-3">Grooo International JSC</div>
-                <ul>
-                    <li>Phát triển và triển khai hệ thống phát hiện cuộc gọi spam sử dụng AI.</li>
-                    <li>Nghiên cứu được công bố trên <i>Journal of Computer Science and Cybernetics</i> 
-                        (<a href="https://bit.ly/AIPaperGrooo" target="_blank">link</a>).
-                    </li>
-                </ul>
-            </div>
-            <div class="flex-shrink-0"><span class="text-primary">02/2021 - 06/2021</span></div>
+        <div class="prj-card">
+          <div class="prj-title">Định giá Bất động sản</div>
+          <div class="prj-desc">Mô hình ước lượng giá nhà và đất tại một số khu đô thị và khu thương mại. Kết hợp đặc trưng vị trí địa lý, hạ tầng xung quanh và dữ liệu thị trường.</div>
+          <div class="prj-stack"><span class="stk">Gradient Boosting</span><span class="stk">GeoFeatures</span><span class="stk">Geopy</span><span class="stk">Sklearn</span></div>
         </div>
-
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="flex-grow-1">
-                <h3 class="mb-0">Dự án học thuật</h3>
-                <div class="subheading mb-3">Trường Đại học Bách khoa Hà Nội</div>
-                <ul>
-                    <li>Hoàn thành luận văn thạc sĩ, đồ án tốt nghiệp đại học và nhiều dự án học thuật khác. Một số dự án tiêu biểu bao gồm:</li>
-                    <ul>
-                        <li><strong>Luận văn thạc sĩ</strong>: Ứng dụng AI để phát triển hệ thống tự động xác định và mời khách hàng tiềm năng mở thẻ tín dụng.</li>
-                        <li><strong>Đồ án tốt nghiệp đại học</strong>: Xây dựng mô hình trích xuất thông tin từ giấy tờ tùy thân.</li>
-                        <li><strong>Dự án 2</strong>: Phát triển mô hình chấm điểm tín dụng.</li>
-                        <li><strong>Dự án 1</strong>: Thiết kế mô hình dự báo giá cổ phiếu.</li>
-                    </ul>
-                </ul>
-            </div>
-            <div class="flex-shrink-0"><span class="text-primary">08/2018 - 06/2025</span></div>
+        <div class="prj-card">
+          <div class="prj-title">Credit Scoring &amp; Ước lượng Thu nhập</div>
+          <div class="prj-desc">Mô hình chấm điểm tín dụng và ước lượng thu nhập khách hàng phục vụ quyết định cho vay bán lẻ. Dùng dữ liệu hành vi giao dịch kết hợp thông tin KYC.</div>
+          <div class="prj-stack"><span class="stk">Logistic Reg.</span><span class="stk">XGBoost</span><span class="stk">WoE/IV</span><span class="stk">Scorecard</span><span class="stk">PSI/Gini</span></div>
         </div>
-        
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="flex-grow-1">
-                <h3 class="mb-0">Dự án cá nhân</h3>
-                <div class="subheading mb-3">Tự nghiên cứu</div>
-                <ul>
-                    <li><b>People Counting</b>: Sử dụng YOLO và deep learning để phát hiện và đếm số người trong ảnh/video.</li>
-                    <li><b>Face Recognition</b>: Phát hiện khuôn mặt, ước lượng góc mặt, phát hiện chớp mắt, v.v.</li>
-                    <li><b>Brain Tumor Detection</b>: Phân loại và nhận diện khối u não trong ảnh MRI bằng deep learning.</li>
-                    <li><b>License Plate Recognition</b>: Phát hiện và nhận diện biển số xe trong giao thông.</li>
-                    <li><b>Image Classification</b>: Phân loại ảnh cho tài liệu cá nhân, hoa quả, hành động con người, lỗi sản phẩm, v.v.</li>
-                    <li><b>Malware Detection</b>: Nhận diện tấn công BOTNET vào hệ thống máy tính.</li>
-                    <li><b>Speech-to-Text</b>: Chuyển đổi file âm thanh tiếng Việt thành văn bản.</li>
-                    <li><b>Chatbot</b>: Phát triển chatbot sử dụng deep learning cho các ứng dụng thực tế.</li>
-                    <li><b>Text Classification</b>: Phát hiện nội dung độc hại bằng mô hình deep learning.</li>
-                    <li><b>Recommendation System</b>: Gợi ý sản phẩm dựa trên hành vi người dùng và dữ liệu khách hàng.</li>
-                    <li><b>Credit Fraud Detection</b>: Áp dụng machine learning để phát hiện giao dịch đáng ngờ và ngăn chặn gian lận.</li>
-                    <li><b>House Price Prediction</b>: Dự đoán giá bất động sản tại Việt Nam dựa trên dữ liệu trực tuyến.</li>
-                </ul>
-            </div>
-            <div class="flex-shrink-0"><span class="text-primary">2021 - Nay</span></div>
+      </div>
+    </div>
+
+    <!-- VCB Model Validation -->
+    <div class="tl-item fi">
+      <div class="tl-head">
+        <div>
+          <div class="tl-co">Vietcombank</div>
+          <div class="tl-role">Chuyên viên Kiểm định Mô hình</div>
         </div>
+        <div class="tl-date">01/2023 — 02/2024</div>
+      </div>
+      <p class="tl-summary">
+        Kiểm định độc lập các mô hình ML và thống kê trước khi đưa vào sử dụng chính thức.
+        Đánh giá năng lực phân biệt (Gini, KS, AUC), tính ổn định theo thời gian (PSI, CSI),
+        phương pháp luận xây dựng mô hình và tuân thủ quy định của NHNN.
+      </p>
+      <ul class="bl">
+        <li>Kiểm định mô hình Propensity, Ước lượng thu nhập, BU Network, Greenfield</li>
+        <li>Kiểm định hệ thống Cảnh báo Sớm (EWS) cho danh mục khách hàng cá nhân</li>
+        <li>Kiểm định credit scoring models: Momo, C06 — review WoE binning, scorecard calibration, backtesting</li>
+      </ul>
+      <div class="prj-stack" style="margin-top:.2rem"><span class="stk">Statistical Testing</span><span class="stk">Gini/KS/AUC</span><span class="stk">PSI/CSI</span><span class="stk">Backtesting</span><span class="stk">SBV Compliance</span></div>
+    </div>
 
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="flex-grow-1">
-                <h3 class="mb-0">Gia sư</h3>
-                <div class="subheading mb-3">Dạy toán THPT và Toán cao cấp.</div>
-                <p></p>
-            </div>
-            <div class="flex-shrink-0"><span class="text-primary">09/2018 - 10/2021</span> </div>
+    <!-- Do Son -->
+    <div class="tl-item fi">
+      <div class="tl-head">
+        <div>
+          <div class="tl-co">Do Son Pharmaceuticals &nbsp;·&nbsp; Cộng tác viên</div>
+          <div class="tl-role">IT Manager</div>
         </div>
+        <div class="tl-date">04/2025 — Nay</div>
+      </div>
+      <p class="tl-summary">
+        Tham gia từ giai đoạn đầu thành lập, phụ trách toàn bộ mảng IT của công ty (làm thêm, ngoài công việc chính tại Vietcombank).
+      </p>
+      <ul class="bl">
+        <li>Xây dựng và vận hành website công ty <a href="https://dosonpharma.com" target="_blank">dosonpharma.com</a></li>
+        <li>Setup tên miền, hosting, email doanh nghiệp, bảo mật</li>
+        <li>Chuẩn bị hạ tầng IT phục vụ các hoạt động vận hành ban đầu của công ty</li>
+      </ul>
+      <div class="prj-stack" style="margin-top:.2rem"><span class="stk">Web Development</span><span class="stk">DNS / Hosting</span><span class="stk">Email System</span><span class="stk">SSL/Security</span></div>
+    </div>
 
-
-                    <h3 class="mb-0">Chứng chỉ của một số khóa học</h3>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">Harvard (CS50): Introduction to Artificial Intelligence with Python</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">10/2021</span> </div>
-                    </div>
-                    <iframe src="assets/img/CS50AI.pdf#toolbar=0" width="100%" height="850px"></iframe>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">Chứng chỉ hoàn thành thực tập SAMSUNG DISPLAY VIETNAM</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">07/2021</span> </div>
-                    </div>
-                    <iframe src="assets/img/Chứng chỉ hoàn thành thực tập SDV.pdf#toolbar=0" width="100%" height="1140px"></iframe>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">VIASM: Blockchain Mathematics and Computing</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">07/2021</span> </div>
-                    </div>
-                    <iframe src="assets/img/CERTIFICATE BLOCKCHAIN MATHEMATICS AND COMPUTING.pdf#toolbar=0" width="100%" height="1265px"></iframe>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">Xây dựng ứng dụng Web 15 buổi</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">02/2021 - 05/2021</span> </div>
-                    </div>
-                    <iframe src="assets/img/WEB15B-MISA.pdf#toolbar=0" width="100%" height="650px"></iframe>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">Coursera: Machine Learning with Python by IBM</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">09/2021</span> </div>
-                    </div>
-                    <iframe src="assets\img\Certificate of Coursera Machine Learning with Python by IBM.pdf#toolbar=0" width="100%" height="660px"></iframe>
-
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">Udemy: Python Machine Learning, Deep Learning, Pandas, Matplotlib</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">07/2021</span> </div>
-                    </div>
-                    <iframe src="assets/img/Python  Machine Learning, Deep Learning, Pandas, Matplotlib.pdf#toolbar=0" width="100%" height="660px"></iframe>
-
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">Udemy: Python Programming - From Basics to Advanced level</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">08/2021</span> </div>
-                    </div>
-                    <iframe src="assets/img/Certificate  Python Programming - From Basics to Advanced level.pdf#toolbar=0" width="100%" height="660px"></iframe>
-
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">IBM: Big Data</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">07/2021</span> </div>
-                    </div>
-                    <iframe src="assets/img/Certificate Big Data 101.pdf#toolbar=0" width="100%" height="655px"></iframe>
-
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">IBM: Deep Learning with TensorFlow</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">07/2021</span> </div>
-                    </div>
-                    <iframe src="assets/img/Certificate Deep Learning with TensorFlow.pdf#toolbar=0" width="100%" height="515px"></iframe>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">IBM: Introduction to Data Science</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">08/2021</span> </div>
-                    </div>
-                    <iframe src="assets/img/Cetificate Introduction to Data Science MIT.pdf#toolbar=0" width="100%" height="565px"></iframe>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">Saylor: Elementary Data Structures</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">07/2021</span> </div>
-                    </div>
-                    <iframe src="assets/img/Certificate (CS201) Elementary Data Structures.pdf#toolbar=0" width="100%" height="690px"></iframe>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">Saylor: Introduction to Statistics</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">08/2021</span> </div>
-                    </div>
-                    <iframe src="assets/img/Certificate (MA121) Introduction to Statistics.pdf#toolbar=0" width="100%" height="690px"></iframe>
-
-                   
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">Saylor: College Algebra</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">07/2021</span> </div>
-                    </div>
-                    <iframe src="assets/img/Certificate (MA001) College Algebra.pdf#toolbar=0" width="100%" height="690px"></iframe>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">CCNA: Introduction to Networks</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">03/2022</span> </div>
-                    </div>
-                    <iframe src="assets/img/ThuatNguyen Huu-BKCCFNA210112S1-certificate.pdf#toolbar=0" width="100%" height="690px"></iframe>
-                    
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">12h Lập trình Website cùng chuyên gia FPT</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">06/2021</span> </div>
-                    </div>
-                    <iframe src="assets/img/Chứng nhận hoàn thành khóa học 12h lập trình website FPT Aptech.pdf#toolbar=0" width="100%" height="650px"></iframe>
-
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">Cuộc thi IYMC</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">10/2021</span> </div>
-                    </div>
-                    <iframe src="assets/img/Certificate-IYMC.pdf#toolbar=0" width="100%" height="690px"></iframe>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">HackerRank: Python (Basic) Certificate</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">04/2022</span> </div>
-                    </div>
-                    <iframe src="assets/img/Python (Basic) Certificate.pdf#toolbar=0" width="100%" height="690px"></iframe>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">HackerRank: Problem Solving (Basic) Certificate</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">04/2022</span> </div>
-                    </div>
-                    <iframe src="assets/img/Problem Solving (Basic) Certificate.pdf#toolbar=0" width="100%" height="690px"></iframe>
-
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="subheading mb-3">“Win U Game” - Bí quyết “ sinh tồn” ở Đại học</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">10/2021</span> </div>
-                    </div>
-                    <iframe src="assets/img/FPT&HUST-Win U Game.pdf#toolbar=0" width="100%" height="650px"></iframe>
-
-                </div>
-            </section>
-            <hr class="m-0">
-<!------------------------------------------------------------->
-            <!--Kỹ năng-->
-            <section class="resume-section" id="Skill">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Kỹ năng</h2>
-                    <div class="subheading mb-3">Cấu trúc dữ liệu & giải thuật</div>
-                    <ul class="fa-ul mb-0">
-                        <li><span class="fa-li"><i class="fas fa-check"></i> </span> Có các kiến thức cơ bản về các cấu trúc cơ bản và các thuật toán thông dụng.       </li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i> </span>  Có khả năng phân tích bài toán để lựa chọn phương pháp thiết kế chương trình phù hợp.      </li>
-                    </ul>
-                    <div class="subheading mb-3">Toán học</div>
-                    <ul class="fa-ul mb-0">
-                        <li><span class="fa-li"><i class="fas fa-check"></i> </span>Đã được trang bị các kiến thức nền tảng và nâng cao về toán học như đại số, xác suất thống kê, tối ưu,...</li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i> </span>Kết quả một số môn Toán liên quan đạt được từ B+ => A+</li>
-                    </ul>
-                    <div class="subheading mb-3">AI/Machine Learning</div>
-                    <ul class="fa-ul mb-0">
-                        <li><span class="fa-li"><i class="fas fa-check"></i> </span>Đã có kiến thức nền tảng về machine learning, được áp dụng vào dự án trong môi trường doanh nghiệp.</li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i> </span>Có sự định hướng của Thầy Lê Chí Ngọc- Một chuyên gia có rất nhiều kinh nghiệm thực tế cũng như có rất nhiều bài báo về AI.</li>
-                    </ul>
-                    <div class="subheading mb-3">Kỹ thuật lập trình</div>
-                    <ul class="fa-ul mb-0">
-                        <li><span class="fa-li"><i class="fas fa-check"></i> </span>Có thể sử dụng cơ bản các ngôn ngữ lập trình C, Python, C#, Javascrip,...</li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i> </span> Đối với Python, có thể sử dụng được các IDE như: Jupyter Notebook; Google Colaboratory; Visual Code; Visual Studio,...</li>
-                    </ul>
-                    <div class="subheading mb-3">Cơ sở dữ liệu</div>
-                    <ul class="fa-ul mb-0">
-                        <li><span class="fa-li"><i class="fas fa-check"></i> </span>Có các kiến thức cơ bản về cơ sở dữ liệu.</li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i> </span>Có khả năng sử dụng phần mềm SQL Server, MySQL, Postman,...</li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i> </span>Có cái nhìn tổng quan về thiết kế hệ thống thông tin.</li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Kết quả 2 môn học Cơ sở dữ liệu và Phân tích & thiết kế hệ thống đạt được là A,A+. </li>
-                    </ul>
-                    <div class="subheading mb-3">Các kỹ năng khác</div>
-                    <ul class="fa-ul mb-0">
-                        <li><span class="fa-li"><i class="fas fa-check"></i> </span> Sử dụng thành thạo các công cụ bổ trợ như: Matlab, Latex, Microsoft Office...</li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i> </span>Có khả năng làm việc nhóm tốt.</li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i> </span>Có khả năng tự học và làm việc độc lập.</li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i> </span>Đọc hiểu tài liệu chuyên ngành.</li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i> </span>Kỷ luật cao trong học tập và lao động.</li>
-                    </ul>
-                </div>
-            </section>
-            <hr class="m-0">
-<!------------------------------------------------------------->
-            <!--Hoạt Động-->
-            <section class="resume-section" id="Interests">
-                <div class="resume-section-content">
-                        <h2 class="mb-5">Hoạt động</h2>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Tình nguyện viên</h3>
-                            <div class="subheading mb-3">Lực lượng chống dịch Covid-19 phường Hoàng Văn Thụ (Hoàng Mai - Hà Nội)</div>
-                            <ul class="fa-ul mb-0">
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Tham gia hỗ trợ tiêm chủng quốc gia</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Tham gia hỗ trợ xét nghiệm.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Tham gia phân phát lương thực, thực phẩm cho những khu vực bị phong tỏa.</li>
-                            </ul>
-                            <!-- <a class="social-icon" href="https://drive.google.com/drive/folders/1rbcK_RjbapOutDGMxo2S0M6qn519b0Ui?usp=sharing">(Xem thêm)</a> -->
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">08/2021 - nay</span> </div>
-                    </div>    
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Tình nguyện viên</h3>
-                            <div class="subheading mb-3">Viện Toán ứng dụng và Tin học</div>
-                            <ul class="fa-ul mb-0">
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Tham gia tổ chức các hoạt động của Trường, Viện.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Tham gia chương trình Chủ nhật đỏ.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Tham gia: tiếp sức mùa thi 2020.</li>
-                            </ul>
-                            <!-- <a class="social-icon" href="https://drive.google.com/drive/folders/1q3bymIJtgg0C-AMsSfHlDHVegshrIGm9?usp=sharing">(Xem thêm)</a> -->
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">09/2018 - 09/2019</span> </div>
-                    </div>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Tình nguyện viên</h3>
-                            <div class="subheading mb-3">Qũy chắp cánh - CC Foundation</div>
-                            <ul class="fa-ul mb-0">
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Tham gia dự án xây dựng thư viện cộng đồng tại Tỉnh Hà Giang.</li>
-                            </ul>
-                            <!-- <a class="social-icon" href="https://www.facebook.com/Qu%E1%BB%B9-Ch%E1%BA%AFp-C%C3%A1nh-CC-Foundation-104073315262904/">(Xem thêm)</a> -->
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">07/2021 - hiện nay</span> </div>
-                    </div>
-
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Khóa học</h3>
-                            <div class="subheading mb-3">Xây dựng ứng dụng Web 15 buổi</div>
-                            <ul class="fa-ul mb-0">
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Do công ty cổ phần MISA tổ chức.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Lập trình WEB cơ bản và nâng cao.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Tiếp cận kiến thức về  FontEnd, BackEnd, cơ sở dữ liệu,..</li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">02/2021 - 05/2021</span> </div>
-                    </div>
-
-
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Khóa học</h3>
-                            <div class="subheading mb-3">Lớp 12h Lập trình Website cùng chuyên gia FPT</div>
-                            <ul class="fa-ul mb-0">
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span>Lập trình WEB cơ bản</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Xây dựng một số trang Web đơn giản.</li>
-                            </ul>
-
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">06/2021</span> </div>
-                    </div>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Hội thảo</h3>
-                            <div class="subheading mb-3">Toán - Học thế nào và làm ở đâu?</div>
-                            <ul class="fa-ul mb-0">
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Do Viện Toán học (Viện hàn lâm khoa học Việt Nam) đồng tổ chức.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Tại đây, ngoài các thông tin thú vị & định hướng về người làm Toán thì các chuyên gia mang đến nhiều bài toán về Máy học như: Xây dựng mô hình dịch Covid-19 tại Việt Nam; Lập kế hoạch khám, chữa bệnh cho Bệnh Viện; Bài toán tối ưu doanh thu từ quảng cáo của VTC...</li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">20/03/2021</span> </div>
-                    </div>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Hội thảo</h3>
-                            <div class="subheading mb-3">Tối ưu & Tính toán khoa học lần thứ 19</div>
-                            <ul class="fa-ul mb-0">
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Do Viện nghiên cứu cao cấp về toán (Bộ giáo dục & Đào tạo) tổ chức.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Báo cáo của các GS, PGS, TS và các bạn Sinh viên về những công trình nghiên cứu nổi bật về tối ưu trong những năm gần đây.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Được giao lưu, học tập cùng các Giáo sư, Nhà khoa học đầu ngành cũng như các bạn sinh viên ưu tú. </li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">23/04/2021 - 25/04/2021</span> </div>
-                    </div>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Khóa học</h3>
-                            <div class="subheading mb-3">BLOCKCHAIN MATHEMATICS AND COMPUTING</div>
-                            <ul class="fa-ul mb-0">
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Do Viện nghiên cứu cao cấp về toán (Bộ giáo dục & Đào tạo) tổ chức.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Được tìm hiểu về bản chất, phương thức hoạt động của công nghệ Blockchain và các ứng dụng của nó (ví như tiền số Bitcoin). </li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">25/06/2021 - 27/06/2021, 03/04/2021 - 04/04/2021</span> </div>
-                    </div>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Hội thảo</h3>
-                            <div class="subheading mb-3">AI trong Xử lý ảnh y tế: Kinh nghiệm phát triển thuật toán & Xây dựng bộ dữ liệu chuẩn hóa</div>
-                            <ul class="fa-ul mb-0">
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Do Viện nghiên cứu về dữ liệu lớn - VinBigdata tổ chức.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Chia sẻ những model mà Viện đã làm được trong việc sử dụng AI để chuẩn đoán bệnh thông qua hình ảnh. </li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">25/06/2021</span> </div>
-                    </div>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Sự kiện</h3>
-                            <div class="subheading mb-3">Tổng kết Và Thuyết trình giải pháp AI phát hiện tiếng ho</div>
-                            <ul class="fa-ul mb-0">
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Đây là một hoạt động phi lợi nhuận của hơn 200 chuyên gia hàng đầu trong lĩnh vực AI ở trong nước và quốc tế là Người Việt nhằm giúp đỡ Ban chỉ đạo phòng chống dịch Covid-19 sàn lọc người bệnh có nguy cơ nhiễm Covid thông qua 1 cuộc gọi.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Trong sự kiện, các nghiên cứu có kết quả tốt nhất đã trình bày, giao lưu và nhân đóng góp từ cộng đồng. </li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">25/06/2021</span> </div>
-                    </div>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Hội thảo</h3>
-                            <div class="subheading mb-3">NO ONE LEFT BEHIND</div>
-                            <ul class="fa-ul mb-0">
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Do AI Việt Nam tổ chức.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Diễn giả chia sẻ về xu hướng sử dụng AI trong một số lĩnh vực như: y khoa, chuẩn đoán hình ảnh, Robot,.... </li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Toán học trong AI, tìm hiểu về bài toán khoa học. </li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Được chia sẻ một số dự án thực tế mà diễn giả đã nghiên cứu thành công.</li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">10/07/2021</span> </div>
-                    </div>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Khóa học</h3>
-                            <div class="subheading mb-3">Kỹ năng ứng tuyển và viết CV với Doanh nghiệp</div>
-                            <ul class="fa-ul mb-0">
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Do Trường Đại học Bách khoa tổ chức.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Diễn giả là các chuyên gia, những người có nhiều kinh nghiệm trong sống, học tập và làm việc tại Nhật Bản.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Được chia sẻ về các kỹ năng viết CV, kỹ năng ứng tuyển, kỹ năng trả lời phỏng vấn và thần thái trong buổi phỏng vấn. </li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">08/2021</span> </div>
-                    </div>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Chương trình</h3>
-                            <div class="subheading mb-3">Techcombank Future Gen - Tech & Datap</div>
-                            <ul class="fa-ul mb-0">
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Do Trường Đại học Bách khoa phối hợp với Ngân hàng TechcomBank đồng tổ chức.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Diễn giả là các chuyên gia lãnh đạo của Ngân hàng TechcomBank, có nhiều năm kinh nghiệm làm việc tại nước ngoài và Việt Nam.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Được chia sẻ về các môi trường ngân hàng, những công việc trong thời đại 4.0, những kỹ năng cần có đối với Sinh viên mới ra trường. Và được giới thiệu về Chương trình Techcombank Future Gen của TechcomBank.</li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">18/08/2021</span> </div>
-                    </div>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Sự kiện</h3>
-                            <div class="subheading mb-3">AI Day 2021</div>
-                            <ul class="fa-ul mb-0">
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Do VinAI Research tổ chức.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Diễn giả là các chuyên gia về Trí tuệ nhân tạo hàng đầu của Thế giới và Việt Nam.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span> Tiếp cận những công nghệ, công trình khoa học mới nhất trong lĩnh vực Trí tuệ nhân tạo (AI).</li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">27/08/2021-28/08/2021</span> </div>
-                    </div>
-
-                    
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Cuộc thi Toán quốc tế International Youth Math Challenge</h3>
-                            <div class="subheading mb-3">IYMC</div>
-                            <ul class="fa-ul mb-0">
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span>IYMC là cuộc thi toán học dành cho học sinh, sinh viên trên toàn thế giới.</li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">23/09/2021</span> </div>
-                    </div>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Talkshow “ Win U Game” - Bí quyết “ sinh tồn” ở Đại học</h3>
-                            <div class="subheading mb-3">FPT Software & Đại học BKHN tổ chức</div>
-                            <ul class="fa-ul mb-0">
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span>Sự kiện ra đời với mong muốn giao lưu, chia sẻ với những bạn sinh viên xuất sắc, những thủ khoa của Đại học BKHN trong các khóa.</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i> </span>Đồng thời, học hỏi thêm những kinh nghiệm quý báu từ những người đi trước trong học tập và làm việc.</li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">08/10/2021</span> </div>
-                    </div>
-
-            </section>
-            <hr class="m-0">
- <!------------------------------------------------------------->           
-            <!--Giải thưởng-->
-            <section class="resume-section" id="Awards">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Một số thành tích nổi bật</h2>
-                <ul class="fa-ul mb-0">
-                    <li><span class="fa-li"><i class="fas fa-check"></i> </span> Học bổng đào tạo Thạc sĩ - Quỹ Đổi mới sáng tạo Vingroup (VinIF).</li>
-                    <li><span class="fa-li"><i class="fas fa-check"></i> </span> Học bổng khuyến học - Hội cựu sinh viên Toán Bách khoa.</li>
-                    <li><span class="fa-li"><i class="fas fa-check"></i> </span> Giải ba cuộc thi viết "Màu cờ dưới ánh bình minh" năm 2021 </li>
-                    <li><span class="fa-li"><i class="fas fa-check"></i> </span> Học bổng tài trợ khóa học lấy Chứng chỉ quốc tế CCNA năm 2021 </li>
-                    <li><span class="fa-li"><i class="fas fa-check"></i> </span> Học bổng tài trợ của Tập đoàn điện lực Sumitomo năm học 2021-2022 </li>
-                    <li><span class="fa-li"><i class="fas fa-check"></i> </span> Danh hiệu "Sinh viên 5 tốt" thành phố Hà Nội. </li>
-                    <li><span class="fa-li"><i class="fas fa-check"></i> </span> Danh hiệu "Sinh viên 5 tốt" trường Đại học Bách khoa Hà Nội. </li>
-                    <li><span class="fa-li"><i class="fas fa-check"></i> </span> Học bổng tài trợ khóa học lấy Chứng chỉ TOEIC quốc tế năm 2021. </li>
-                    <li><span class="fa-li"><i class="fas fa-check"></i> </span> Học bổng khuyến khích học tập loại A học kỳ I năm hoặc 2021-2022. </li>
-                    <li><span class="fa-li"><i class="fas fa-check"></i> </span> Top 10 giải chạy 10000 bước chân vì sức khỏe mỗi ngày. </li>
-                    <li><span class="fa-li"><i class="fas fa-check"></i> </span> Công ty Cổ phần Tập đoàn Tima ghi nhận "Vì những đóng góp cho sự phát triển của Tima Group". </li>
-
-
-                
-                </ul>
-                    <!-- <a class="social-icon" href="https://drive.google.com/drive/folders/1gtQIV74H79wmoHm16-moiDWJjz5YKWoq?usp=sharing">(Xem thêm)</a> -->
-                
-                <br>
-
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <div class="subheading mb-3">Học bổng đào tạo Thạc sĩ - Quỹ Đổi mới sáng tạo Vingroup (VinIF)</div>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">16/01/2024</span> </div>
-                </div>
-                <iframe src="assets\img\GCN HB VinIF.pdf#toolbar=0" width="100%" height="660px"></iframe>
-
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <div class="subheading mb-3">Học bổng khuyến khích dành cho sinh viên có thành tích học tập tốt</div>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">05/12/2020</span> </div>
-                </div>
-                <iframe src="assets\img\Học Bổng - Toán BK.pdf#toolbar=0" width="100%" height="660px"></iframe>
-
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <div class="subheading mb-3">Giải Ba cuộc thi viết "Màu cờ dưới ánh bình minh" năm 2021</div>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">15/11/2021</span> </div>
-                </div>
-                <iframe src="assets\img\Màu cở dưới ánh bình minh-đã xoay.pdf#toolbar=0" width="100%" height="800px"></iframe>
-    
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <div class="subheading mb-3">Học bổng của Tập đoàn điện lực Sumitomo</div>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">28/12/2021</span> </div>
-                </div>
-                <iframe src="assets\img\Certificate of Sumitomo.pdf#toolbar=0" width="100%" height="1100px"></iframe>
-    
-                
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <div class="subheading mb-3">Sinh viên 5 tốt cấp Thành phố</div>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">11/2021</span> </div>
-                </div>
-                <iframe src="assets\img\SV5T cấp TP.pdf#toolbar=0" width="100%" height="800px"></iframe>
-    
-                
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <div class="subheading mb-3">Sinh viên 5 tốt cấp Thành phố</div>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">12/2021</span> </div>
-                </div>
-                <iframe src="assets\img\SV5T cấp trường.pdf#toolbar=0" width="100%" height="800px"></iframe>
-    
-                
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <div class="subheading mb-3">Học bổng khuyến khích học tập loại A học kỳ I năm hoặc 2021-2022</div>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">30/12/2021</span> </div>
-                </div>
-                <iframe src="assets/img/Chứng nhận HB KKHT.pdf#toolbar=0" width="100%" height="650px"></iframe>
-
-
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <div class="subheading mb-3">TOP 10 giải chạy "10000 bước chân vì sức khỏe" lần 2</div>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">17/03/2022</span> </div>
-                </div>
-                <iframe src="assets/img/GCN-10000buocchan-lan2-10.pdf#toolbar=0" width="100%" height="650px"></iframe>
-
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <div class="subheading mb-3">Ghi nhận "Vì những đóng góp cho sự phát triển của Tima Group"</div>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">13/08/2022</span> </div>
-                </div>
-                <iframe src="assets/img/Ghi nhận - Tima.pdf" width="100%" height="650px"></iframe>
-            </section>
-            <hr class="m-0">
-
+    <!-- Datapot -->
+    <div class="tl-item fi">
+      <div class="tl-head">
+        <div>
+          <div class="tl-co">Datapot Co., Ltd. &amp; Cá nhân &nbsp;·&nbsp; Cộng tác viên</div>
+          <div class="tl-role">Giảng viên / Instructor</div>
         </div>
+        <div class="tl-date">03/2023 — Nay</div>
+      </div>
+      <p class="tl-summary">
+        Giảng dạy và hướng dẫn các khóa học Data Science, AI cho sinh viên và người đi làm.
+        Nội dung chủ yếu lấy từ kinh nghiệm thực tế, không chỉ lý thuyết.
+      </p>
+      <ul class="bl">
+        <li>Dạy Python, SQL và ứng dụng Data Science tại Datapot; diễn giả tại một số sự kiện sinh viên đại học</li>
+        <li>Đồng giảng dạy môn Data Mining tại Trường Đại học Ngoại thương Hà Nội (FTU)</li>
+        <li>Kèm riêng AI/Python cho sinh viên học tại Mỹ; dạy thêm Toán và Thống kê</li>
+      </ul>
+    </div>
 
+    <!-- Dragon Media -->
+    <div class="tl-item fi">
+      <div class="tl-head">
+        <div>
+          <div class="tl-co">Dragon Media Co., Ltd. &nbsp;·&nbsp; Cộng tác viên</div>
+          <div class="tl-role">AI Engineer</div>
+        </div>
+        <div class="tl-date">01/2025 — 06/2025</div>
+      </div>
+      <p class="tl-summary">
+        Xây dựng các công cụ AI hỗ trợ tự động hóa công việc cho nhà bán hàng trên các sàn thương mại điện tử tại Mỹ.
+      </p>
+      <div class="prj-grid">
+        <div class="prj-card">
+          <div class="prj-title">Kiểm tra Chất lượng Hình ảnh Sản phẩm</div>
+          <div class="prj-desc">Phát hiện tự động các ảnh thiết kế không đạt (mờ, sai tỷ lệ, nền không phù hợp, lỗi văn bản) — giảm thời gian review thủ công.</div>
+          <div class="prj-stack"><span class="stk">CNN</span><span class="stk">PyTorch</span><span class="stk">OpenCV</span><span class="stk">Classification</span></div>
+        </div>
+        <div class="prj-card">
+          <div class="prj-title">Phân loại Sản phẩm theo Danh mục</div>
+          <div class="prj-desc">Phân loại hình ảnh sản phẩm vào đúng danh mục trong catalog, hỗ trợ xử lý số lượng lớn.</div>
+          <div class="prj-stack"><span class="stk">EfficientNet</span><span class="stk">Multi-label</span><span class="stk">Batch Processing</span></div>
+        </div>
+        <div class="prj-card">
+          <div class="prj-title">Chatbot Hỗ trợ Khách hàng</div>
+          <div class="prj-desc">Chatbot tự động trả lời các câu hỏi thường gặp của người mua, tích hợp vào platform TMĐT. Tiếng Anh.</div>
+          <div class="prj-stack"><span class="stk">LLM</span><span class="stk">RAG</span><span class="stk">API Integration</span></div>
+        </div>
+      </div>
+    </div>
 
-        <!-- Bootstrap core JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+    <!-- Tima -->
+    <div class="tl-item fi">
+      <div class="tl-head">
+        <div>
+          <div class="tl-co">Tima Group Corporation — Fintech</div>
+          <div class="tl-role">AI Engineer</div>
+        </div>
+        <div class="tl-date">08/2021 — 12/2022</div>
+      </div>
+      <p class="tl-summary">
+        Xây dựng và đưa vào vận hành các mô hình AI cho nền tảng cho vay tiêu dùng của Tima Group.
+      </p>
+      <div class="prj-grid">
+        <div class="prj-card">
+          <div class="prj-title">Credit Scoring</div>
+          <div class="prj-desc">Mô hình chấm điểm tín dụng với Gini &gt; 0.60, tự động xử lý hàng nghìn hồ sơ vay mỗi tháng. Góp phần giảm tỷ lệ nợ xấu xuống dưới mức kỳ vọng.</div>
+          <div class="prj-stack"><span class="stk">XGBoost</span><span class="stk">Scorecard</span><span class="stk">WoE/IV</span><span class="stk">Gini &gt; 0.60</span></div>
+        </div>
+        <div class="prj-card">
+          <div class="prj-title">Trích xuất thông tin Giấy tờ tùy thân</div>
+          <div class="prj-desc">Hệ thống tự động đọc và trích xuất thông tin từ CCCD/CMND, đạt &gt;95% độ chính xác. Triển khai tại Tima và mở rộng sang đối tác F88.</div>
+          <div class="prj-stack"><span class="stk">OCR</span><span class="stk">VietOCR</span><span class="stk">NLP</span><span class="stk">&gt;95% Acc.</span><span class="stk">REST API</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grooo -->
+    <div class="tl-item fi">
+      <div class="tl-head">
+        <div>
+          <div class="tl-co">Grooo International JSC</div>
+          <div class="tl-role">AI/ML Intern</div>
+        </div>
+        <div class="tl-date">02/2021 — 06/2021</div>
+      </div>
+      <p class="tl-summary">
+        Xây dựng hệ thống phát hiện cuộc gọi spam bằng AI trên mạng viễn thông.
+        Kết quả nghiên cứu được công bố trên <a href="https://bit.ly/AIPaperGrooo" target="_blank"><em>Journal of Computer Science and Cybernetics</em></a>.
+      </p>
+      <div class="prj-stack"><span class="stk">ML Classification</span><span class="stk">Feature Engineering</span><span class="stk">Call Graph Analysis</span><span class="stk">Published Research</span></div>
+    </div>
+
+    <!-- Samsung -->
+    <div class="tl-item fi">
+      <div class="tl-head">
+        <div>
+          <div class="tl-co">Samsung Display Vietnam (SDV)</div>
+          <div class="tl-role">AI Intern</div>
+        </div>
+        <div class="tl-date">07/2021</div>
+      </div>
+      <p class="tl-summary">
+        Chương trình thực tập ngắn hạn tại Samsung Display Vietnam — tìm hiểu ứng dụng AI trong sản xuất màn hình và quy trình kiểm soát chất lượng tự động.
+      </p>
+    </div>
+
+    <!-- Academic -->
+    <div class="tl-item fi">
+      <div class="tl-head">
+        <div>
+          <div class="tl-co">Đại học Bách khoa Hà Nội — HUST</div>
+          <div class="tl-role">Dự án Học thuật</div>
+        </div>
+        <div class="tl-date">2018 — 2025</div>
+      </div>
+      <div class="prj-grid">
+        <div class="prj-card">
+          <div class="prj-title">Luận văn Thạc sĩ</div>
+          <div class="prj-desc">Ứng dụng ACO (Ant Colony Optimization) để chọn đặc trưng cho mô hình xác định khách hàng tiềm năng mở thẻ tín dụng. Thử nghiệm trên bộ dữ liệu ngân hàng thực tế (~400 đặc trưng thô).</div>
+          <div class="prj-stack"><span class="stk">ACO</span><span class="stk">Feature Selection</span><span class="stk">KNN</span><span class="stk">Random Forest</span><span class="stk">XGBoost</span></div>
+        </div>
+        <div class="prj-card">
+          <div class="prj-title">Đồ án tốt nghiệp Đại học</div>
+          <div class="prj-desc">Mô hình tự động đọc và trích xuất thông tin từ CCCD/CMND bằng Deep Learning — nhận diện, phân đoạn vùng và nhận dạng ký tự.</div>
+          <div class="prj-stack"><span class="stk">Deep Learning</span><span class="stk">OCR</span><span class="stk">Document AI</span><span class="stk">PyTorch</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ EDUCATION ═══ -->
+<section class="cs" id="education">
+  <div class="sl">Education</div>
+  <h2 class="st">Học vấn</h2>
+  <div class="edu-cards">
+
+    <div class="edu-card fi">
+      <div class="edu-top">
+        <div class="edu-school">Đại học Bách khoa Hà Nội (HUST)</div>
+        <span class="edu-badge">Xuất sắc · Top 3</span>
+      </div>
+      <div class="edu-deg">Thạc sĩ · Toán - Tin học (Mathematics &amp; Informatics)</div>
+      <div class="edu-meta">Viện Toán ứng dụng và Tin học &nbsp;·&nbsp; GPA 3.60/4.0 (9.0/10) &nbsp;·&nbsp; 06/2023 — 06/2025</div>
+      <div class="edu-detail">
+        Được nhận học bổng Thạc sĩ từ Quỹ VinIF (Vingroup). Luận văn về ứng dụng
+        Ant Colony Optimization cho bài toán chọn đặc trưng trên dữ liệu ngân hàng,
+        kết hợp với KNN, Random Forest, XGBoost để xây dựng mô hình targeting khách hàng thẻ tín dụng.
+      </div>
+      <div class="edu-tags">
+        <span class="edu-tag">Machine Learning</span><span class="edu-tag">Optimization</span>
+        <span class="edu-tag">ACO</span><span class="edu-tag">Feature Selection</span>
+        <span class="edu-tag">Banking Data</span><span class="edu-tag">VinIF Scholarship</span>
+      </div>
+    </div>
+
+    <div class="edu-card fi">
+      <div class="edu-top">
+        <div class="edu-school">Đại học Bách khoa Hà Nội (HUST)</div>
+        <span class="edu-badge">Xuất sắc · Top 3</span>
+      </div>
+      <div class="edu-deg">Cử nhân · Toán - Tin học (Mathematics &amp; Informatics)</div>
+      <div class="edu-meta">Viện Toán ứng dụng và Tin học &nbsp;·&nbsp; GPA 3.44/4.0 (8.6/10) &nbsp;·&nbsp; 08/2018 — 08/2022</div>
+      <div class="edu-detail">
+        Tốt nghiệp Top 3 toàn khóa. Đồ án tốt nghiệp về trích xuất thông tin từ giấy tờ tùy thân
+        bằng Deep Learning — sau này được dùng làm nền tảng cho sản phẩm triển khai tại Tima Group.
+        Môn học nổi bật: Đại số tuyến tính, Xác suất thống kê, Thuật toán, Học máy, Xử lý ngôn ngữ tự nhiên.
+      </div>
+      <div class="edu-tags">
+        <span class="edu-tag">Deep Learning</span><span class="edu-tag">Algorithms &amp; DS</span>
+        <span class="edu-tag">Probability &amp; Statistics</span><span class="edu-tag">Linear Algebra</span>
+        <span class="edu-tag">NLP</span><span class="edu-tag">Computer Vision</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SKILLS ═══ -->
+<section class="cs" id="skills">
+  <div class="sl">Technical Skills</div>
+  <h2 class="st">Kỹ năng chuyên môn</h2>
+  <div class="sk-wrap">
+
+    <div class="sk-group fi">
+      <div class="sk-group-title">AI / Data Science &nbsp;·&nbsp; dùng hàng ngày từ 2021</div>
+      <div class="sk-rows">
+        <div>
+          <div class="sk-row">
+            <span class="sk-name">Machine Learning</span>
+            <div class="sk-bar"><div class="sk-fill" style="width:90%"></div></div>
+            <span class="sk-yr">Hàng ngày</span>
+          </div>
+          <div class="sk-tools"><span class="sk-tool">XGBoost</span><span class="sk-tool">LightGBM</span><span class="sk-tool">Scikit-learn</span><span class="sk-tool">CatBoost</span><span class="sk-tool">Scorecard</span><span class="sk-tool">WoE/IV</span><span class="sk-tool">SHAP</span><span class="sk-tool">Optuna</span></div>
+        </div>
+        <div>
+          <div class="sk-row">
+            <span class="sk-name">Deep Learning</span>
+            <div class="sk-bar"><div class="sk-fill" style="width:85%"></div></div>
+            <span class="sk-yr">Thường xuyên</span>
+          </div>
+          <div class="sk-tools"><span class="sk-tool">PyTorch</span><span class="sk-tool">TensorFlow / Keras</span><span class="sk-tool">HuggingFace</span><span class="sk-tool">ONNX</span><span class="sk-tool">Quantization</span><span class="sk-tool">Fine-tuning</span></div>
+        </div>
+        <div>
+          <div class="sk-row">
+            <span class="sk-name">Computer Vision</span>
+            <div class="sk-bar"><div class="sk-fill" style="width:85%"></div></div>
+            <span class="sk-yr">Thường xuyên</span>
+          </div>
+          <div class="sk-tools"><span class="sk-tool">YOLO (v5–v11)</span><span class="sk-tool">OpenCV</span><span class="sk-tool">EfficientNet</span><span class="sk-tool">ResNet</span><span class="sk-tool">FaceNet</span><span class="sk-tool">DeepFace</span><span class="sk-tool">VietOCR</span><span class="sk-tool">Tesseract</span></div>
+        </div>
+        <div>
+          <div class="sk-row">
+            <span class="sk-name">NLP / LLM / RAG</span>
+            <div class="sk-bar"><div class="sk-fill" style="width:82%"></div></div>
+            <span class="sk-yr">Thường xuyên</span>
+          </div>
+          <div class="sk-tools"><span class="sk-tool">LangChain</span><span class="sk-tool">LlamaIndex</span><span class="sk-tool">FAISS</span><span class="sk-tool">BM25</span><span class="sk-tool">Reranking</span><span class="sk-tool">Whisper</span><span class="sk-tool">Embedding</span><span class="sk-tool">Prompt Eng.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sk-group fi">
+      <div class="sk-group-title">Lập trình</div>
+      <div class="sk-rows">
+        <div>
+          <div class="sk-row">
+            <span class="sk-name">Python</span>
+            <div class="sk-bar"><div class="sk-fill" style="width:90%"></div></div>
+            <span class="sk-yr">7+ năm</span>
+          </div>
+          <div class="sk-tools"><span class="sk-tool">Pandas</span><span class="sk-tool">NumPy</span><span class="sk-tool">Matplotlib</span><span class="sk-tool">Seaborn</span><span class="sk-tool">FastAPI</span><span class="sk-tool">Streamlit</span><span class="sk-tool">Jupyter</span></div>
+        </div>
+        <div>
+          <div class="sk-row">
+            <span class="sk-name">SQL</span>
+            <div class="sk-bar"><div class="sk-fill" style="width:55%"></div></div>
+            <span class="sk-yr">2+ năm</span>
+          </div>
+          <div class="sk-tools"><span class="sk-tool">Oracle SQL</span><span class="sk-tool">PostgreSQL</span><span class="sk-tool">Window Functions</span><span class="sk-tool">Query Optimization</span></div>
+        </div>
+        <div>
+          <div class="sk-row">
+            <span class="sk-name">R / C / C++</span>
+            <div class="sk-bar"><div class="sk-fill" style="width:28%"></div></div>
+            <span class="sk-yr">1+ năm</span>
+          </div>
+          <div class="sk-tools"><span class="sk-tool">R (Statistical Analysis)</span><span class="sk-tool">C/C++ (Algorithms)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sk-group fi">
+      <div class="sk-group-title">Toán học &amp; Thuật toán &nbsp;·&nbsp; 6+ năm</div>
+      <div class="sk-rows">
+        <div>
+          <div class="sk-row">
+            <span class="sk-name">Toán &amp; Thống kê</span>
+            <div class="sk-bar"><div class="sk-fill" style="width:82%"></div></div>
+            <span class="sk-yr">Nền tảng</span>
+          </div>
+          <div class="sk-tools"><span class="sk-tool">Linear Algebra</span><span class="sk-tool">Probability Theory</span><span class="sk-tool">Statistics</span><span class="sk-tool">Hypothesis Testing</span><span class="sk-tool">Bayesian</span></div>
+        </div>
+        <div>
+          <div class="sk-row">
+            <span class="sk-name">Thuật toán Tối ưu</span>
+            <div class="sk-bar"><div class="sk-fill" style="width:75%"></div></div>
+            <span class="sk-yr">Nghiên cứu</span>
+          </div>
+          <div class="sk-tools"><span class="sk-tool">ACO</span><span class="sk-tool">Genetic Algorithm</span><span class="sk-tool">Gradient Descent</span><span class="sk-tool">Hyperparameter Tuning</span><span class="sk-tool">Feature Selection</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sk-group fi">
+      <div class="sk-group-title">MLOps &amp; Công cụ</div>
+      <div class="sk-rows">
+        <div>
+          <div class="sk-row">
+            <span class="sk-name">MLOps &amp; Deploy</span>
+            <div class="sk-bar"><div class="sk-fill" style="width:65%"></div></div>
+            <span class="sk-yr">Đang dùng</span>
+          </div>
+          <div class="sk-tools"><span class="sk-tool">Docker</span><span class="sk-tool">FastAPI</span><span class="sk-tool">Airflow</span><span class="sk-tool">MLflow</span><span class="sk-tool">Git</span><span class="sk-tool">Linux</span><span class="sk-tool">Google Colab</span></div>
+        </div>
+        <div>
+          <div class="sk-row">
+            <span class="sk-name">Leadership &amp; Teamwork</span>
+            <div class="sk-bar"><div class="sk-fill" style="width:65%"></div></div>
+            <span class="sk-yr">5+ năm</span>
+          </div>
+          <div class="sk-tools"><span class="sk-tool">Project Lead</span><span class="sk-tool">Mentoring</span><span class="sk-tool">Cross-functional Collab.</span><span class="sk-tool">Technical Presentation</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ PROJECTS ═══ -->
+<section class="cs" id="projects">
+  <div class="sl">Personal Projects</div>
+  <h2 class="st">Dự án cá nhân</h2>
+  <p style="font-size:.86rem;color:var(--ink3);margin-bottom:1.5rem;line-height:1.7">Một số dự án tự làm ngoài giờ, chủ yếu để học thêm hoặc áp dụng những gì đang nghiên cứu. Có khoảng 20+ dự án, dưới đây là một số cái đáng kể hơn:</p>
+  <div class="pj-grid">
+
+    <div class="pj-card fi">
+      <div class="pj-cat">Banking · ML · Optimization</div>
+      <div class="pj-name">ACO Feature Selection cho Credit Scoring</div>
+      <div class="pj-desc">Dùng Ant Colony Optimization để chọn bộ đặc trưng tối ưu từ ~400 features thô của dữ liệu ngân hàng. Pipeline: lọc thống kê → ACO wrapper → đánh giá với KNN, RF, XGBoost. Đây cũng là đề tài luận văn Thạc sĩ.</div>
+      <div class="pj-stack"><span class="pj-stk">ACO</span><span class="pj-stk">Scikit-learn</span><span class="pj-stk">XGBoost</span><span class="pj-stk">Pandas</span><span class="pj-stk">Gini/KS</span></div>
+    </div>
+
+    <div class="pj-card fi">
+      <div class="pj-cat">NLP · RAG · Banking</div>
+      <div class="pj-name">RAG cho tài liệu Ngân hàng (Agribank)</div>
+      <div class="pj-desc">Hệ thống hỏi đáp dựa trên tài liệu nghiệp vụ thực tế của Agribank. Dùng hybrid retrieval (FAISS + BM25) và reranking. Model Qwen2.5-3B với 4-bit quantization để chạy được trên Colab Free.</div>
+      <div class="pj-stack"><span class="pj-stk">FAISS</span><span class="pj-stk">BM25</span><span class="pj-stk">Qwen2.5</span><span class="pj-stk">4-bit Quant.</span><span class="pj-stk">LangChain</span></div>
+    </div>
+
+    <div class="pj-card fi">
+      <div class="pj-cat">Finance · Risk · ML</div>
+      <div class="pj-name">Phát hiện Gian lận &amp; Dự báo Vỡ nợ</div>
+      <div class="pj-desc">Hai bài toán dữ liệu mất cân bằng nặng trong tài chính. Tập trung vào feature engineering, xử lý imbalanced data và tìm threshold phù hợp với yêu cầu nghiệp vụ thực tế.</div>
+      <div class="pj-stack"><span class="pj-stk">XGBoost</span><span class="pj-stk">SMOTE</span><span class="pj-stk">Scorecard</span><span class="pj-stk">SHAP</span></div>
+    </div>
+
+    <div class="pj-card fi">
+      <div class="pj-cat">Computer Vision · Medical</div>
+      <div class="pj-name">Phát hiện U não từ ảnh MRI</div>
+      <div class="pj-desc">Phân loại ảnh MRI để phát hiện và phân loại u não. Transfer learning với EfficientNet/ResNet, tối ưu recall vì đây là bài toán y tế — sai lệch âm tính có hậu quả nghiêm trọng.</div>
+      <div class="pj-stack"><span class="pj-stk">EfficientNet</span><span class="pj-stk">ResNet</span><span class="pj-stk">Transfer Learning</span><span class="pj-stk">PyTorch</span></div>
+    </div>
+
+    <div class="pj-card fi">
+      <div class="pj-cat">Computer Vision · OCR</div>
+      <div class="pj-name">Nhận diện Biển số xe</div>
+      <div class="pj-desc">Pipeline phát hiện và đọc biển số Việt Nam từ ảnh/video: YOLO detect vùng biển số → crop → OCR nhận dạng ký tự. Xử lý được nhiều góc độ và điều kiện ánh sáng khác nhau.</div>
+      <div class="pj-stack"><span class="pj-stk">YOLOv8</span><span class="pj-stk">OpenCV</span><span class="pj-stk">VietOCR</span></div>
+    </div>
+
+    <div class="pj-card fi">
+      <div class="pj-cat">Finance · Time Series</div>
+      <div class="pj-name">Dự báo Giá Chứng khoán</div>
+      <div class="pj-desc">Dự báo giá cổ phiếu Việt Nam bằng LSTM và ARIMA, kết hợp thêm các chỉ báo kỹ thuật (RSI, MACD, Bollinger Bands). Đánh giá cả RMSE lẫn direction accuracy.</div>
+      <div class="pj-stack"><span class="pj-stk">LSTM</span><span class="pj-stk">ARIMA</span><span class="pj-stk">Technical Indicators</span><span class="pj-stk">Pandas</span></div>
+    </div>
+
+    <div class="pj-card fi">
+      <div class="pj-cat">NLP · Tiếng Việt</div>
+      <div class="pj-name">Phân tích Cảm xúc Tiếng Việt</div>
+      <div class="pj-desc">Fine-tune PhoBERT để phân loại cảm xúc từ review và phản hồi khách hàng tiếng Việt. Phần xử lý văn bản tiếng Việt (tokenization, chuẩn hóa dấu câu, từ viết tắt) mất khá nhiều công.</div>
+      <div class="pj-stack"><span class="pj-stk">PhoBERT</span><span class="pj-stk">HuggingFace</span><span class="pj-stk">Fine-tuning</span><span class="pj-stk">VnCoreNLP</span></div>
+    </div>
+
+    <div class="pj-card fi">
+      <div class="pj-cat">OCR · Automation</div>
+      <div class="pj-name">Nhận dạng Captcha</div>
+      <div class="pj-desc">CNN tự train để nhận dạng captcha dạng text. Tập dữ liệu tự tổng hợp, augmentation mạnh để bù cho sự đa dạng của captcha thực tế.</div>
+      <div class="pj-stack"><span class="pj-stk">CNN</span><span class="pj-stk">Data Augmentation</span><span class="pj-stk">PyTorch</span></div>
+    </div>
+
+    <div class="pj-card fi" style="grid-column:1/-1;display:flex;align-items:center;justify-content:center;border-style:dashed;opacity:.45;min-height:60px">
+      <span style="font-size:.82rem;color:var(--ink4);font-style:italic">... và nhiều dự án khác chưa liệt kê hết</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ AWARDS ═══ -->
+<section class="cs" id="awards">
+  <div class="sl">Honors &amp; Awards</div>
+  <h2 class="st">Thành tích &amp; Giải thưởng</h2>
+  <div class="aw-grid">
+    <div class="aw-card top fi">
+      <div class="aw-ic"><i class="fas fa-star"></i></div>
+      <div class="aw-txt">
+        <strong>Bằng khen Thống đốc NHNN Việt Nam</strong>
+        <span class="aw-year">Ngân hàng Nhà nước · 2025</span>
+      </div>
+    </div>
+    <div class="aw-card top fi">
+      <div class="aw-ic"><i class="fas fa-star"></i></div>
+      <div class="aw-txt">
+        <strong>Bằng khen Chủ tịch HĐQT Vietcombank</strong>
+        <span class="aw-year">NHTMCP Ngoại thương Việt Nam · 2025</span>
+      </div>
+    </div>
+    <div class="aw-card fi">
+      <div class="aw-ic"><i class="fas fa-award"></i></div>
+      <div class="aw-txt">
+        <strong>Chiến sĩ thi đua cấp cơ sở</strong>
+        <span class="aw-year">Vietcombank · 2024 &amp; 2025 (2 năm liên tiếp)</span>
+      </div>
+    </div>
+    <div class="aw-card fi">
+      <div class="aw-ic"><i class="fas fa-award"></i></div>
+      <div class="aw-txt">
+        <strong>Đảng viên hoàn thành xuất sắc nhiệm vụ</strong>
+        <span class="aw-year">2025</span>
+      </div>
+    </div>
+    <div class="aw-card fi">
+      <div class="aw-ic"><i class="fas fa-award"></i></div>
+      <div class="aw-txt">
+        <strong>Bằng khen hoàn thành xuất sắc nhiệm vụ</strong>
+        <span class="aw-year">Tima Group Corporation · 2022</span>
+      </div>
+    </div>
+    <div class="aw-card fi">
+      <div class="aw-ic"><i class="fas fa-graduation-cap"></i></div>
+      <div class="aw-txt">
+        <strong>Học bổng Thạc sĩ toàn phần — VinIF</strong>
+        <span class="aw-year">Quỹ Đổi mới sáng tạo Vingroup · 2023</span>
+      </div>
+    </div>
+    <div class="aw-card fi">
+      <div class="aw-ic"><i class="fas fa-graduation-cap"></i></div>
+      <div class="aw-txt">
+        <strong>Học bổng Sumitomo Corporation</strong>
+        <span class="aw-year">Tập đoàn Sumitomo · 2021–2022</span>
+      </div>
+    </div>
+    <div class="aw-card fi">
+      <div class="aw-ic"><i class="fas fa-medal"></i></div>
+      <div class="aw-txt">
+        <strong>Sinh viên 5 tốt cấp Thành phố Hà Nội</strong>
+        <span class="aw-year">Thành Đoàn Hà Nội · 2021</span>
+      </div>
+    </div>
+    <div class="aw-card fi">
+      <div class="aw-ic"><i class="fas fa-medal"></i></div>
+      <div class="aw-txt">
+        <strong>Sinh viên 5 tốt cấp Trường</strong>
+        <span class="aw-year">HUST · 2 năm liên tiếp</span>
+      </div>
+    </div>
+    <div class="aw-card fi">
+      <div class="aw-ic"><i class="fas fa-medal"></i></div>
+      <div class="aw-txt">
+        <strong>Học bổng Khuyến học Xuất sắc</strong>
+        <span class="aw-year">Khoa Toán–Tin, HUST · Nhiều năm</span>
+      </div>
+    </div>
+    <div class="aw-card fi">
+      <div class="aw-ic"><i class="fas fa-certificate"></i></div>
+      <div class="aw-txt">
+        <strong>Học bổng tài trợ TOEIC &amp; CCNA quốc tế</strong>
+        <span class="aw-year">2021</span>
+      </div>
+    </div>
+    <div class="aw-card fi">
+      <div class="aw-ic"><i class="fas fa-newspaper"></i></div>
+      <div class="aw-txt">
+        <strong>Bài báo khoa học — Journal of CS &amp; Cybernetics</strong>
+        <span class="aw-year">Spam caller detection · <a href="https://bit.ly/AIPaperGrooo" target="_blank">Link</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CERTS ═══ -->
+<section class="cs" id="certs">
+  <div class="sl">Certifications</div>
+  <h2 class="st">Chứng chỉ</h2>
+  <div class="ce-list">
+    <div class="ce-row fi"><span class="ce-nm">CS50: Introduction to Artificial Intelligence with Python</span><span class="ce-is">Harvard University · 2021</span></div>
+    <div class="ce-row fi"><span class="ce-nm">Machine Learning with Python</span><span class="ce-is">IBM / Coursera · 2021</span></div>
+    <div class="ce-row fi"><span class="ce-nm">Deep Learning with TensorFlow</span><span class="ce-is">IBM · 2021</span></div>
+    <div class="ce-row fi"><span class="ce-nm">Python Machine Learning, Deep Learning, Pandas, Matplotlib</span><span class="ce-is">Udemy · 2021</span></div>
+    <div class="ce-row fi"><span class="ce-nm">Blockchain Mathematics &amp; Computing</span><span class="ce-is">VIASM · 2021</span></div>
+    <div class="ce-row fi"><span class="ce-nm">CCNA: Introduction to Networks</span><span class="ce-is">Cisco · 2022</span></div>
+  </div>
+</section>
+
+<!-- ═══ ACTIVITIES ═══ -->
+<section class="cs" id="activities">
+  <div class="sl">Activities &amp; Community</div>
+  <h2 class="st">Hoạt động</h2>
+  <div class="ac-list">
+    <div class="ac-item fi">
+      <div class="ac-ic"><i class="fas fa-hands-helping"></i></div>
+      <div>
+        <div class="ac-title">Tình nguyện viên — Phòng chống dịch COVID-19</div>
+        <div class="ac-sub">Tham gia công tác phòng dịch cộng đồng trong giai đoạn đại dịch 2021.</div>
+      </div>
+    </div>
+    <div class="ac-item fi">
+      <div class="ac-ic"><i class="fas fa-heart"></i></div>
+      <div>
+        <div class="ac-title">Tình nguyện viên — Quỹ The CC Foundation</div>
+        <div class="ac-sub">Tham gia hoạt động thiện nguyện và hỗ trợ cộng đồng.</div>
+      </div>
+    </div>
+    <div class="ac-item fi">
+      <div class="ac-ic"><i class="fas fa-university"></i></div>
+      <div>
+        <div class="ac-title">Tình nguyện viên — Viện Toán Ứng dụng &amp; Tin học, HUST</div>
+        <div class="ac-sub">Hỗ trợ các hoạt động học thuật, sự kiện và công tác sinh viên của Viện.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Nguyễn Hữu Thuật &nbsp;·&nbsp; Hà Nội, Việt Nam &nbsp;·&nbsp;
+  <a href="mailto:thuatngh@gmail.com" style="color:var(--em)">thuatngh@gmail.com</a>
+</footer>
+
+</div><!-- /#mn -->
+
+<script>
+const io=new IntersectionObserver(ee=>{ee.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),i*60);io.unobserve(e.target);}});},{threshold:.06});
+document.querySelectorAll('.fi').forEach(el=>io.observe(el));
+const nl=document.querySelectorAll('.nv a');
+const so=new IntersectionObserver(ee=>{ee.forEach(e=>{if(e.isIntersecting)nl.forEach(a=>a.classList.toggle('act',a.getAttribute('href')==='#'+e.target.id));});},{threshold:.2});
+document.querySelectorAll('section[id]').forEach(s=>so.observe(s));
+document.querySelectorAll('.nv a').forEach(a=>a.addEventListener('click',()=>document.getElementById('sb').classList.remove('open')));
+</script>
+</body>
 </html>
