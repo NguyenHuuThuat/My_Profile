@@ -3,495 +3,629 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="description" content="Nguyễn Hữu Thuật — Senior Data Scientist & AI Engineer tại Vietcombank"/>
-<title>Nguyễn Hữu Thuật — Senior Data Scientist</title>
+<meta name="description" content="Nguyễn Hữu Thuật — Senior Data Scientist & AI Engineer"/>
+<title>Nguyễn Hữu Thuật</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+/* ── THEMES ── */
 :root{
-  --sans:'Bricolage Grotesque',sans-serif;
-  --serif:'Instrument Serif',serif;
-  --mono:'JetBrains Mono',monospace;
-  --em:#059669;--eml:#d1fae5;--emm:#6ee7b7;
-  --bg:#f7f8f5;--wh:#fff;
-  --ink:#111827;--ink2:#374151;--ink3:#6b7280;--ink4:#9ca3af;
-  --bd:#e5e7eb;--bd2:#d1d5db;
-  --sw:280px;
+  --sans:'Inter',-apple-system,sans-serif;
+  --mono:'JetBrains Mono','Fira Code',monospace;
 }
+
+/* GitHub Dark (default) */
+[data-theme="github"]{
+  --bg:#0d1117;--bg2:#161b22;--bg3:#21262d;
+  --border:#30363d;--border2:#444c56;
+  --text:#e6edf3;--text2:#8b949e;--text3:#6e7681;
+  --accent:#3fb950;--accent-bg:rgba(63,185,80,.1);
+  --accent2:#58a6ff;--accent2-bg:rgba(88,166,255,.08);
+  --nav-bg:rgba(13,17,23,.92);
+}
+/* VS Code Dark */
+[data-theme="vscode"]{
+  --bg:#1e1e1e;--bg2:#252526;--bg3:#2d2d2d;
+  --border:#3c3c3c;--border2:#555;
+  --text:#d4d4d4;--text2:#9d9d9d;--text3:#6a6a6a;
+  --accent:#4ec9b0;--accent-bg:rgba(78,201,176,.1);
+  --accent2:#569cd6;--accent2-bg:rgba(86,156,214,.08);
+  --nav-bg:rgba(30,30,30,.92);
+}
+/* Tokyo Night */
+[data-theme="tokyo"]{
+  --bg:#1a1b26;--bg2:#24283b;--bg3:#2f334d;
+  --border:#3b4261;--border2:#545c7e;
+  --text:#c0caf5;--text2:#9aa5ce;--text3:#565f89;
+  --accent:#9ece6a;--accent-bg:rgba(158,206,106,.1);
+  --accent2:#7aa2f7;--accent2-bg:rgba(122,162,247,.08);
+  --nav-bg:rgba(26,27,38,.92);
+}
+/* Catppuccin Mocha */
+[data-theme="catppuccin"]{
+  --bg:#1e1e2e;--bg2:#181825;--bg3:#313244;
+  --border:#45475a;--border2:#585b70;
+  --text:#cdd6f4;--text2:#bac2de;--text3:#7f849c;
+  --accent:#a6e3a1;--accent-bg:rgba(166,227,161,.1);
+  --accent2:#89b4fa;--accent2-bg:rgba(137,180,250,.08);
+  --nav-bg:rgba(30,30,46,.92);
+}
+/* Light */
+[data-theme="light"]{
+  --bg:#ffffff;--bg2:#f6f8fa;--bg3:#eaeef2;
+  --border:#d0d7de;--border2:#afb8c1;
+  --text:#1f2328;--text2:#57606a;--text3:#8c959f;
+  --accent:#1a7f37;--accent-bg:rgba(26,127,55,.08);
+  --accent2:#0969da;--accent2-bg:rgba(9,105,218,.07);
+  --nav-bg:rgba(255,255,255,.92);
+}
+/* Solarized Dark */
+[data-theme="solarized"]{
+  --bg:#002b36;--bg2:#073642;--bg3:#094652;
+  --border:#1c4a56;--border2:#2d6b7a;
+  --text:#839496;--text2:#657b83;--text3:#586e75;
+  --accent:#859900;--accent-bg:rgba(133,153,0,.12);
+  --accent2:#268bd2;--accent2-bg:rgba(38,139,210,.1);
+  --nav-bg:rgba(0,43,54,.92);
+}
+
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:15px;line-height:1.7}
-a{color:var(--em);text-decoration:none}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.65;transition:background .2s,color .2s}
+a{color:var(--accent2);text-decoration:none}
 a:hover{text-decoration:underline}
 
-/* ── SIDEBAR ── */
-#sb{position:fixed;top:0;left:0;width:var(--sw);height:100vh;background:var(--wh);border-right:1px solid var(--bd);display:flex;flex-direction:column;padding:0;overflow-y:auto;z-index:50}
-.sb-top{padding:1.75rem 1.5rem 1.25rem;border-bottom:1px solid var(--bd)}
-.av{width:64px;height:64px;border-radius:50%;background:var(--eml);border:2.5px solid var(--em);display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--em);margin-bottom:.8rem;overflow:hidden;flex-shrink:0}
-.av img{width:100%;height:100%;object-fit:cover}
-.sn{font-family:var(--serif);font-size:1.1rem;color:var(--ink);line-height:1.25;margin-bottom:3px}
-.sr{font-family:var(--mono);font-size:.58rem;color:var(--em);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.75rem}
-.sb-pills{display:flex;gap:.3rem;flex-wrap:wrap}
-.sb-pill{font-size:.6rem;padding:.15rem .45rem;border-radius:20px;background:var(--eml);color:var(--em);font-weight:500}
+/* ── NAV ── */
+.topnav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:var(--nav-bg);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;height:56px;gap:1rem;
+}
+.topnav-logo{font-family:var(--mono);font-size:.78rem;color:var(--accent);white-space:nowrap}
+.topnav-logo span{color:var(--text3);margin-right:.3rem}
+.topnav-links{display:flex;gap:.15rem;flex:1;justify-content:center;list-style:none}
+.topnav-links a{
+  font-size:.75rem;color:var(--text2);padding:.38rem .65rem;
+  border-radius:6px;transition:all .15s;white-space:nowrap;
+}
+.topnav-links a:hover{color:var(--text);background:var(--bg3);text-decoration:none}
+.topnav-links a.active{color:var(--accent);background:var(--accent-bg)}
+.topnav-right{display:flex;gap:.4rem;align-items:center;flex-shrink:0}
 
-.sb-nav{padding:.6rem 0;flex:1}
-.nl{font-family:var(--mono);font-size:.55rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink4);padding:.35rem 1.25rem .25rem;display:block}
-.nv{list-style:none}
-.nv li a{display:flex;align-items:center;gap:.55rem;padding:.4rem 1.1rem;color:var(--ink3);font-size:.79rem;transition:all .14s}
-.nv li a i{width:13px;font-size:.7rem;opacity:.5;flex-shrink:0}
-.nv li a:hover,.nv li a.act{color:var(--em);background:var(--eml);text-decoration:none}
-.nv li a.act i,.nv li a:hover i{opacity:1}
+/* Theme + Lang switchers */
+.switcher-btn{
+  height:30px;padding:0 .6rem;border-radius:6px;
+  border:1px solid var(--border);background:var(--bg2);
+  color:var(--text2);font-size:.7rem;cursor:pointer;
+  display:flex;align-items:center;gap:.35rem;
+  transition:all .15s;font-family:var(--sans);white-space:nowrap;
+}
+.switcher-btn:hover{border-color:var(--border2);color:var(--text)}
+.switcher-btn i{font-size:.65rem}
 
-.sb-foot{padding:1rem 1.25rem;border-top:1px solid var(--bd);background:#fafaf8}
-.cr{display:flex;align-items:center;gap:.5rem;padding:.22rem 0;font-size:.72rem;color:var(--ink3)}
-.cr i{color:var(--em);width:12px;font-size:.66rem;flex-shrink:0}
-.cr a{color:var(--ink3)}
-.cr a:hover{color:var(--em);text-decoration:none}
-.ss{display:flex;gap:.35rem;margin-top:.65rem}
-.ss a{width:28px;height:28px;border-radius:7px;border:1px solid var(--bd2);display:flex;align-items:center;justify-content:center;color:var(--ink3);font-size:.7rem;transition:all .14s}
-.ss a:hover{color:var(--em);border-color:var(--em);background:var(--eml);text-decoration:none}
+.dropdown-wrap{position:relative}
+.dropdown{
+  position:absolute;top:calc(100% + .4rem);right:0;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:8px;padding:.35rem;min-width:130px;
+  display:none;z-index:200;
+  box-shadow:0 8px 24px rgba(0,0,0,.3);
+}
+.dropdown.open{display:block}
+.dropdown-item{
+  display:flex;align-items:center;gap:.55rem;
+  padding:.4rem .6rem;border-radius:5px;
+  font-size:.75rem;color:var(--text2);cursor:pointer;
+  transition:all .15s;
+}
+.dropdown-item:hover{background:var(--bg3);color:var(--text)}
+.dropdown-item.active{color:var(--accent);background:var(--accent-bg)}
+.color-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
 
-.mt{display:none;position:fixed;top:.85rem;left:.85rem;z-index:100;background:var(--wh);border:1px solid var(--bd2);width:36px;height:36px;border-radius:8px;align-items:center;justify-content:center;color:var(--ink2);cursor:pointer;font-size:.85rem;box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.topnav-social{display:flex;gap:.25rem}
+.topnav-social a{
+  width:30px;height:30px;border-radius:6px;
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text2);font-size:.72rem;transition:all .15s;
+}
+.topnav-social a:hover{color:var(--text);border-color:var(--border2);background:var(--bg3);text-decoration:none}
+.nav-mobile-btn{
+  display:none;background:none;border:1px solid var(--border);
+  color:var(--text2);width:30px;height:30px;border-radius:6px;
+  cursor:pointer;font-size:.78rem;align-items:center;justify-content:center;
+}
 
-/* ── MAIN ── */
-#mn{margin-left:var(--sw)}
+/* ── MOBILE MENU ── */
+.mobile-menu{
+  display:none;position:fixed;inset:0;background:var(--bg);
+  z-index:200;flex-direction:column;justify-content:center;
+  align-items:flex-start;padding:2rem;gap:.4rem;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.25rem;font-weight:500;color:var(--text2);padding:.45rem 0;transition:color .15s}
+.mobile-menu a:hover{color:var(--text);text-decoration:none}
+.mobile-close{
+  position:absolute;top:1.2rem;right:1.5rem;
+  background:none;border:1px solid var(--border);
+  color:var(--text2);width:30px;height:30px;border-radius:6px;
+  cursor:pointer;font-size:.82rem;display:flex;align-items:center;justify-content:center;
+}
+
+/* ── LAYOUT ── */
+.page-wrap{max-width:900px;margin:0 auto;padding:72px 2rem 4rem}
 
 /* ── HERO ── */
-#hero{background:var(--wh);border-bottom:1px solid var(--bd);padding:4.5rem 4rem 4rem}
-.ey{display:inline-flex;align-items:center;gap:.45rem;background:var(--eml);color:var(--em);padding:.22rem .8rem;border-radius:20px;font-family:var(--mono);font-size:.62rem;letter-spacing:.07em;text-transform:uppercase;margin-bottom:1.4rem}
-.ey::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--em)}
-h1.hn{font-family:var(--serif);font-size:clamp(2.2rem,3.8vw,3.6rem);font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:.45rem}
-h1.hn em{font-style:italic;color:var(--em)}
-.ht{font-family:var(--mono);font-size:.78rem;color:var(--ink3);margin-bottom:1.6rem;letter-spacing:.04em}
-.ht b{color:var(--em);font-weight:500}
-.hb{font-size:.95rem;color:var(--ink2);max-width:640px;line-height:1.85;margin-bottom:2rem}
-.hb strong{color:var(--ink);font-weight:500}
-.h-stats{display:flex;gap:0;margin-bottom:2rem;border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:var(--wh);max-width:560px}
-.hst{flex:1;padding:.9rem 1rem;text-align:center;border-right:1px solid var(--bd)}
-.hst:last-child{border-right:none}
-.hst-n{font-family:var(--serif);font-size:1.6rem;color:var(--em);line-height:1;font-style:italic}
-.hst-l{font-family:var(--mono);font-size:.57rem;color:var(--ink4);margin-top:.22rem;text-transform:uppercase;letter-spacing:.07em}
-.hc{display:flex;flex-wrap:wrap;gap:.35rem}
-.ch{padding:.26rem .7rem;border-radius:20px;border:1px solid var(--bd2);font-size:.7rem;color:var(--ink3);background:var(--wh);transition:all .14s;cursor:default}
-.ch:hover{border-color:var(--em);color:var(--em);background:var(--eml)}
+.hero{padding:2.5rem 0 3rem;border-bottom:1px solid var(--border)}
+.hero-top{display:flex;align-items:flex-start;gap:1.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.hero-avatar{
+  width:80px;height:80px;border-radius:50%;flex-shrink:0;
+  background:var(--bg3);border:2px solid var(--border);
+  overflow:hidden;display:flex;align-items:center;justify-content:center;
+  color:var(--text3);font-size:1.8rem;
+}
+.hero-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-info{}
+.hero-name{font-size:1.55rem;font-weight:700;color:var(--text);margin-bottom:.3rem;line-height:1.2}
+.hero-title{font-family:var(--mono);font-size:.75rem;color:var(--text2);margin-bottom:.5rem}
+.hero-title .sep{color:var(--text3);margin:0 .35rem}
+.hero-location{font-size:.75rem;color:var(--text3);display:flex;align-items:center;gap:.35rem;flex-wrap:wrap}
+.hero-bio{font-size:.9rem;color:var(--text2);line-height:1.8;max-width:660px;margin-bottom:1.5rem}
+.hero-bio strong{color:var(--text);font-weight:500}
+.hero-stats{display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.hstat{display:flex;flex-direction:column}
+.hstat-n{font-size:1.4rem;font-weight:700;color:var(--accent);font-family:var(--mono);line-height:1}
+.hstat-l{font-size:.65rem;color:var(--text3);margin-top:.15rem;font-family:var(--mono)}
+.hero-chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.chip{
+  font-family:var(--mono);font-size:.65rem;
+  padding:.22rem .6rem;border-radius:20px;
+  border:1px solid var(--border);color:var(--text2);
+  background:var(--bg2);transition:all .15s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
 
-/* ── SECTION WRAPPER ── */
-.cs{padding:3.5rem 4rem;border-bottom:1px solid var(--bd)}
-.sl{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.14em;color:var(--em);margin-bottom:.35rem}
-h2.st{font-family:var(--serif);font-size:1.9rem;font-weight:400;color:var(--ink);margin-bottom:2rem;line-height:1.2}
+/* ── SECTIONS ── */
+.section{padding:2.5rem 0;border-bottom:1px solid var(--border)}
+.section:last-of-type{border-bottom:none}
+.section-title{
+  font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text3);font-family:var(--mono);margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:.75rem;
+}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
 
-/* ── EXPERIENCE TIMELINE ── */
-.tl{display:flex;flex-direction:column}
-.tl-item{display:grid;grid-template-columns:1fr;padding:2rem 0;border-bottom:1px solid var(--bd);position:relative}
-.tl-item:first-child{padding-top:0}
-.tl-item:last-child{border-bottom:none;padding-bottom:0}
-.tl-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem;gap:1rem}
-.tl-co{font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.09em;color:var(--em)}
-.tl-date{font-family:var(--mono);font-size:.65rem;color:var(--ink4);white-space:nowrap;flex-shrink:0}
-.tl-role{font-size:1.05rem;font-weight:500;color:var(--ink);margin-bottom:.5rem}
-.tl-summary{font-size:.88rem;color:var(--ink2);margin-bottom:.9rem;line-height:1.75}
-.tl-summary strong{color:var(--ink);font-weight:500}
-
-/* Project cards inside experience */
-.prj-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.8rem}
-.prj-card{background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:.95rem 1.1rem;transition:border-color .15s}
-.prj-card:hover{border-color:var(--emm)}
-.prj-title{font-size:.83rem;font-weight:500;color:var(--ink);margin-bottom:.3rem}
-.prj-desc{font-size:.77rem;color:var(--ink3);line-height:1.6;margin-bottom:.45rem}
-.prj-stack{display:flex;flex-wrap:wrap;gap:.25rem}
-.stk{font-family:var(--mono);font-size:.58rem;color:var(--em);background:var(--eml);padding:.1rem .38rem;border-radius:4px}
-
-/* simple bullet list */
-.bl{list-style:none;display:flex;flex-direction:column;gap:.3rem;margin-bottom:.6rem}
-.bl li{font-size:.85rem;color:var(--ink2);padding-left:1rem;position:relative;line-height:1.65}
-.bl li::before{content:'';position:absolute;left:0;top:.6rem;width:4px;height:4px;border-radius:50%;background:var(--em)}
-.bl li strong{font-weight:500;color:var(--ink)}
-
-/* ── SKILLS ── */
-.sk-wrap{display:flex;flex-direction:column;gap:2rem}
-.sk-group{background:var(--wh);border:1px solid var(--bd);border-radius:12px;padding:1.5rem}
-.sk-group-title{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--em);margin-bottom:1rem}
-.sk-rows{display:flex;flex-direction:column;gap:.85rem}
-.sk-row{display:grid;grid-template-columns:160px 1fr auto;align-items:center;gap:.75rem}
-.sk-name{font-size:.88rem;font-weight:500;color:var(--ink)}
-.sk-bar{height:4px;background:var(--bd);border-radius:3px;overflow:hidden}
-.sk-fill{height:100%;background:linear-gradient(90deg,#34d399,#059669);border-radius:3px}
-.sk-yr{font-family:var(--mono);font-size:.62rem;color:var(--em);white-space:nowrap}
-.sk-tools{display:flex;flex-wrap:wrap;gap:.28rem;margin-top:.4rem;padding-left:160px}
-.sk-tool{font-family:var(--mono);font-size:.6rem;color:var(--ink3);background:var(--bg);border:1px solid var(--bd);padding:.12rem .4rem;border-radius:4px}
+/* ── EXPERIENCE ── */
+.exp-list{display:flex;flex-direction:column}
+.exp-item{
+  display:grid;grid-template-columns:18px 1fr;
+  gap:0 1.25rem;padding-bottom:2rem;
+}
+.exp-item:last-child{padding-bottom:0}
+.exp-line{display:flex;flex-direction:column;align-items:center;padding-top:.35rem}
+.exp-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--bg3);border:2px solid var(--accent);
+  flex-shrink:0;z-index:1;margin-left:-4px;
+}
+.exp-connector{flex:1;width:2px;background:var(--border);margin-top:4px}
+.exp-item:last-child .exp-connector{display:none}
+.exp-body{}
+.exp-header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:.5rem;margin-bottom:.25rem}
+.exp-role{font-size:.95rem;font-weight:600;color:var(--text)}
+.exp-date{font-family:var(--mono);font-size:.65rem;color:var(--text3);white-space:nowrap}
+.exp-company{
+  font-family:var(--mono);font-size:.7rem;color:var(--accent);
+  margin-bottom:.6rem;display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;
+}
+.exp-badge{
+  font-size:.58rem;padding:.1rem .42rem;border-radius:20px;
+  background:var(--accent-bg);color:var(--accent);
+  border:1px solid rgba(63,185,80,.2);font-family:var(--sans);
+}
+.exp-summary{font-size:.83rem;color:var(--text2);margin-bottom:.8rem;line-height:1.75;max-width:680px}
+.exp-projects{display:grid;grid-template-columns:1fr 1fr;gap:.45rem;margin-bottom:.75rem}
+.ep{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:7px;padding:.75rem .9rem;transition:border-color .15s;
+}
+.ep:hover{border-color:var(--border2)}
+.ep-name{font-size:.78rem;font-weight:600;color:var(--text);margin-bottom:.18rem}
+.ep-desc{font-size:.72rem;color:var(--text3);line-height:1.55;margin-bottom:.4rem}
+.ep-tags{display:flex;flex-wrap:wrap;gap:.18rem}
+.ep-tag{font-family:var(--mono);font-size:.56rem;color:var(--accent2);background:var(--accent2-bg);padding:.05rem .3rem;border-radius:3px}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:.28rem}
+.exp-bullets li{font-size:.82rem;color:var(--text2);padding-left:1rem;position:relative;line-height:1.65}
+.exp-bullets li::before{content:'•';position:absolute;left:0;color:var(--accent)}
+.exp-bullets li strong{color:var(--text);font-weight:500}
+.exp-stack{display:flex;flex-wrap:wrap;gap:.22rem;margin-top:.6rem}
+.etag{font-family:var(--mono);font-size:.58rem;color:var(--text3);background:var(--bg3);border:1px solid var(--border);padding:.08rem .35rem;border-radius:4px}
 
 /* ── EDUCATION ── */
-.edu-cards{display:flex;flex-direction:column;gap:.75rem}
-.edu-card{background:var(--wh);border:1px solid var(--bd);border-radius:12px;padding:1.4rem 1.6rem;transition:border-color .15s}
-.edu-card:hover{border-color:var(--em)}
-.edu-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem}
-.edu-school{font-size:1rem;font-weight:500;color:var(--ink)}
-.edu-badge{background:var(--eml);color:var(--em);font-family:var(--mono);font-size:.6rem;padding:.18rem .6rem;border-radius:20px;white-space:nowrap;letter-spacing:.04em}
-.edu-deg{font-size:.88rem;color:var(--em);margin-bottom:.25rem}
-.edu-meta{font-size:.82rem;color:var(--ink3);margin-bottom:.5rem}
-.edu-detail{font-size:.82rem;color:var(--ink2);line-height:1.65}
-.edu-tags{display:flex;flex-wrap:wrap;gap:.28rem;margin-top:.5rem}
-.edu-tag{font-family:var(--mono);font-size:.6rem;color:var(--ink4);background:var(--bg);border:1px solid var(--bd);padding:.12rem .4rem;border-radius:4px}
+.edu-list{display:flex;flex-direction:column;gap:.65rem}
+.edu-card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:8px;padding:1rem 1.2rem;transition:border-color .15s;
+}
+.edu-card:hover{border-color:var(--border2)}
+.edu-row{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.2rem}
+.edu-school{font-size:.9rem;font-weight:600;color:var(--text)}
+.edu-period{font-family:var(--mono);font-size:.65rem;color:var(--text3);white-space:nowrap}
+.edu-degree{font-size:.78rem;color:var(--accent);font-family:var(--mono);margin-bottom:.3rem}
+.edu-badge{
+  display:inline-block;font-family:var(--mono);font-size:.58rem;
+  padding:.12rem .48rem;border-radius:20px;
+  background:var(--accent-bg);color:var(--accent);
+  border:1px solid rgba(63,185,80,.2);margin-bottom:.45rem;
+}
+.edu-desc{font-size:.79rem;color:var(--text3);line-height:1.7}
+.edu-tags{display:flex;flex-wrap:wrap;gap:.2rem;margin-top:.45rem}
+.edu-tag{font-family:var(--mono);font-size:.56rem;color:var(--text3);background:var(--bg3);border:1px solid var(--border);padding:.07rem .32rem;border-radius:3px}
+
+/* ── SKILLS ── */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.sk-group{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem}
+.sk-group-title{font-family:var(--mono);font-size:.6rem;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.95rem}
+.sk-rows{display:flex;flex-direction:column;gap:.8rem}
+.sk-item{}
+.sk-top{display:flex;justify-content:space-between;margin-bottom:.28rem}
+.sk-name{font-size:.82rem;font-weight:500;color:var(--text)}
+.sk-yr{font-family:var(--mono);font-size:.6rem;color:var(--text3)}
+.sk-bar{height:3px;background:var(--bg3);border-radius:2px;overflow:hidden;margin-bottom:.38rem}
+.sk-fill{height:100%;background:var(--accent);border-radius:2px;width:0;transition:width 1.2s ease}
+.sk-tools{display:flex;flex-wrap:wrap;gap:.18rem}
+.sk-tool{font-family:var(--mono);font-size:.56rem;color:var(--text3);background:var(--bg3);border:1px solid var(--border);padding:.07rem .32rem;border-radius:3px}
 
 /* ── PROJECTS ── */
-.pj-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
-.pj-card{background:var(--wh);border:1px solid var(--bd);border-radius:12px;padding:1.2rem 1.3rem;transition:all .15s;display:flex;flex-direction:column}
-.pj-card:hover{border-color:var(--em);transform:translateY(-2px);box-shadow:0 4px 14px rgba(5,150,105,.07)}
-.pj-cat{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--em);margin-bottom:.3rem}
-.pj-name{font-size:.9rem;font-weight:500;color:var(--ink);margin-bottom:.35rem;line-height:1.35}
-.pj-desc{font-size:.8rem;color:var(--ink3);line-height:1.65;margin-bottom:.65rem;flex:1}
-.pj-stack{display:flex;flex-wrap:wrap;gap:.25rem}
-.pj-stk{font-family:var(--mono);font-size:.58rem;color:var(--em);background:var(--eml);padding:.1rem .38rem;border-radius:4px}
+.pj-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
+.pj-card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:8px;padding:1rem 1.1rem;
+  transition:border-color .15s;display:flex;flex-direction:column;
+}
+.pj-card:hover{border-color:var(--border2)}
+.pj-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.35rem}
+.pj-cat{font-family:var(--mono);font-size:.58rem;color:var(--text3);text-transform:uppercase;letter-spacing:.07em}
+.pj-icon{color:var(--text3);font-size:.75rem}
+.pj-name{font-size:.86rem;font-weight:600;color:var(--text);margin-bottom:.3rem;line-height:1.35}
+.pj-desc{font-size:.76rem;color:var(--text3);line-height:1.65;flex:1;margin-bottom:.6rem}
+.pj-tags{display:flex;flex-wrap:wrap;gap:.18rem}
+.pj-tag{font-family:var(--mono);font-size:.56rem;color:var(--accent2);background:var(--accent2-bg);padding:.05rem .3rem;border-radius:3px}
+.pj-more{
+  grid-column:1/-1;background:var(--bg2);border:1px dashed var(--border);
+  border-radius:8px;padding:.75rem;text-align:center;
+  font-family:var(--mono);font-size:.62rem;color:var(--text3);
+}
 
 /* ── AWARDS ── */
-.aw-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
-.aw-card{display:flex;gap:.65rem;align-items:flex-start;background:var(--wh);border:1px solid var(--bd);border-radius:10px;padding:.9rem 1rem;transition:border-color .15s}
-.aw-card.top{border-left:3px solid var(--em);background:#f0fdf4}
-.aw-ic{width:28px;height:28px;border-radius:7px;background:var(--eml);display:flex;align-items:center;justify-content:center;color:var(--em);font-size:.7rem;flex-shrink:0;margin-top:.05rem}
-.aw-txt{font-size:.81rem;color:var(--ink2);line-height:1.55}
-.aw-txt strong{color:var(--ink);font-weight:500}
-.aw-year{font-family:var(--mono);font-size:.6rem;color:var(--ink4);margin-top:.15rem;display:block}
+.awards-list{display:flex;flex-direction:column;gap:.35rem}
+.award-row{
+  display:flex;align-items:center;gap:.9rem;
+  padding:.7rem .95rem;background:var(--bg2);
+  border:1px solid var(--border);border-radius:8px;transition:border-color .15s;
+}
+.award-row:hover{border-color:var(--border2)}
+.award-row.top{border-color:rgba(63,185,80,.3);background:var(--accent-bg)}
+.award-icon{color:var(--accent);font-size:.75rem;width:15px;flex-shrink:0}
+.award-text{flex:1;font-size:.82rem;color:var(--text2)}
+.award-text strong{color:var(--text);font-weight:500}
+.award-year{font-family:var(--mono);font-size:.62rem;color:var(--text3);white-space:nowrap}
 
 /* ── CERTS ── */
-.ce-list{display:flex;flex-direction:column;gap:.45rem}
-.ce-row{display:flex;justify-content:space-between;align-items:center;background:var(--wh);border:1px solid var(--bd);border-radius:9px;padding:.8rem 1.1rem;transition:border-color .15s}
-.ce-row:hover{border-color:var(--em)}
-.ce-nm{font-size:.84rem;color:var(--ink)}
-.ce-is{font-family:var(--mono);font-size:.62rem;color:var(--em);white-space:nowrap;margin-left:.8rem}
+.certs-list{display:grid;grid-template-columns:1fr 1fr;gap:.35rem}
+.cert-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.7rem 1rem;background:var(--bg2);
+  border:1px solid var(--border);border-radius:8px;transition:border-color .15s;
+}
+.cert-row:hover{border-color:var(--border2)}
+.cert-name{font-size:.8rem;color:var(--text)}
+.cert-issuer{font-family:var(--mono);font-size:.6rem;color:var(--text3);white-space:nowrap;margin-left:.65rem}
 
 /* ── ACTIVITIES ── */
-.ac-list{display:flex;flex-direction:column;gap:.6rem}
-.ac-item{display:flex;gap:.85rem;align-items:flex-start;background:var(--wh);border:1px solid var(--bd);border-radius:10px;padding:.95rem 1.1rem}
-.ac-ic{width:33px;height:33px;border-radius:8px;background:var(--eml);display:flex;align-items:center;justify-content:center;color:var(--em);font-size:.78rem;flex-shrink:0}
-.ac-title{font-size:.88rem;font-weight:500;color:var(--ink);margin-bottom:.18rem}
-.ac-sub{font-size:.78rem;color:var(--ink3)}
+.act-list{display:grid;grid-template-columns:1fr 1fr;gap:.45rem}
+.act-card{
+  display:flex;gap:.7rem;align-items:flex-start;
+  padding:.85rem .95rem;background:var(--bg2);
+  border:1px solid var(--border);border-radius:8px;transition:border-color .15s;
+}
+.act-card:hover{border-color:var(--border2)}
+.act-icon{color:var(--accent);font-size:.78rem;margin-top:.1rem;width:15px;flex-shrink:0}
+.act-title{font-size:.82rem;font-weight:500;color:var(--text);margin-bottom:.15rem}
+.act-sub{font-size:.73rem;color:var(--text3);line-height:1.55}
 
 /* ── FOOTER ── */
-footer{padding:1.5rem 4rem;font-family:var(--mono);font-size:.63rem;color:var(--ink4);letter-spacing:.04em;border-top:1px solid var(--bd);background:var(--wh)}
+.footer{
+  margin-top:3.5rem;padding-top:1.75rem;border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+}
+.footer-left{font-family:var(--mono);font-size:.65rem;color:var(--text3)}
+.footer-links{display:flex;gap:1.1rem;flex-wrap:wrap}
+.footer-links a{font-family:var(--mono);font-size:.65rem;color:var(--text3);transition:color .15s}
+.footer-links a:hover{color:var(--accent);text-decoration:none}
 
-/* ── ANIMATIONS ── */
+/* ── FADE IN ── */
 .fi{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
 .fi.on{opacity:1;transform:none}
 
 /* ── RESPONSIVE ── */
-@media(max-width:860px){
-  #sb{transform:translateX(-100%);transition:transform .25s;box-shadow:4px 0 16px rgba(0,0,0,.07)}
-  #sb.open{transform:none}
-  #mn{margin-left:0}
-  .mt{display:flex}
-  #hero,.cs{padding:2.5rem 1.4rem}
-  .prj-grid,.pj-grid,.aw-grid{grid-template-columns:1fr}
-  .sk-row{grid-template-columns:120px 1fr auto}
-  .sk-tools{padding-left:120px}
-  h1.hn{font-size:2rem}
+@media(max-width:700px){
+  .topnav{padding:0 1rem}
+  .topnav-links{display:none}
+  .nav-mobile-btn{display:flex}
+  .page-wrap{padding:68px 1rem 3rem}
+  .exp-projects,.skills-grid,.pj-grid,.certs-list,.act-list{grid-template-columns:1fr}
+  .hero-top{gap:1rem}
+  .hero-stats{gap:1.25rem}
+  .footer{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
-<body>
+<body data-theme="github">
 
-<button class="mt" onclick="document.getElementById('sb').classList.toggle('open')" aria-label="Menu">
-  <i class="fas fa-bars"></i>
-</button>
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')"><i class="fas fa-times"></i></button>
+  <a href="#about" onclick="closeMobile()">Giới thiệu</a>
+  <a href="#experience" onclick="closeMobile()">Kinh nghiệm</a>
+  <a href="#education" onclick="closeMobile()">Học vấn</a>
+  <a href="#skills" onclick="closeMobile()">Kỹ năng</a>
+  <a href="#projects" onclick="closeMobile()">Dự án</a>
+  <a href="#awards" onclick="closeMobile()">Thành tích</a>
+</div>
 
-<!-- SIDEBAR -->
-<nav id="sb">
-  <div class="sb-top">
-    <div class="av"><i class="fas fa-user"></i></div>
-    <div class="sn">Nguyễn Hữu Thuật</div>
-    <div class="sr">Data Scientist · AI Engineer</div>
-    <div class="sb-pills">
-      <span class="sb-pill">Vietcombank</span>
-      <span class="sb-pill">7+ năm</span>
-      <span class="sb-pill">HUST Top 3</span>
+<!-- NAV -->
+<nav class="topnav">
+  <div class="topnav-logo"><span>&gt;_</span>thuatnguyen</div>
+
+  <ul class="topnav-links" id="navLinks">
+    <li><a href="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a></li>
+    <li><a href="#experience" data-vi="Kinh nghiệm" data-en="Experience">Kinh nghiệm</a></li>
+    <li><a href="#education" data-vi="Học vấn" data-en="Education">Học vấn</a></li>
+    <li><a href="#skills" data-vi="Kỹ năng" data-en="Skills">Kỹ năng</a></li>
+    <li><a href="#projects" data-vi="Dự án" data-en="Projects">Dự án</a></li>
+    <li><a href="#awards" data-vi="Thành tích" data-en="Awards">Thành tích</a></li>
+  </ul>
+
+  <div class="topnav-right">
+
+    <!-- Language switcher -->
+    <div class="dropdown-wrap">
+      <button class="switcher-btn" onclick="toggleDD('lang-dd')" id="langBtn">
+        <i class="fas fa-globe"></i> <span id="langLabel">VI</span>
+      </button>
+      <div class="dropdown" id="lang-dd">
+        <div class="dropdown-item active" onclick="setLang('vi')">Tiếng Việt</div>
+        <div class="dropdown-item" onclick="setLang('en')">English</div>
+      </div>
     </div>
-  </div>
-  <div class="sb-nav">
-    <span class="nl">Menu</span>
-    <ul class="nv">
-      <li><a href="#hero" class="act"><i class="fas fa-user"></i>Giới thiệu</a></li>
-      <li><a href="#experience"><i class="fas fa-briefcase"></i>Kinh nghiệm</a></li>
-      <li><a href="#education"><i class="fas fa-graduation-cap"></i>Học vấn</a></li>
-      <li><a href="#skills"><i class="fas fa-code"></i>Kỹ năng</a></li>
-      <li><a href="#projects"><i class="fas fa-flask"></i>Dự án cá nhân</a></li>
-      <li><a href="#awards"><i class="fas fa-trophy"></i>Thành tích</a></li>
-      <li><a href="#certs"><i class="fas fa-certificate"></i>Chứng chỉ</a></li>
-      <li><a href="#activities"><i class="fas fa-hands-helping"></i>Hoạt động</a></li>
-    </ul>
-  </div>
-  <div class="sb-foot">
-    <div class="cr"><i class="fas fa-map-marker-alt"></i>Hà Nội, Việt Nam</div>
-    <div class="cr"><i class="fas fa-phone"></i>(+84) 364 058 928</div>
-    <div class="cr"><i class="fas fa-envelope"></i><a href="mailto:thuatngh@gmail.com">thuatngh@gmail.com</a></div>
-    <div class="ss">
-      <a href="https://www.linkedin.com/in/nguyenhuuthuatbk/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://github.com/NguyenHuuThuat" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://twitter.com/HuuThuatBK" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.facebook.com/NguyenHuuThuatBK/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+
+    <!-- Theme switcher -->
+    <div class="dropdown-wrap">
+      <button class="switcher-btn" onclick="toggleDD('theme-dd')">
+        <i class="fas fa-palette"></i> <span id="themeLabel">GitHub</span>
+      </button>
+      <div class="dropdown" id="theme-dd">
+        <div class="dropdown-item active" onclick="setTheme('github','GitHub')"><span class="color-dot" style="background:#3fb950"></span> GitHub Dark</div>
+        <div class="dropdown-item" onclick="setTheme('vscode','VS Code')"><span class="color-dot" style="background:#4ec9b0"></span> VS Code Dark</div>
+        <div class="dropdown-item" onclick="setTheme('tokyo','Tokyo')"><span class="color-dot" style="background:#9ece6a"></span> Tokyo Night</div>
+        <div class="dropdown-item" onclick="setTheme('catppuccin','Mocha')"><span class="color-dot" style="background:#a6e3a1"></span> Catppuccin</div>
+        <div class="dropdown-item" onclick="setTheme('solarized','Solar')"><span class="color-dot" style="background:#859900"></span> Solarized</div>
+        <div class="dropdown-item" onclick="setTheme('light','Light')"><span class="color-dot" style="background:#1a7f37;border:1px solid #d0d7de"></span> Light</div>
+      </div>
     </div>
+
+    <div class="topnav-social">
+      <a href="https://github.com/NguyenHuuThuat" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/nguyenhuuthuatbk/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="mailto:thuatngh@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+    <button class="nav-mobile-btn" onclick="document.getElementById('mobileMenu').classList.add('open')"><i class="fas fa-bars"></i></button>
   </div>
 </nav>
 
-<!-- MAIN -->
-<div id="mn">
+<div class="page-wrap">
 
 <!-- ═══ HERO ═══ -->
-<section id="hero">
-  <div class="fi">
-    <!-- <div class="ey">Hà Nội · Mở cửa với cơ hội phù hợp</div> -->
-    <h1 class="hn">Nguyễn Hữu <em>Thuật</em></h1>
-    <div class="ht">Data Scientist &nbsp;·&nbsp; <b>AI Engineer</b> &nbsp;·&nbsp; Vietcombank</div>
-    <p class="hb">
-      Tốt nghiệp loại <strong>Xuất sắc (Top 3)</strong> cả Đại học lẫn Thạc sĩ ngành Toán–Tin tại HUST.
-      Làm việc trong lĩnh vực AI và Data Science từ năm 2021, chủ yếu với các bài toán thực tế:
-      xây dựng mô hình tín dụng, computer vision ứng dụng trong ngân hàng, các hệ thống NLP và RAG.
-      Hiện là Data Scientist tại <strong>Vietcombank</strong> — trực tiếp phát triển và vận hành
-      các mô hình AI phục vụ nghiệp vụ ngân hàng.
-    </p>
-    <div class="h-stats">
-      <div class="hst"><div class="hst-n">7+</div><div class="hst-l">Năm kinh nghiệm</div></div>
-      <div class="hst"><div class="hst-n">15+</div><div class="hst-l">Dự án đã làm</div></div>
-      <div class="hst"><div class="hst-n">Top 3</div><div class="hst-l">ĐH &amp; Thạc sĩ HUST</div></div>
-      <div class="hst"><div class="hst-n">5+</div><div class="hst-l">Giải thưởng 2024–25</div></div>
+<section class="hero" id="about">
+  <div class="hero-top fi">
+    <div class="hero-avatar">
+      <img src="assets/img/profile.jpg" alt="Nguyễn Hữu Thuật"
+           onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"/>
     </div>
-    <div class="hc">
-      <span class="ch">Machine Learning</span><span class="ch">Deep Learning</span>
-      <span class="ch">Computer Vision</span><span class="ch">NLP / LLM</span>
-      <span class="ch">RAG</span><span class="ch">Feature Engineering</span>
-      <span class="ch">Credit Scoring</span><span class="ch">MLOps</span>
-      <span class="ch">Python</span><span class="ch">PyTorch</span>
-      <span class="ch">Scikit-learn</span><span class="ch">SQL</span>
+    <div class="hero-info">
+      <div class="hero-name">Nguyễn Hữu Thuật</div>
+      <div class="hero-title">
+        Senior Data Scientist<span class="sep">/</span>AI Engineer<span class="sep">@</span>Vietcombank
+      </div>
+      <div class="hero-location">
+        <i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam
+        <span style="color:var(--border2)">·</span> thuatngh@gmail.com
+        <span style="color:var(--border2)">·</span> (+84) 364 058 928
+      </div>
     </div>
+  </div>
+  <p class="hero-bio fi" id="heroBio">
+    Tốt nghiệp <strong>Top 3</strong> Đại học và Thạc sĩ ngành Toán–Tin tại HUST. Hơn <strong>7 năm kinh nghiệm</strong> trong AI &amp; Data Science, chuyên sâu về <strong>ML, Deep Learning, Computer Vision và NLP/LLM</strong>.<br>
+    Đã triển khai các hệ thống AI thực tế tại <strong>ngân hàng, fintech và e-commerce</strong>. Nền tảng toán học vững kết hợp khả năng kỹ thuật end-to-end — từ nghiên cứu đến triển khai vận hành.
+  </p>
+  <div class="hero-stats fi">
+    <div class="hstat"><div class="hstat-n">7+</div><div class="hstat-l" data-vi="năm kinh nghiệm" data-en="yrs experience">năm kinh nghiệm</div></div>
+    <div class="hstat"><div class="hstat-n">100+</div><div class="hstat-l" data-vi="dự án" data-en="projects">dự án</div></div>
+    <div class="hstat"><div class="hstat-n">Top 3</div><div class="hstat-l" data-vi="Ngành Toán Tin" data-en="BSc HUST">Ngành Toán Tin</div></div>
+    <div class="hstat"><div class="hstat-n">5+</div><div class="hstat-l" data-vi="giải thưởng 2024–25" data-en="awards 2024–25">giải thưởng 2024–25</div></div>
+  </div>
+  <div class="hero-chips fi">
+    <span class="chip">Machine Learning</span><span class="chip">Deep Learning</span>
+    <span class="chip">Computer Vision</span><span class="chip">NLP / LLM</span>
+    <span class="chip">RAG</span><span class="chip">Credit Scoring</span>
+    <span class="chip">Feature Selection</span><span class="chip">Python</span>
+    <span class="chip">PyTorch</span><span class="chip">Scikit-learn</span>
+    <span class="chip">SQL</span><span class="chip">MLOps</span>
   </div>
 </section>
 
 <!-- ═══ EXPERIENCE ═══ -->
-<section class="cs" id="experience">
-  <div class="sl">Work Experience</div>
-  <h2 class="st">Kinh nghiệm làm việc</h2>
-  <div class="tl">
+<section class="section" id="experience">
+  <div class="section-title fi" data-vi="Kinh nghiệm làm việc" data-en="Work Experience">Kinh nghiệm làm việc</div>
+  <div class="exp-list">
 
-    <!-- VCB DS -->
-    <div class="tl-item fi">
-      <div class="tl-head">
-        <div>
-          <div class="tl-co">Vietcombank — NHTMCP Ngoại thương Việt Nam</div>
-          <div class="tl-role">Data Scientist</div>
+    <div class="exp-item fi">
+      <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
+      <div class="exp-body">
+        <div class="exp-header">
+          <div class="exp-role" data-vi="Data Scientist" data-en="Data Scientist">Data Scientist</div>
+          <div class="exp-date">03/2024 — <span data-vi="nay" data-en="present">nay</span></div>
         </div>
-        <div class="tl-date">03/2024 — Nay</div>
-      </div>
-      <p class="tl-summary">
-        Xây dựng và triển khai các mô hình AI/ML phục vụ nghiệp vụ ngân hàng và phân tích khách hàng.
-        Làm việc trực tiếp trên dữ liệu thực tế quy mô lớn, phối hợp với các phòng ban để đưa mô hình vào sử dụng thực tế.
-      </p>
-      <div class="prj-grid">
-        <div class="prj-card">
-          <div class="prj-title">Camera &amp; Computer Vision</div>
-          <div class="prj-desc">Giám sát hoạt động kho quỹ; nhận diện đại biểu tự động tại đại hội cổ đông; hỗ trợ điều tra các vụ việc cần phân tích hình ảnh (cướp, gian lận).</div>
-          <div class="prj-stack"><span class="stk">YOLO</span><span class="stk">OpenCV</span><span class="stk">FaceNet</span><span class="stk">DeepFace</span><span class="stk">FastAPI</span></div>
-        </div>
-        <div class="prj-card">
-          <div class="prj-title">Chuyển tiền bằng Giọng nói</div>
-          <div class="prj-desc">Tính năng chuyển tiền bằng giọng nói trên App ngân hàng: nhận dạng giọng nói tiếng Việt → trích xuất thông tin giao dịch → xác nhận. Hỗ trợ nhiều phương ngữ.</div>
-          <div class="prj-stack"><span class="stk">Whisper</span><span class="stk">LLM</span><span class="stk">NER</span><span class="stk">FastAPI</span><span class="stk">Streaming</span></div>
-        </div>
-        <div class="prj-card">
-          <div class="prj-title">Chuẩn hóa Dữ liệu Địa chỉ</div>
-          <div class="prj-desc">Mô hình làm sạch và chuẩn hóa hàng triệu bản ghi địa chỉ — xử lý viết tắt, lỗi chính tả, nhiều định dạng khác nhau. Kèm pipeline tự động thu thập và cập nhật dữ liệu.</div>
-          <div class="prj-stack"><span class="stk">NLP</span><span class="stk">Fuzzy Matching</span><span class="stk">Rule Engine</span><span class="stk">Pandas</span><span class="stk">Selenium</span></div>
-        </div>
-        <div class="prj-card">
-          <div class="prj-title">Chatbot Nghiệp vụ Ngân hàng (RAG)</div>
-          <div class="prj-desc">Chatbot tra cứu tài liệu nội bộ (quy chế, quy trình, hướng dẫn nghiệp vụ) dùng cho cán bộ ngân hàng. Trả lời có trích dẫn nguồn cụ thể.</div>
-          <div class="prj-stack"><span class="stk">LangChain</span><span class="stk">FAISS</span><span class="stk">BM25</span><span class="stk">Reranking</span><span class="stk">LLM</span></div>
-        </div>
-        <div class="prj-card">
-          <div class="prj-title">Mô hình Tìm kiếm Khách hàng Tiềm năng</div>
-          <div class="prj-desc">Propensity model và event-trigger phân tích hành vi giao dịch, xác định thời điểm phù hợp để tiếp cận khách hàng Priority Banking, thẻ tín dụng, bảo hiểm.</div>
-          <div class="prj-stack"><span class="stk">XGBoost</span><span class="stk">LightGBM</span><span class="stk">Feature Eng.</span><span class="stk">SHAP</span><span class="stk">Airflow</span></div>
-        </div>
-        <div class="prj-card">
-          <div class="prj-title">Định giá Bất động sản</div>
-          <div class="prj-desc">Mô hình ước lượng giá nhà và đất tại một số khu đô thị và khu thương mại. Kết hợp đặc trưng vị trí địa lý, hạ tầng xung quanh và dữ liệu thị trường.</div>
-          <div class="prj-stack"><span class="stk">Gradient Boosting</span><span class="stk">GeoFeatures</span><span class="stk">Geopy</span><span class="stk">Sklearn</span></div>
-        </div>
-        <div class="prj-card">
-          <div class="prj-title">Credit Scoring &amp; Ước lượng Thu nhập</div>
-          <div class="prj-desc">Mô hình chấm điểm tín dụng và ước lượng thu nhập khách hàng phục vụ quyết định cho vay bán lẻ. Dùng dữ liệu hành vi giao dịch kết hợp thông tin KYC.</div>
-          <div class="prj-stack"><span class="stk">Logistic Reg.</span><span class="stk">XGBoost</span><span class="stk">WoE/IV</span><span class="stk">Scorecard</span><span class="stk">PSI/Gini</span></div>
+        <div class="exp-company">Vietcombank — NHTMCP Ngoại thương Việt Nam <span class="exp-badge" data-vi="Toàn thời gian" data-en="Full-time">Toàn thời gian</span></div>
+        <p class="exp-summary" data-vi="Xây dựng và triển khai các mô hình AI/ML phục vụ nghiệp vụ ngân hàng và phân tích khách hàng. Làm việc trực tiếp trên dữ liệu thực tế quy mô lớn, phối hợp với các phòng ban để đưa mô hình vào sử dụng thực tế." data-en="Build and deploy AI/ML models for banking operations and customer analytics. Work directly on large-scale real data, collaborating across departments to bring models into production.">
+          Xây dựng và triển khai các mô hình AI/ML phục vụ nghiệp vụ ngân hàng và phân tích khách hàng. Làm việc trực tiếp trên dữ liệu thực tế quy mô lớn, phối hợp với các phòng ban để đưa mô hình vào sử dụng thực tế.
+        </p>
+        <div class="exp-projects">
+          <div class="ep"><div class="ep-name" data-vi="Camera & Computer Vision" data-en="Camera & Computer Vision">Camera & Computer Vision</div><div class="ep-desc" data-vi="Giám sát kho quỹ, nhận diện đại biểu đại hội, hỗ trợ điều tra hình ảnh an ninh." data-en="Treasury vault monitoring, shareholder meeting attendance recognition, security incident image analysis.">Giám sát kho quỹ, nhận diện đại biểu đại hội, hỗ trợ điều tra hình ảnh an ninh.</div><div class="ep-tags"><span class="ep-tag">YOLO</span><span class="ep-tag">FaceNet</span><span class="ep-tag">OpenCV</span><span class="ep-tag">FastAPI</span></div></div>
+          <div class="ep"><div class="ep-name" data-vi="Chuyển tiền bằng Giọng nói" data-en="Voice Money Transfer">Chuyển tiền bằng Giọng nói</div><div class="ep-desc" data-vi="Tính năng chuyển tiền tiếng Việt trên App: nhận dạng → trích xuất thông tin → xác nhận." data-en="Vietnamese voice transfer on banking app: recognition → info extraction → confirmation.">Tính năng chuyển tiền tiếng Việt trên App: nhận dạng → trích xuất thông tin → xác nhận.</div><div class="ep-tags"><span class="ep-tag">Whisper</span><span class="ep-tag">LLM</span><span class="ep-tag">NER</span><span class="ep-tag">Streaming</span></div></div>
+          <div class="ep"><div class="ep-name" data-vi="Chuẩn hóa Dữ liệu Địa chỉ" data-en="Address Data Normalization">Chuẩn hóa Dữ liệu Địa chỉ</div><div class="ep-desc" data-vi="Làm sạch hàng triệu bản ghi địa chỉ, pipeline tự động thu thập và cập nhật." data-en="Clean millions of address records, automated collection and update pipeline.">Làm sạch hàng triệu bản ghi địa chỉ, pipeline tự động thu thập và cập nhật.</div><div class="ep-tags"><span class="ep-tag">NLP</span><span class="ep-tag">Fuzzy Matching</span><span class="ep-tag">Selenium</span></div></div>
+          <div class="ep"><div class="ep-name" data-vi="Chatbot Nghiệp vụ (RAG)" data-en="Operations Chatbot (RAG)">Chatbot Nghiệp vụ (RAG)</div><div class="ep-desc" data-vi="Chatbot tra cứu tài liệu nội bộ cho cán bộ ngân hàng, trả lời có trích dẫn nguồn." data-en="Internal document lookup chatbot for bank staff, with source citations.">Chatbot tra cứu tài liệu nội bộ cho cán bộ ngân hàng, trả lời có trích dẫn nguồn.</div><div class="ep-tags"><span class="ep-tag">LangChain</span><span class="ep-tag">FAISS</span><span class="ep-tag">BM25</span><span class="ep-tag">LLM</span></div></div>
+          <div class="ep"><div class="ep-name" data-vi="Mô hình Khách hàng Tiềm năng" data-en="Customer Propensity Models">Mô hình Khách hàng Tiềm năng</div><div class="ep-desc" data-vi="Propensity model + event-trigger cho Priority Banking, thẻ tín dụng, bảo hiểm." data-en="Propensity model + event-trigger for Priority Banking, credit cards, insurance.">Propensity model + event-trigger cho Priority Banking, thẻ tín dụng, bảo hiểm.</div><div class="ep-tags"><span class="ep-tag">XGBoost</span><span class="ep-tag">SHAP</span><span class="ep-tag">Airflow</span></div></div>
+          <div class="ep"><div class="ep-name" data-vi="Định giá BĐS & Credit Scoring" data-en="Real Estate Valuation & Credit Scoring">Định giá BĐS & Credit Scoring</div><div class="ep-desc" data-vi="Mô hình ước lượng giá tài sản và chấm điểm tín dụng, ước lượng thu nhập." data-en="Property valuation, credit scoring, and income estimation models.">Mô hình ước lượng giá tài sản và chấm điểm tín dụng, ước lượng thu nhập.</div><div class="ep-tags"><span class="ep-tag">Gradient Boosting</span><span class="ep-tag">WoE/IV</span><span class="ep-tag">Scorecard</span></div></div>
         </div>
       </div>
     </div>
 
-    <!-- VCB Model Validation -->
-    <div class="tl-item fi">
-      <div class="tl-head">
-        <div>
-          <div class="tl-co">Vietcombank</div>
-          <div class="tl-role">Chuyên viên Kiểm định Mô hình</div>
+    <div class="exp-item fi">
+      <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
+      <div class="exp-body">
+        <div class="exp-header">
+          <div class="exp-role" data-vi="Chuyên viên Kiểm định Mô hình" data-en="Model Validation Specialist">Chuyên viên Kiểm định Mô hình</div>
+          <div class="exp-date">01/2023 — 02/2024</div>
         </div>
-        <div class="tl-date">01/2023 — 02/2024</div>
-      </div>
-      <p class="tl-summary">
-        Kiểm định độc lập các mô hình ML và thống kê trước khi đưa vào sử dụng chính thức.
-        Đánh giá năng lực phân biệt (Gini, KS, AUC), tính ổn định theo thời gian (PSI, CSI),
-        phương pháp luận xây dựng mô hình và tuân thủ quy định của NHNN.
-      </p>
-      <ul class="bl">
-        <li>Kiểm định mô hình Propensity, Ước lượng thu nhập, BU Network, Greenfield</li>
-        <li>Kiểm định hệ thống Cảnh báo Sớm (EWS) cho danh mục khách hàng cá nhân</li>
-        <li>Kiểm định credit scoring models: Momo, C06 — review WoE binning, scorecard calibration, backtesting</li>
-      </ul>
-      <div class="prj-stack" style="margin-top:.2rem"><span class="stk">Statistical Testing</span><span class="stk">Gini/KS/AUC</span><span class="stk">PSI/CSI</span><span class="stk">Backtesting</span><span class="stk">SBV Compliance</span></div>
-    </div>
-
-    <!-- Do Son -->
-    <div class="tl-item fi">
-      <div class="tl-head">
-        <div>
-          <div class="tl-co">Do Son Pharmaceuticals &nbsp;·&nbsp; Cộng tác viên</div>
-          <div class="tl-role">IT Manager</div>
-        </div>
-        <div class="tl-date">04/2025 — Nay</div>
-      </div>
-      <p class="tl-summary">
-        Tham gia từ giai đoạn đầu thành lập, phụ trách toàn bộ mảng IT của công ty (làm thêm, ngoài công việc chính tại Vietcombank).
-      </p>
-      <ul class="bl">
-        <li>Xây dựng và vận hành website công ty <a href="https://dosonpharma.com" target="_blank">dosonpharma.com</a></li>
-        <li>Setup tên miền, hosting, email doanh nghiệp, bảo mật</li>
-        <li>Chuẩn bị hạ tầng IT phục vụ các hoạt động vận hành ban đầu của công ty</li>
-      </ul>
-      <div class="prj-stack" style="margin-top:.2rem"><span class="stk">Web Development</span><span class="stk">DNS / Hosting</span><span class="stk">Email System</span><span class="stk">SSL/Security</span></div>
-    </div>
-
-    <!-- Datapot -->
-    <div class="tl-item fi">
-      <div class="tl-head">
-        <div>
-          <div class="tl-co">Datapot Co., Ltd. &amp; Cá nhân &nbsp;·&nbsp; Cộng tác viên</div>
-          <div class="tl-role">Giảng viên / Instructor</div>
-        </div>
-        <div class="tl-date">03/2023 — Nay</div>
-      </div>
-      <p class="tl-summary">
-        Giảng dạy và hướng dẫn các khóa học Data Science, AI cho sinh viên và người đi làm.
-        Nội dung chủ yếu lấy từ kinh nghiệm thực tế, không chỉ lý thuyết.
-      </p>
-      <ul class="bl">
-        <li>Dạy Python, SQL và ứng dụng Data Science tại Datapot; diễn giả tại một số sự kiện sinh viên đại học</li>
-        <li>Đồng giảng dạy môn Data Mining tại Trường Đại học Ngoại thương Hà Nội (FTU)</li>
-        <li>Kèm riêng AI/Python cho sinh viên học tại Mỹ; dạy thêm Toán và Thống kê</li>
-      </ul>
-    </div>
-
-    <!-- Dragon Media -->
-    <div class="tl-item fi">
-      <div class="tl-head">
-        <div>
-          <div class="tl-co">Dragon Media Co., Ltd. &nbsp;·&nbsp; Cộng tác viên</div>
-          <div class="tl-role">AI Engineer</div>
-        </div>
-        <div class="tl-date">01/2025 — 06/2025</div>
-      </div>
-      <p class="tl-summary">
-        Xây dựng các công cụ AI hỗ trợ tự động hóa công việc cho nhà bán hàng trên các sàn thương mại điện tử tại Mỹ.
-      </p>
-      <div class="prj-grid">
-        <div class="prj-card">
-          <div class="prj-title">Kiểm tra Chất lượng Hình ảnh Sản phẩm</div>
-          <div class="prj-desc">Phát hiện tự động các ảnh thiết kế không đạt (mờ, sai tỷ lệ, nền không phù hợp, lỗi văn bản) — giảm thời gian review thủ công.</div>
-          <div class="prj-stack"><span class="stk">CNN</span><span class="stk">PyTorch</span><span class="stk">OpenCV</span><span class="stk">Classification</span></div>
-        </div>
-        <div class="prj-card">
-          <div class="prj-title">Phân loại Sản phẩm theo Danh mục</div>
-          <div class="prj-desc">Phân loại hình ảnh sản phẩm vào đúng danh mục trong catalog, hỗ trợ xử lý số lượng lớn.</div>
-          <div class="prj-stack"><span class="stk">EfficientNet</span><span class="stk">Multi-label</span><span class="stk">Batch Processing</span></div>
-        </div>
-        <div class="prj-card">
-          <div class="prj-title">Chatbot Hỗ trợ Khách hàng</div>
-          <div class="prj-desc">Chatbot tự động trả lời các câu hỏi thường gặp của người mua, tích hợp vào platform TMĐT. Tiếng Anh.</div>
-          <div class="prj-stack"><span class="stk">LLM</span><span class="stk">RAG</span><span class="stk">API Integration</span></div>
-        </div>
+        <div class="exp-company">Vietcombank <span class="exp-badge" data-vi="Toàn thời gian" data-en="Full-time">Toàn thời gian</span></div>
+        <p class="exp-summary" data-vi="Kiểm định độc lập các mô hình ML/thống kê trước khi đưa vào sử dụng. Đánh giá năng lực phân biệt (Gini, KS, AUC), tính ổn định (PSI, CSI) và tuân thủ quy định NHNN." data-en="Independent validation of ML/statistical models before deployment. Assess discriminatory power (Gini, KS, AUC), stability (PSI, CSI), and SBV regulatory compliance.">
+          Kiểm định độc lập các mô hình ML/thống kê trước khi đưa vào sử dụng. Đánh giá năng lực phân biệt (Gini, KS, AUC), tính ổn định (PSI, CSI) và tuân thủ quy định NHNN.
+        </p>
+        <ul class="exp-bullets">
+          <li data-vi="Kiểm định mô hình Propensity, Ước lượng thu nhập, BU Network, Greenfield" data-en="Validated Propensity, Income Estimation, BU Network, and Greenfield models">Kiểm định mô hình Propensity, Ước lượng thu nhập, BU Network, Greenfield</li>
+          <li data-vi="Kiểm định hệ thống Cảnh báo Sớm (EWS) danh mục khách hàng cá nhân" data-en="Validated Early Warning System (EWS) for retail portfolio">Kiểm định hệ thống Cảnh báo Sớm (EWS) danh mục khách hàng cá nhân</li>
+          <li data-vi="Credit scoring models: Momo, C06 — WoE binning, scorecard calibration, backtesting" data-en="Credit scoring models: Momo, C06 — WoE binning, scorecard calibration, backtesting">Credit scoring models: Momo, C06 — WoE binning, scorecard calibration, backtesting</li>
+        </ul>
+        <div class="exp-stack"><span class="etag">Gini/KS/AUC</span><span class="etag">PSI/CSI</span><span class="etag">Backtesting</span><span class="etag">SBV Compliance</span></div>
       </div>
     </div>
 
-    <!-- Tima -->
-    <div class="tl-item fi">
-      <div class="tl-head">
-        <div>
-          <div class="tl-co">Tima Group Corporation — Fintech</div>
-          <div class="tl-role">AI Engineer</div>
+    <div class="exp-item fi">
+      <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
+      <div class="exp-body">
+        <div class="exp-header">
+          <div class="exp-role">IT Manager</div>
+          <div class="exp-date">04/2025 — <span data-vi="nay" data-en="present">nay</span></div>
         </div>
-        <div class="tl-date">08/2021 — 12/2022</div>
-      </div>
-      <p class="tl-summary">
-        Xây dựng và đưa vào vận hành các mô hình AI cho nền tảng cho vay tiêu dùng của Tima Group.
-      </p>
-      <div class="prj-grid">
-        <div class="prj-card">
-          <div class="prj-title">Credit Scoring</div>
-          <div class="prj-desc">Mô hình chấm điểm tín dụng với Gini &gt; 0.60, tự động xử lý hàng nghìn hồ sơ vay mỗi tháng. Góp phần giảm tỷ lệ nợ xấu xuống dưới mức kỳ vọng.</div>
-          <div class="prj-stack"><span class="stk">XGBoost</span><span class="stk">Scorecard</span><span class="stk">WoE/IV</span><span class="stk">Gini &gt; 0.60</span></div>
-        </div>
-        <div class="prj-card">
-          <div class="prj-title">Trích xuất thông tin Giấy tờ tùy thân</div>
-          <div class="prj-desc">Hệ thống tự động đọc và trích xuất thông tin từ CCCD/CMND, đạt &gt;95% độ chính xác. Triển khai tại Tima và mở rộng sang đối tác F88.</div>
-          <div class="prj-stack"><span class="stk">OCR</span><span class="stk">VietOCR</span><span class="stk">NLP</span><span class="stk">&gt;95% Acc.</span><span class="stk">REST API</span></div>
-        </div>
+        <div class="exp-company">Do Son Pharmaceuticals <span class="exp-badge">Co-Founder · <span data-vi="CTV" data-en="Part-time">CTV</span></span></div>
+        <p class="exp-summary" data-vi="Co-founder, phụ trách toàn bộ mảng IT. Xây dựng và vận hành website dosonpharma.com, setup tên miền, hosting, email doanh nghiệp." data-en="Co-founder, responsible for all IT. Built and operate dosonpharma.com, configured domain, hosting, corporate email.">
+          Co-founder, phụ trách toàn bộ mảng IT. Xây dựng và vận hành website <a href="https://dosonpharma.com" target="_blank">dosonpharma.com</a>, setup tên miền, hosting, email doanh nghiệp.
+        </p>
       </div>
     </div>
 
-    <!-- Grooo -->
-    <div class="tl-item fi">
-      <div class="tl-head">
-        <div>
-          <div class="tl-co">Grooo International JSC</div>
-          <div class="tl-role">AI/ML Intern</div>
+    <div class="exp-item fi">
+      <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
+      <div class="exp-body">
+        <div class="exp-header">
+          <div class="exp-role" data-vi="Giảng viên / Instructor" data-en="Lecturer / Instructor">Giảng viên / Instructor</div>
+          <div class="exp-date">03/2023 — <span data-vi="nay" data-en="present">nay</span></div>
         </div>
-        <div class="tl-date">02/2021 — 06/2021</div>
+        <div class="exp-company">Datapot Co., Ltd. &amp; <span data-vi="Cá nhân" data-en="Independent">Cá nhân</span> <span class="exp-badge" data-vi="Cộng tác viên" data-en="Part-time">Cộng tác viên</span></div>
+        <ul class="exp-bullets">
+          <li data-vi="Dạy Python, SQL, Data Science tại Datapot; diễn giả tại các sự kiện sinh viên đại học" data-en="Teaching Python, SQL, Data Science at Datapot; guest speaker at university events">Dạy Python, SQL, Data Science tại Datapot; diễn giả tại các sự kiện sinh viên đại học</li>
+          <li data-vi="Đồng giảng dạy môn Data Mining tại Trường Đại học Ngoại thương (FTU)" data-en="Co-taught Data Mining at Foreign Trade University (FTU), Hanoi">Đồng giảng dạy môn Data Mining tại Trường Đại học Ngoại thương (FTU)</li>
+          <li data-vi="Kèm riêng AI/Python cho sinh viên học tại Mỹ; dạy thêm Toán và Thống kê" data-en="Private AI/Python coaching for a student in the US; math and statistics tutoring">Kèm riêng AI/Python cho sinh viên học tại Mỹ; dạy thêm Toán và Thống kê</li>
+        </ul>
       </div>
-      <p class="tl-summary">
-        Xây dựng hệ thống phát hiện cuộc gọi spam bằng AI trên mạng viễn thông.
-        Kết quả nghiên cứu được công bố trên <a href="https://bit.ly/AIPaperGrooo" target="_blank"><em>Journal of Computer Science and Cybernetics</em></a>.
-      </p>
-      <div class="prj-stack"><span class="stk">ML Classification</span><span class="stk">Feature Engineering</span><span class="stk">Call Graph Analysis</span><span class="stk">Published Research</span></div>
     </div>
 
-    <!-- Samsung -->
-    <div class="tl-item fi">
-      <div class="tl-head">
-        <div>
-          <div class="tl-co">Samsung Display Vietnam (SDV)</div>
-          <div class="tl-role">AI Intern</div>
+    <div class="exp-item fi">
+      <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
+      <div class="exp-body">
+        <div class="exp-header">
+          <div class="exp-role">AI Engineer</div>
+          <div class="exp-date">01/2025 — 06/2025</div>
         </div>
-        <div class="tl-date">07/2021</div>
+        <div class="exp-company">Dragon Media Co., Ltd. <span class="exp-badge" data-vi="Cộng tác viên" data-en="Part-time">Cộng tác viên</span></div>
+        <p class="exp-summary" data-vi="Xây dựng công cụ AI tự động hóa cho nhà bán hàng trên sàn TMĐT Mỹ: kiểm tra chất lượng ảnh (CNN), phân loại danh mục (EfficientNet), chatbot hỗ trợ khách hàng (LLM/RAG)." data-en="Built AI automation tools for US e-commerce sellers: image quality inspection (CNN), catalog classification (EfficientNet), customer chatbot (LLM/RAG).">
+          Xây dựng công cụ AI tự động hóa cho nhà bán hàng trên sàn TMĐT Mỹ: kiểm tra chất lượng ảnh (CNN), phân loại danh mục (EfficientNet), chatbot hỗ trợ khách hàng (LLM/RAG).
+        </p>
       </div>
-      <p class="tl-summary">
-        Chương trình thực tập ngắn hạn tại Samsung Display Vietnam — tìm hiểu ứng dụng AI trong sản xuất màn hình và quy trình kiểm soát chất lượng tự động.
-      </p>
     </div>
 
-    <!-- Academic -->
-    <div class="tl-item fi">
-      <div class="tl-head">
-        <div>
-          <div class="tl-co">Đại học Bách khoa Hà Nội — HUST</div>
-          <div class="tl-role">Dự án Học thuật</div>
+    <div class="exp-item fi">
+      <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
+      <div class="exp-body">
+        <div class="exp-header">
+          <div class="exp-role">AI Engineer</div>
+          <div class="exp-date">08/2021 — 12/2022</div>
         </div>
-        <div class="tl-date">2018 — 2025</div>
+        <div class="exp-company">Tima Group Corporation — Fintech <span class="exp-badge" data-vi="Toàn thời gian" data-en="Full-time">Toàn thời gian</span></div>
+        <ul class="exp-bullets">
+          <li><strong data-vi="Credit scoring" data-en="Credit scoring">Credit scoring</strong> — <span data-vi="Gini > 0.60, xử lý hàng nghìn hồ sơ vay/tháng, góp phần giảm tỷ lệ nợ xấu" data-en="Gini > 0.60, processing thousands of loan applications/month, contributed to NPL reduction">Gini > 0.60, xử lý hàng nghìn hồ sơ vay/tháng, góp phần giảm tỷ lệ nợ xấu</span></li>
+          <li><strong data-vi="Trích xuất thông tin CCCD/CMND" data-en="ID Document Extraction">Trích xuất thông tin CCCD/CMND</strong> — <span data-vi=">95% độ chính xác, triển khai tại Tima và mở rộng sang F88" data-en=">95% accuracy, deployed at Tima and extended to F88">>95% độ chính xác, triển khai tại Tima và mở rộng sang F88</span></li>
+        </ul>
+        <div class="exp-stack"><span class="etag">XGBoost</span><span class="etag">OCR</span><span class="etag">VietOCR</span><span class="etag">REST API</span></div>
       </div>
-      <div class="prj-grid">
-        <div class="prj-card">
-          <div class="prj-title">Luận văn Thạc sĩ</div>
-          <div class="prj-desc">Ứng dụng ACO (Ant Colony Optimization) để chọn đặc trưng cho mô hình xác định khách hàng tiềm năng mở thẻ tín dụng. Thử nghiệm trên bộ dữ liệu ngân hàng thực tế (~400 đặc trưng thô).</div>
-          <div class="prj-stack"><span class="stk">ACO</span><span class="stk">Feature Selection</span><span class="stk">KNN</span><span class="stk">Random Forest</span><span class="stk">XGBoost</span></div>
+    </div>
+
+    <!-- FIX: Link bài báo đã được gắn đúng href -->
+    <div class="exp-item fi">
+      <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
+      <div class="exp-body">
+        <div class="exp-header">
+          <div class="exp-role" data-vi="Thực tập sinh AI/ML" data-en="AI/ML Intern">Thực tập sinh AI/ML</div>
+          <div class="exp-date">02/2021 — 06/2021</div>
         </div>
-        <div class="prj-card">
-          <div class="prj-title">Đồ án tốt nghiệp Đại học</div>
-          <div class="prj-desc">Mô hình tự động đọc và trích xuất thông tin từ CCCD/CMND bằng Deep Learning — nhận diện, phân đoạn vùng và nhận dạng ký tự.</div>
-          <div class="prj-stack"><span class="stk">Deep Learning</span><span class="stk">OCR</span><span class="stk">Document AI</span><span class="stk">PyTorch</span></div>
+        <div class="exp-company">Grooo International JSC <span class="exp-badge" data-vi="Thực tập" data-en="Intern">Thực tập</span></div>
+        <p class="exp-summary">
+          <span data-vi="Xây dựng hệ thống phát hiện cuộc gọi spam bằng AI. Kết quả công bố trên" data-en="Built an AI-based spam caller detection system. Research published in the">Xây dựng hệ thống phát hiện cuộc gọi spam bằng AI. Kết quả công bố trên</span>
+          <a href="https://drive.google.com/file/d/1yUuI2b_h8kWSNHUsObZe_IeAwJvDPBTa/view" target="_blank"><em>Journal of Computer Science and Cybernetics</em></a>.
+        </p>
+      </div>
+    </div>
+
+    <div class="exp-item fi">
+      <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
+      <div class="exp-body">
+        <div class="exp-header">
+          <div class="exp-role" data-vi="Thực tập sinh AI" data-en="AI Intern">Thực tập sinh AI</div>
+          <div class="exp-date">07/2021</div>
         </div>
+        <div class="exp-company">Samsung Display Vietnam (SDV) <span class="exp-badge" data-vi="Thực tập" data-en="Intern">Thực tập</span></div>
+        <p class="exp-summary" data-vi="Thực tập ngắn hạn tại Samsung Display Vietnam — tìm hiểu ứng dụng AI trong sản xuất màn hình và quy trình kiểm soát chất lượng tự động." data-en="Short-term internship at Samsung Display Vietnam — explored AI applications in display manufacturing and automated quality control.">
+          Thực tập ngắn hạn tại Samsung Display Vietnam — tìm hiểu ứng dụng AI trong sản xuất màn hình và quy trình kiểm soát chất lượng tự động.
+        </p>
+      </div>
+    </div>
+
+    <!-- FIX: Luận văn ThS — mô tả đúng pipeline, bỏ ACO -->
+    <div class="exp-item fi">
+      <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
+      <div class="exp-body">
+        <div class="exp-header">
+          <div class="exp-role" data-vi="Dự án Học thuật" data-en="Academic Projects">Dự án Học thuật</div>
+          <div class="exp-date">2018 — 2025</div>
+        </div>
+        <div class="exp-company">Đại học Bách khoa Hà Nội (HUST)</div>
+        <ul class="exp-bullets">
+          <li>
+            <strong data-vi="Luận văn Thạc sĩ" data-en="Master's Thesis">Luận văn Thạc sĩ</strong> —
+            <span data-vi="Xây dựng pipeline hoàn chỉnh tự động tìm kiếm khách hàng tiềm năng mở thẻ tín dụng: chấm điểm tín dụng, ước lượng thu nhập, event-trigger phát hiện thời điểm phù hợp mời sản phẩm và vận hành pipeline end-to-end trên dữ liệu ngân hàng thực tế." data-en="Built a complete end-to-end pipeline to automatically identify and invite potential credit card customers: credit scoring, income estimation, event-trigger for optimal product invitation timing, and full operational pipeline on real banking data.">Xây dựng pipeline hoàn chỉnh tự động tìm kiếm khách hàng tiềm năng mở thẻ tín dụng: chấm điểm tín dụng, ước lượng thu nhập, event-trigger phát hiện thời điểm phù hợp mời sản phẩm và vận hành pipeline end-to-end trên dữ liệu ngân hàng thực tế.</span>
+          </li>
+          <li>
+            <strong data-vi="Đồ án Đại học" data-en="Bachelor's Capstone">Đồ án Đại học</strong> —
+            <span data-vi="Trích xuất thông tin từ CCCD/CMND bằng Deep Learning, sau này triển khai tại Tima Group." data-en="Information extraction from Vietnamese ID documents using Deep Learning, later deployed at Tima Group.">Trích xuất thông tin từ CCCD/CMND bằng Deep Learning, sau này triển khai tại Tima Group.</span>
+          </li>
+        </ul>
+        <div class="exp-stack"><span class="etag">XGBoost</span><span class="etag">Random Forest</span><span class="etag">PyTorch</span><span class="etag">OCR</span><span class="etag">Scorecard</span><span class="etag">Event Trigger</span></div>
       </div>
     </div>
 
@@ -499,392 +633,236 @@ footer{padding:1.5rem 4rem;font-family:var(--mono);font-size:.63rem;color:var(--
 </section>
 
 <!-- ═══ EDUCATION ═══ -->
-<section class="cs" id="education">
-  <div class="sl">Education</div>
-  <h2 class="st">Học vấn</h2>
-  <div class="edu-cards">
+<section class="section" id="education">
+  <div class="section-title fi" data-vi="Học vấn" data-en="Education">Học vấn</div>
+  <div class="edu-list">
 
+    <!-- FIX: ThS — GPA 3.8, bỏ Top 3 -->
     <div class="edu-card fi">
-      <div class="edu-top">
+      <div class="edu-row">
         <div class="edu-school">Đại học Bách khoa Hà Nội (HUST)</div>
-        <span class="edu-badge">Xuất sắc · Top 3</span>
+        <div class="edu-period">06/2023 — 06/2025</div>
       </div>
-      <div class="edu-deg">Thạc sĩ · Toán - Tin học (Mathematics &amp; Informatics)</div>
-      <div class="edu-meta">Viện Toán ứng dụng và Tin học &nbsp;·&nbsp; GPA 3.60/4.0 (9.0/10) &nbsp;·&nbsp; 06/2023 — 06/2025</div>
-      <div class="edu-detail">
-        Được nhận học bổng Thạc sĩ từ Quỹ VinIF (Vingroup). Luận văn về ứng dụng
-        Ant Colony Optimization cho bài toán chọn đặc trưng trên dữ liệu ngân hàng,
-        kết hợp với KNN, Random Forest, XGBoost để xây dựng mô hình targeting khách hàng thẻ tín dụng.
+      <div class="edu-degree" data-vi="Thạc sĩ · Toán - Tin học" data-en="Master's · Mathematics & Informatics">Thạc sĩ · Toán - Tin học</div>
+      <span class="edu-badge" data-vi="Giỏi · GPA 3.58/4.0" data-en="Very Good · GPA 3.58/4.0">Giỏi · GPA 3.58/4.0</span>
+      <div class="edu-desc" data-vi="Học bổng đào tạo Thạc sĩ từ Quỹ VinIF (Vingroup). Luận văn: xây dựng pipeline hoàn chỉnh tự động tìm kiếm khách hàng tiềm năng mở thẻ tín dụng — chấm điểm tín dụng, ước lượng thu nhập, event-trigger và vận hành end-to-end trên dữ liệu ngân hàng thực tế." data-en="Master's scholarship from VinIF Fund (Vingroup). Thesis: built a complete end-to-end pipeline to automatically identify potential credit card customers — credit scoring, income estimation, event-trigger for product invitation timing, and full operational pipeline on real banking data.">
+        Học bổng đào tạo Thạc sĩ từ Quỹ VinIF (Vingroup). Luận văn: xây dựng pipeline hoàn chỉnh tự động tìm kiếm khách hàng tiềm năng mở thẻ tín dụng — chấm điểm tín dụng, ước lượng thu nhập, event-trigger và vận hành end-to-end trên dữ liệu ngân hàng thực tế.
       </div>
-      <div class="edu-tags">
-        <span class="edu-tag">Machine Learning</span><span class="edu-tag">Optimization</span>
-        <span class="edu-tag">ACO</span><span class="edu-tag">Feature Selection</span>
-        <span class="edu-tag">Banking Data</span><span class="edu-tag">VinIF Scholarship</span>
-      </div>
+      <div class="edu-tags"><span class="edu-tag">Credit Scoring</span><span class="edu-tag">Income Estimation</span><span class="edu-tag">Event Trigger</span><span class="edu-tag">Pipeline</span><span class="edu-tag">VinIF</span></div>
     </div>
 
+    <!-- FIX: ĐH — "Very Good", bỏ Top 3 trong badge -->
     <div class="edu-card fi">
-      <div class="edu-top">
+      <div class="edu-row">
         <div class="edu-school">Đại học Bách khoa Hà Nội (HUST)</div>
-        <span class="edu-badge">Xuất sắc · Top 3</span>
+        <div class="edu-period">08/2018 — 08/2022</div>
       </div>
-      <div class="edu-deg">Cử nhân · Toán - Tin học (Mathematics &amp; Informatics)</div>
-      <div class="edu-meta">Viện Toán ứng dụng và Tin học &nbsp;·&nbsp; GPA 3.44/4.0 (8.6/10) &nbsp;·&nbsp; 08/2018 — 08/2022</div>
-      <div class="edu-detail">
-        Tốt nghiệp Top 3 toàn khóa. Đồ án tốt nghiệp về trích xuất thông tin từ giấy tờ tùy thân
-        bằng Deep Learning — sau này được dùng làm nền tảng cho sản phẩm triển khai tại Tima Group.
-        Môn học nổi bật: Đại số tuyến tính, Xác suất thống kê, Thuật toán, Học máy, Xử lý ngôn ngữ tự nhiên.
+      <div class="edu-degree" data-vi="Cử nhân · Toán - Tin học" data-en="Bachelor's · Mathematics & Informatics">Cử nhân · Toán - Tin học</div>
+      <span class="edu-badge" data-vi="Giỏi · Top 3 · GPA 3.44/4.0 (8.6/10)" data-en="Very Good · Top 3 · GPA 3.44/4.0">Giỏi · Top 3 · GPA 3.44/4.0 (8.6/10)</span>
+      <div class="edu-desc" data-vi="Tốt nghiệp Top 3 toàn khóa. Đồ án về trích xuất thông tin từ CCCD/CMND bằng Deep Learning — sau này triển khai thực tế tại Tima Group." data-en="Graduated Top 3 of class. Capstone on information extraction from Vietnamese ID documents using Deep Learning — later deployed at Tima Group.">
+        Tốt nghiệp Top 3 toàn khóa. Đồ án về trích xuất thông tin từ CCCD/CMND bằng Deep Learning — sau này triển khai thực tế tại Tima Group.
       </div>
-      <div class="edu-tags">
-        <span class="edu-tag">Deep Learning</span><span class="edu-tag">Algorithms &amp; DS</span>
-        <span class="edu-tag">Probability &amp; Statistics</span><span class="edu-tag">Linear Algebra</span>
-        <span class="edu-tag">NLP</span><span class="edu-tag">Computer Vision</span>
-      </div>
+      <div class="edu-tags"><span class="edu-tag">Deep Learning</span><span class="edu-tag">OCR</span><span class="edu-tag">Algorithms</span><span class="edu-tag">Statistics</span><span class="edu-tag">NLP</span></div>
     </div>
-
   </div>
 </section>
 
 <!-- ═══ SKILLS ═══ -->
-<section class="cs" id="skills">
-  <div class="sl">Technical Skills</div>
-  <h2 class="st">Kỹ năng chuyên môn</h2>
-  <div class="sk-wrap">
-
-    <div class="sk-group fi">
-      <div class="sk-group-title">AI / Data Science &nbsp;·&nbsp; dùng hàng ngày từ 2021</div>
+<section class="section" id="skills">
+  <div class="section-title fi" data-vi="Kỹ năng chuyên môn" data-en="Technical Skills">Kỹ năng chuyên môn</div>
+  <div class="skills-grid fi">
+    <div class="sk-group">
+      <div class="sk-group-title" data-vi="AI / Khoa học Dữ liệu" data-en="AI / Data Science">AI / Khoa học Dữ liệu</div>
       <div class="sk-rows">
-        <div>
-          <div class="sk-row">
-            <span class="sk-name">Machine Learning</span>
-            <div class="sk-bar"><div class="sk-fill" style="width:90%"></div></div>
-            <span class="sk-yr">Hàng ngày</span>
-          </div>
-          <div class="sk-tools"><span class="sk-tool">XGBoost</span><span class="sk-tool">LightGBM</span><span class="sk-tool">Scikit-learn</span><span class="sk-tool">CatBoost</span><span class="sk-tool">Scorecard</span><span class="sk-tool">WoE/IV</span><span class="sk-tool">SHAP</span><span class="sk-tool">Optuna</span></div>
-        </div>
-        <div>
-          <div class="sk-row">
-            <span class="sk-name">Deep Learning</span>
-            <div class="sk-bar"><div class="sk-fill" style="width:85%"></div></div>
-            <span class="sk-yr">Thường xuyên</span>
-          </div>
-          <div class="sk-tools"><span class="sk-tool">PyTorch</span><span class="sk-tool">TensorFlow / Keras</span><span class="sk-tool">HuggingFace</span><span class="sk-tool">ONNX</span><span class="sk-tool">Quantization</span><span class="sk-tool">Fine-tuning</span></div>
-        </div>
-        <div>
-          <div class="sk-row">
-            <span class="sk-name">Computer Vision</span>
-            <div class="sk-bar"><div class="sk-fill" style="width:85%"></div></div>
-            <span class="sk-yr">Thường xuyên</span>
-          </div>
-          <div class="sk-tools"><span class="sk-tool">YOLO (v5–v11)</span><span class="sk-tool">OpenCV</span><span class="sk-tool">EfficientNet</span><span class="sk-tool">ResNet</span><span class="sk-tool">FaceNet</span><span class="sk-tool">DeepFace</span><span class="sk-tool">VietOCR</span><span class="sk-tool">Tesseract</span></div>
-        </div>
-        <div>
-          <div class="sk-row">
-            <span class="sk-name">NLP / LLM / RAG</span>
-            <div class="sk-bar"><div class="sk-fill" style="width:82%"></div></div>
-            <span class="sk-yr">Thường xuyên</span>
-          </div>
-          <div class="sk-tools"><span class="sk-tool">LangChain</span><span class="sk-tool">LlamaIndex</span><span class="sk-tool">FAISS</span><span class="sk-tool">BM25</span><span class="sk-tool">Reranking</span><span class="sk-tool">Whisper</span><span class="sk-tool">Embedding</span><span class="sk-tool">Prompt Eng.</span></div>
-        </div>
+        <div class="sk-item"><div class="sk-top"><span class="sk-name">Machine Learning</span><span class="sk-yr">7+ <span data-vi="năm" data-en="yrs">năm</span></span></div><div class="sk-bar"><div class="sk-fill" data-w="90"></div></div><div class="sk-tools"><span class="sk-tool">XGBoost</span><span class="sk-tool">LightGBM</span><span class="sk-tool">Scikit-learn</span><span class="sk-tool">Scorecard</span><span class="sk-tool">WoE/IV</span><span class="sk-tool">SHAP</span><span class="sk-tool">Optuna</span></div></div>
+        <div class="sk-item"><div class="sk-top"><span class="sk-name">Deep Learning</span><span class="sk-yr">5+ <span data-vi="năm" data-en="yrs">năm</span></span></div><div class="sk-bar"><div class="sk-fill" data-w="85"></div></div><div class="sk-tools"><span class="sk-tool">PyTorch</span><span class="sk-tool">TensorFlow</span><span class="sk-tool">HuggingFace</span><span class="sk-tool">ONNX</span><span class="sk-tool">Fine-tuning</span><span class="sk-tool">Quantization</span></div></div>
       </div>
     </div>
-
-    <div class="sk-group fi">
-      <div class="sk-group-title">Lập trình</div>
+    <div class="sk-group">
+      <div class="sk-group-title">Computer Vision &amp; NLP</div>
       <div class="sk-rows">
-        <div>
-          <div class="sk-row">
-            <span class="sk-name">Python</span>
-            <div class="sk-bar"><div class="sk-fill" style="width:90%"></div></div>
-            <span class="sk-yr">7+ năm</span>
-          </div>
-          <div class="sk-tools"><span class="sk-tool">Pandas</span><span class="sk-tool">NumPy</span><span class="sk-tool">Matplotlib</span><span class="sk-tool">Seaborn</span><span class="sk-tool">FastAPI</span><span class="sk-tool">Streamlit</span><span class="sk-tool">Jupyter</span></div>
-        </div>
-        <div>
-          <div class="sk-row">
-            <span class="sk-name">SQL</span>
-            <div class="sk-bar"><div class="sk-fill" style="width:55%"></div></div>
-            <span class="sk-yr">2+ năm</span>
-          </div>
-          <div class="sk-tools"><span class="sk-tool">Oracle SQL</span><span class="sk-tool">PostgreSQL</span><span class="sk-tool">Window Functions</span><span class="sk-tool">Query Optimization</span></div>
-        </div>
-        <div>
-          <div class="sk-row">
-            <span class="sk-name">R / C / C++</span>
-            <div class="sk-bar"><div class="sk-fill" style="width:28%"></div></div>
-            <span class="sk-yr">1+ năm</span>
-          </div>
-          <div class="sk-tools"><span class="sk-tool">R (Statistical Analysis)</span><span class="sk-tool">C/C++ (Algorithms)</span></div>
-        </div>
+        <div class="sk-item"><div class="sk-top"><span class="sk-name">Computer Vision</span><span class="sk-yr">4+ <span data-vi="năm" data-en="yrs">năm</span></span></div><div class="sk-bar"><div class="sk-fill" data-w="85"></div></div><div class="sk-tools"><span class="sk-tool">YOLO v5–v11</span><span class="sk-tool">OpenCV</span><span class="sk-tool">FaceNet</span><span class="sk-tool">EfficientNet</span><span class="sk-tool">VietOCR</span></div></div>
+        <div class="sk-item"><div class="sk-top"><span class="sk-name">NLP / LLM / RAG</span><span class="sk-yr">3+ <span data-vi="năm" data-en="yrs">năm</span></span></div><div class="sk-bar"><div class="sk-fill" data-w="82"></div></div><div class="sk-tools"><span class="sk-tool">LangChain</span><span class="sk-tool">FAISS</span><span class="sk-tool">BM25</span><span class="sk-tool">Whisper</span><span class="sk-tool">PhoBERT</span><span class="sk-tool">Qwen</span></div></div>
       </div>
     </div>
-
-    <div class="sk-group fi">
-      <div class="sk-group-title">Toán học &amp; Thuật toán &nbsp;·&nbsp; 6+ năm</div>
+    <div class="sk-group">
+      <div class="sk-group-title" data-vi="Lập trình & Công cụ" data-en="Programming & Tools">Lập trình &amp; Công cụ</div>
       <div class="sk-rows">
-        <div>
-          <div class="sk-row">
-            <span class="sk-name">Toán &amp; Thống kê</span>
-            <div class="sk-bar"><div class="sk-fill" style="width:82%"></div></div>
-            <span class="sk-yr">Nền tảng</span>
-          </div>
-          <div class="sk-tools"><span class="sk-tool">Linear Algebra</span><span class="sk-tool">Probability Theory</span><span class="sk-tool">Statistics</span><span class="sk-tool">Hypothesis Testing</span><span class="sk-tool">Bayesian</span></div>
-        </div>
-        <div>
-          <div class="sk-row">
-            <span class="sk-name">Thuật toán Tối ưu</span>
-            <div class="sk-bar"><div class="sk-fill" style="width:75%"></div></div>
-            <span class="sk-yr">Nghiên cứu</span>
-          </div>
-          <div class="sk-tools"><span class="sk-tool">ACO</span><span class="sk-tool">Genetic Algorithm</span><span class="sk-tool">Gradient Descent</span><span class="sk-tool">Hyperparameter Tuning</span><span class="sk-tool">Feature Selection</span></div>
-        </div>
+        <div class="sk-item"><div class="sk-top"><span class="sk-name">Python</span><span class="sk-yr">7+ <span data-vi="năm" data-en="yrs">năm</span></span></div><div class="sk-bar"><div class="sk-fill" data-w="92"></div></div><div class="sk-tools"><span class="sk-tool">Pandas</span><span class="sk-tool">NumPy</span><span class="sk-tool">FastAPI</span><span class="sk-tool">Streamlit</span><span class="sk-tool">Matplotlib</span></div></div>
+        <div class="sk-item"><div class="sk-top"><span class="sk-name">SQL</span><span class="sk-yr">2+ <span data-vi="năm" data-en="yrs">năm</span></span></div><div class="sk-bar"><div class="sk-fill" data-w="55"></div></div><div class="sk-tools"><span class="sk-tool">Oracle</span><span class="sk-tool">PostgreSQL</span><span class="sk-tool">Window Functions</span></div></div>
       </div>
     </div>
-
-    <div class="sk-group fi">
-      <div class="sk-group-title">MLOps &amp; Công cụ</div>
+    <div class="sk-group">
+      <div class="sk-group-title" data-vi="Toán học & MLOps" data-en="Mathematics & MLOps">Toán học &amp; MLOps</div>
       <div class="sk-rows">
-        <div>
-          <div class="sk-row">
-            <span class="sk-name">MLOps &amp; Deploy</span>
-            <div class="sk-bar"><div class="sk-fill" style="width:65%"></div></div>
-            <span class="sk-yr">Đang dùng</span>
-          </div>
-          <div class="sk-tools"><span class="sk-tool">Docker</span><span class="sk-tool">FastAPI</span><span class="sk-tool">Airflow</span><span class="sk-tool">MLflow</span><span class="sk-tool">Git</span><span class="sk-tool">Linux</span><span class="sk-tool">Google Colab</span></div>
-        </div>
-        <div>
-          <div class="sk-row">
-            <span class="sk-name">Leadership &amp; Teamwork</span>
-            <div class="sk-bar"><div class="sk-fill" style="width:65%"></div></div>
-            <span class="sk-yr">5+ năm</span>
-          </div>
-          <div class="sk-tools"><span class="sk-tool">Project Lead</span><span class="sk-tool">Mentoring</span><span class="sk-tool">Cross-functional Collab.</span><span class="sk-tool">Technical Presentation</span></div>
-        </div>
+        <div class="sk-item"><div class="sk-top"><span class="sk-name" data-vi="Toán & Tối ưu hóa" data-en="Math & Optimization">Toán &amp; Tối ưu hóa</span><span class="sk-yr">6+ <span data-vi="năm" data-en="yrs">năm</span></span></div><div class="sk-bar"><div class="sk-fill" data-w="82"></div></div><div class="sk-tools"><span class="sk-tool">Statistics</span><span class="sk-tool">Linear Algebra</span><span class="sk-tool">Bayesian</span><span class="sk-tool">Optimization</span></div></div>
+        <div class="sk-item"><div class="sk-top"><span class="sk-name" data-vi="MLOps & Triển khai" data-en="MLOps & Deploy">MLOps &amp; Triển khai</span><span class="sk-yr">2+ <span data-vi="năm" data-en="yrs">năm</span></span></div><div class="sk-bar"><div class="sk-fill" data-w="62"></div></div><div class="sk-tools"><span class="sk-tool">Docker</span><span class="sk-tool">Airflow</span><span class="sk-tool">MLflow</span><span class="sk-tool">Git</span><span class="sk-tool">Linux</span></div></div>
       </div>
     </div>
-
   </div>
 </section>
 
 <!-- ═══ PROJECTS ═══ -->
-<section class="cs" id="projects">
-  <div class="sl">Personal Projects</div>
-  <h2 class="st">Dự án cá nhân</h2>
-  <p style="font-size:.86rem;color:var(--ink3);margin-bottom:1.5rem;line-height:1.7">Một số dự án tự làm ngoài giờ, chủ yếu để học thêm hoặc áp dụng những gì đang nghiên cứu. Có khoảng 20+ dự án, dưới đây là một số cái đáng kể hơn:</p>
-  <div class="pj-grid">
-
-    <div class="pj-card fi">
-      <div class="pj-cat">Banking · ML · Optimization</div>
-      <div class="pj-name">ACO Feature Selection cho Credit Scoring</div>
-      <div class="pj-desc">Dùng Ant Colony Optimization để chọn bộ đặc trưng tối ưu từ ~400 features thô của dữ liệu ngân hàng. Pipeline: lọc thống kê → ACO wrapper → đánh giá với KNN, RF, XGBoost. Đây cũng là đề tài luận văn Thạc sĩ.</div>
-      <div class="pj-stack"><span class="pj-stk">ACO</span><span class="pj-stk">Scikit-learn</span><span class="pj-stk">XGBoost</span><span class="pj-stk">Pandas</span><span class="pj-stk">Gini/KS</span></div>
-    </div>
-
-    <div class="pj-card fi">
-      <div class="pj-cat">NLP · RAG · Banking</div>
-      <div class="pj-name">RAG cho tài liệu Ngân hàng (Agribank)</div>
-      <div class="pj-desc">Hệ thống hỏi đáp dựa trên tài liệu nghiệp vụ thực tế của Agribank. Dùng hybrid retrieval (FAISS + BM25) và reranking. Model Qwen2.5-3B với 4-bit quantization để chạy được trên Colab Free.</div>
-      <div class="pj-stack"><span class="pj-stk">FAISS</span><span class="pj-stk">BM25</span><span class="pj-stk">Qwen2.5</span><span class="pj-stk">4-bit Quant.</span><span class="pj-stk">LangChain</span></div>
-    </div>
-
-    <div class="pj-card fi">
-      <div class="pj-cat">Finance · Risk · ML</div>
-      <div class="pj-name">Phát hiện Gian lận &amp; Dự báo Vỡ nợ</div>
-      <div class="pj-desc">Hai bài toán dữ liệu mất cân bằng nặng trong tài chính. Tập trung vào feature engineering, xử lý imbalanced data và tìm threshold phù hợp với yêu cầu nghiệp vụ thực tế.</div>
-      <div class="pj-stack"><span class="pj-stk">XGBoost</span><span class="pj-stk">SMOTE</span><span class="pj-stk">Scorecard</span><span class="pj-stk">SHAP</span></div>
-    </div>
-
-    <div class="pj-card fi">
-      <div class="pj-cat">Computer Vision · Medical</div>
-      <div class="pj-name">Phát hiện U não từ ảnh MRI</div>
-      <div class="pj-desc">Phân loại ảnh MRI để phát hiện và phân loại u não. Transfer learning với EfficientNet/ResNet, tối ưu recall vì đây là bài toán y tế — sai lệch âm tính có hậu quả nghiêm trọng.</div>
-      <div class="pj-stack"><span class="pj-stk">EfficientNet</span><span class="pj-stk">ResNet</span><span class="pj-stk">Transfer Learning</span><span class="pj-stk">PyTorch</span></div>
-    </div>
-
-    <div class="pj-card fi">
-      <div class="pj-cat">Computer Vision · OCR</div>
-      <div class="pj-name">Nhận diện Biển số xe</div>
-      <div class="pj-desc">Pipeline phát hiện và đọc biển số Việt Nam từ ảnh/video: YOLO detect vùng biển số → crop → OCR nhận dạng ký tự. Xử lý được nhiều góc độ và điều kiện ánh sáng khác nhau.</div>
-      <div class="pj-stack"><span class="pj-stk">YOLOv8</span><span class="pj-stk">OpenCV</span><span class="pj-stk">VietOCR</span></div>
-    </div>
-
-    <div class="pj-card fi">
-      <div class="pj-cat">Finance · Time Series</div>
-      <div class="pj-name">Dự báo Giá Chứng khoán</div>
-      <div class="pj-desc">Dự báo giá cổ phiếu Việt Nam bằng LSTM và ARIMA, kết hợp thêm các chỉ báo kỹ thuật (RSI, MACD, Bollinger Bands). Đánh giá cả RMSE lẫn direction accuracy.</div>
-      <div class="pj-stack"><span class="pj-stk">LSTM</span><span class="pj-stk">ARIMA</span><span class="pj-stk">Technical Indicators</span><span class="pj-stk">Pandas</span></div>
-    </div>
-
-    <div class="pj-card fi">
-      <div class="pj-cat">NLP · Tiếng Việt</div>
-      <div class="pj-name">Phân tích Cảm xúc Tiếng Việt</div>
-      <div class="pj-desc">Fine-tune PhoBERT để phân loại cảm xúc từ review và phản hồi khách hàng tiếng Việt. Phần xử lý văn bản tiếng Việt (tokenization, chuẩn hóa dấu câu, từ viết tắt) mất khá nhiều công.</div>
-      <div class="pj-stack"><span class="pj-stk">PhoBERT</span><span class="pj-stk">HuggingFace</span><span class="pj-stk">Fine-tuning</span><span class="pj-stk">VnCoreNLP</span></div>
-    </div>
-
-    <div class="pj-card fi">
-      <div class="pj-cat">OCR · Automation</div>
-      <div class="pj-name">Nhận dạng Captcha</div>
-      <div class="pj-desc">CNN tự train để nhận dạng captcha dạng text. Tập dữ liệu tự tổng hợp, augmentation mạnh để bù cho sự đa dạng của captcha thực tế.</div>
-      <div class="pj-stack"><span class="pj-stk">CNN</span><span class="pj-stk">Data Augmentation</span><span class="pj-stk">PyTorch</span></div>
-    </div>
-
-    <div class="pj-card fi" style="grid-column:1/-1;display:flex;align-items:center;justify-content:center;border-style:dashed;opacity:.45;min-height:60px">
-      <span style="font-size:.82rem;color:var(--ink4);font-style:italic">... và nhiều dự án khác chưa liệt kê hết</span>
-    </div>
-
+<section class="section" id="projects">
+  <div class="section-title fi" data-vi="Dự án cá nhân" data-en="Personal Projects">Dự án cá nhân</div>
+  <div class="pj-grid fi">
+    <div class="pj-card"><div class="pj-card-top"><div class="pj-cat">Banking · Optimization</div><i class="fas fa-code-branch pj-icon"></i></div><div class="pj-name" data-vi="Pipeline Tìm kiếm Khách hàng Tiềm năng (ThS)" data-en="Potential Customer Pipeline (Master's Thesis)">Pipeline Tìm kiếm Khách hàng Tiềm năng (ThS)</div><div class="pj-desc" data-vi="Pipeline hoàn chỉnh: tìm kiếm khách hàng tiềm năng, chấm điểm tín dụng, ước lượng thu nhập và event-trigger phát hiện thời điểm phù hợp mời sản phẩm trên dữ liệu ngân hàng thực tế." data-en="Complete pipeline: identify potential customers, credit scoring, income estimation, and event-trigger to detect the optimal timing for product invitations on real banking data.">Pipeline hoàn chỉnh: tìm kiếm khách hàng tiềm năng, chấm điểm tín dụng, ước lượng thu nhập và event-trigger phát hiện thời điểm phù hợp mời sản phẩm trên dữ liệu ngân hàng thực tế.</div><div class="pj-tags"><span class="pj-tag">Scorecard</span><span class="pj-tag">XGBoost</span><span class="pj-tag">Event Trigger</span><span class="pj-tag">Gini/KS</span></div></div>
+    <div class="pj-card"><div class="pj-card-top"><div class="pj-cat">NLP · RAG</div><i class="fas fa-robot pj-icon"></i></div><div class="pj-name" data-vi="RAG cho tài liệu Ngân hàng (Agribank)" data-en="RAG for Banking Documents (Agribank)">RAG cho tài liệu Ngân hàng (Agribank)</div><div class="pj-desc" data-vi="Hệ thống hỏi đáp trên tài liệu nghiệp vụ thực tế Agribank. Hybrid retrieval FAISS + BM25 + reranking. Qwen2.5-3B với 4-bit quantization trên Colab Free." data-en="Q&A system on real Agribank operational documents. Hybrid retrieval FAISS + BM25 + reranking. Qwen2.5-3B with 4-bit quantization on Colab Free.">Hệ thống hỏi đáp trên tài liệu nghiệp vụ thực tế Agribank. Hybrid retrieval FAISS + BM25 + reranking. Qwen2.5-3B với 4-bit quantization trên Colab Free.</div><div class="pj-tags"><span class="pj-tag">FAISS</span><span class="pj-tag">BM25</span><span class="pj-tag">Qwen2.5</span><span class="pj-tag">4-bit Quant.</span></div></div>
+    <div class="pj-card"><div class="pj-card-top"><div class="pj-cat">Finance · Risk</div><i class="fas fa-chart-line pj-icon"></i></div><div class="pj-name" data-vi="Phát hiện Gian lận & Dự báo Vỡ nợ" data-en="Fraud Detection & Loan Default Prediction">Phát hiện Gian lận &amp; Dự báo Vỡ nợ</div><div class="pj-desc" data-vi="Hai bài toán dữ liệu mất cân bằng nặng trong tài chính. Tập trung feature engineering và tìm threshold phù hợp yêu cầu nghiệp vụ." data-en="Two heavily imbalanced financial problems. Focus on feature engineering and finding business-appropriate thresholds.">Hai bài toán dữ liệu mất cân bằng nặng trong tài chính. Tập trung feature engineering và tìm threshold phù hợp yêu cầu nghiệp vụ.</div><div class="pj-tags"><span class="pj-tag">XGBoost</span><span class="pj-tag">SMOTE</span><span class="pj-tag">Scorecard</span><span class="pj-tag">SHAP</span></div></div>
+    <div class="pj-card"><div class="pj-card-top"><div class="pj-cat">Computer Vision</div><i class="fas fa-brain pj-icon"></i></div><div class="pj-name" data-vi="Phát hiện U não từ ảnh MRI" data-en="Brain Tumor Detection from MRI">Phát hiện U não từ ảnh MRI</div><div class="pj-desc" data-vi="Phân loại ảnh MRI phát hiện u não. Transfer learning EfficientNet/ResNet, tối ưu recall vì đây là bài toán y tế." data-en="MRI image classification for brain tumor detection. Transfer learning with EfficientNet/ResNet, recall-optimized for medical context.">Phân loại ảnh MRI phát hiện u não. Transfer learning EfficientNet/ResNet, tối ưu recall vì đây là bài toán y tế.</div><div class="pj-tags"><span class="pj-tag">EfficientNet</span><span class="pj-tag">Transfer Learning</span><span class="pj-tag">PyTorch</span></div></div>
+    <div class="pj-card"><div class="pj-card-top"><div class="pj-cat">CV · OCR</div><i class="fas fa-car pj-icon"></i></div><div class="pj-name" data-vi="Nhận diện Biển số xe" data-en="License Plate Recognition">Nhận diện Biển số xe</div><div class="pj-desc" data-vi="YOLO detect vùng biển số → crop → OCR nhận dạng ký tự. Xử lý được nhiều góc độ và điều kiện ánh sáng của biển số Việt Nam." data-en="YOLO detects plate region → crop → OCR character recognition. Handles various angles and lighting conditions for Vietnamese plates.">YOLO detect vùng biển số → crop → OCR nhận dạng ký tự. Xử lý được nhiều góc độ và điều kiện ánh sáng của biển số Việt Nam.</div><div class="pj-tags"><span class="pj-tag">YOLOv8</span><span class="pj-tag">OpenCV</span><span class="pj-tag">VietOCR</span></div></div>
+    <div class="pj-card"><div class="pj-card-top"><div class="pj-cat">NLP · Vietnamese</div><i class="fas fa-comment-dots pj-icon"></i></div><div class="pj-name" data-vi="Phân tích Cảm xúc Tiếng Việt" data-en="Vietnamese Sentiment Analysis">Phân tích Cảm xúc Tiếng Việt</div><div class="pj-desc" data-vi="Fine-tune PhoBERT phân loại cảm xúc từ review tiếng Việt. Phần xử lý văn bản tiếng Việt (tokenize, chuẩn hóa) mất khá nhiều công." data-en="Fine-tuned PhoBERT for Vietnamese review sentiment classification. Vietnamese text preprocessing (tokenization, normalization) was the hardest part.">Fine-tune PhoBERT phân loại cảm xúc từ review tiếng Việt. Phần xử lý văn bản tiếng Việt (tokenize, chuẩn hóa) mất khá nhiều công.</div><div class="pj-tags"><span class="pj-tag">PhoBERT</span><span class="pj-tag">HuggingFace</span><span class="pj-tag">VnCoreNLP</span></div></div>
+    <div class="pj-card"><div class="pj-card-top"><div class="pj-cat">Finance · Time Series</div><i class="fas fa-chart-area pj-icon"></i></div><div class="pj-name" data-vi="Dự báo Giá Chứng khoán" data-en="Stock Price Forecasting">Dự báo Giá Chứng khoán</div><div class="pj-desc" data-vi="LSTM + ARIMA kết hợp chỉ báo kỹ thuật (RSI, MACD, Bollinger). Đánh giá cả RMSE lẫn direction accuracy." data-en="LSTM + ARIMA combined with technical indicators (RSI, MACD, Bollinger). Evaluated both RMSE and direction accuracy.">LSTM + ARIMA kết hợp chỉ báo kỹ thuật (RSI, MACD, Bollinger). Đánh giá cả RMSE lẫn direction accuracy.</div><div class="pj-tags"><span class="pj-tag">LSTM</span><span class="pj-tag">ARIMA</span><span class="pj-tag">Technical Indicators</span></div></div>
+    <div class="pj-card"><div class="pj-card-top"><div class="pj-cat">OCR · Automation</div><i class="fas fa-shield-alt pj-icon"></i></div><div class="pj-name" data-vi="Nhận dạng Captcha" data-en="Captcha Recognition">Nhận dạng Captcha</div><div class="pj-desc" data-vi="CNN tự train nhận dạng captcha dạng text. Tập dữ liệu tự tổng hợp, augmentation mạnh để bù sự đa dạng của captcha thực tế." data-en="Custom CNN for text-based captcha recognition. Self-synthesized dataset with heavy augmentation to handle real-world captcha diversity.">CNN tự train nhận dạng captcha dạng text. Tập dữ liệu tự tổng hợp, augmentation mạnh để bù sự đa dạng của captcha thực tế.</div><div class="pj-tags"><span class="pj-tag">CNN</span><span class="pj-tag">Data Augmentation</span><span class="pj-tag">PyTorch</span></div></div>
+    <div class="pj-more" data-vi="... và nhiều dự án khác (100+ dự án tổng cộng)" data-en="... and many more (100+ projects total)">... và nhiều dự án khác (100+ dự án tổng cộng)</div>
   </div>
 </section>
 
 <!-- ═══ AWARDS ═══ -->
-<section class="cs" id="awards">
-  <div class="sl">Honors &amp; Awards</div>
-  <h2 class="st">Thành tích &amp; Giải thưởng</h2>
-  <div class="aw-grid">
-    <div class="aw-card top fi">
-      <div class="aw-ic"><i class="fas fa-star"></i></div>
-      <div class="aw-txt">
-        <strong>Bằng khen Thống đốc NHNN Việt Nam</strong>
-        <span class="aw-year">Ngân hàng Nhà nước · 2025</span>
-      </div>
-    </div>
-    <div class="aw-card top fi">
-      <div class="aw-ic"><i class="fas fa-star"></i></div>
-      <div class="aw-txt">
-        <strong>Bằng khen Chủ tịch HĐQT Vietcombank</strong>
-        <span class="aw-year">NHTMCP Ngoại thương Việt Nam · 2025</span>
-      </div>
-    </div>
-    <div class="aw-card fi">
-      <div class="aw-ic"><i class="fas fa-award"></i></div>
-      <div class="aw-txt">
-        <strong>Chiến sĩ thi đua cấp cơ sở</strong>
-        <span class="aw-year">Vietcombank · 2024 &amp; 2025 (2 năm liên tiếp)</span>
-      </div>
-    </div>
-    <div class="aw-card fi">
-      <div class="aw-ic"><i class="fas fa-award"></i></div>
-      <div class="aw-txt">
-        <strong>Đảng viên hoàn thành xuất sắc nhiệm vụ</strong>
-        <span class="aw-year">2025</span>
-      </div>
-    </div>
-    <div class="aw-card fi">
-      <div class="aw-ic"><i class="fas fa-award"></i></div>
-      <div class="aw-txt">
-        <strong>Bằng khen hoàn thành xuất sắc nhiệm vụ</strong>
-        <span class="aw-year">Tima Group Corporation · 2022</span>
-      </div>
-    </div>
-    <div class="aw-card fi">
-      <div class="aw-ic"><i class="fas fa-graduation-cap"></i></div>
-      <div class="aw-txt">
-        <strong>Học bổng Thạc sĩ toàn phần — VinIF</strong>
-        <span class="aw-year">Quỹ Đổi mới sáng tạo Vingroup · 2023</span>
-      </div>
-    </div>
-    <div class="aw-card fi">
-      <div class="aw-ic"><i class="fas fa-graduation-cap"></i></div>
-      <div class="aw-txt">
-        <strong>Học bổng Sumitomo Corporation</strong>
-        <span class="aw-year">Tập đoàn Sumitomo · 2021–2022</span>
-      </div>
-    </div>
-    <div class="aw-card fi">
-      <div class="aw-ic"><i class="fas fa-medal"></i></div>
-      <div class="aw-txt">
-        <strong>Sinh viên 5 tốt cấp Thành phố Hà Nội</strong>
-        <span class="aw-year">Thành Đoàn Hà Nội · 2021</span>
-      </div>
-    </div>
-    <div class="aw-card fi">
-      <div class="aw-ic"><i class="fas fa-medal"></i></div>
-      <div class="aw-txt">
-        <strong>Sinh viên 5 tốt cấp Trường</strong>
-        <span class="aw-year">HUST · 2 năm liên tiếp</span>
-      </div>
-    </div>
-    <div class="aw-card fi">
-      <div class="aw-ic"><i class="fas fa-medal"></i></div>
-      <div class="aw-txt">
-        <strong>Học bổng Khuyến học Xuất sắc</strong>
-        <span class="aw-year">Khoa Toán–Tin, HUST · Nhiều năm</span>
-      </div>
-    </div>
-    <div class="aw-card fi">
-      <div class="aw-ic"><i class="fas fa-certificate"></i></div>
-      <div class="aw-txt">
-        <strong>Học bổng tài trợ TOEIC &amp; CCNA quốc tế</strong>
-        <span class="aw-year">2021</span>
-      </div>
-    </div>
-    <div class="aw-card fi">
-      <div class="aw-ic"><i class="fas fa-newspaper"></i></div>
-      <div class="aw-txt">
-        <strong>Bài báo khoa học — Journal of CS &amp; Cybernetics</strong>
-        <span class="aw-year">Spam caller detection · <a href="https://bit.ly/AIPaperGrooo" target="_blank">Link</a></span>
-      </div>
-    </div>
+<section class="section" id="awards">
+  <div class="section-title fi" data-vi="Thành tích & Giải thưởng" data-en="Awards & Honors">Thành tích &amp; Giải thưởng</div>
+  <div class="awards-list fi">
+    <div class="award-row top"><div class="award-icon"><i class="fas fa-medal"></i></div><div class="award-text"><strong data-vi="Bằng khen Thống đốc NHNN Việt Nam" data-en="Commendation — Governor, State Bank of Vietnam">Bằng khen Thống đốc NHNN Việt Nam</strong></div><div class="award-year">2025</div></div>
+    <div class="award-row top"><div class="award-icon"><i class="fas fa-medal"></i></div><div class="award-text"><strong data-vi="Bằng khen Chủ tịch HĐQT Vietcombank" data-en="Commendation — Chairman, Vietcombank">Bằng khen Chủ tịch HĐQT Vietcombank</strong></div><div class="award-year">2025</div></div>
+    <div class="award-row"><div class="award-icon"><i class="fas fa-award"></i></div><div class="award-text"><strong data-vi="Học bổng đào tạo Thạc sĩ" data-en="Master's Training Scholarship">Học bổng đào tạo Thạc sĩ</strong> — <span data-vi="Quỹ VinIF, Vingroup" data-en="VinIF Fund, Vingroup">Quỹ VinIF, Vingroup</span></div><div class="award-year">2023</div></div>
+    <div class="award-row"><div class="award-icon"><i class="fas fa-award"></i></div><div class="award-text"><strong data-vi="Chiến sĩ thi đua cấp cơ sở" data-en="Emulation Fighter">Chiến sĩ thi đua cấp cơ sở</strong> — Vietcombank</div><div class="award-year">2024 &amp; 2025</div></div>
+    <div class="award-row"><div class="award-icon"><i class="fas fa-award"></i></div><div class="award-text"><strong data-vi="Đảng viên hoàn thành xuất sắc nhiệm vụ" data-en="Exemplary Party Member">Đảng viên hoàn thành xuất sắc nhiệm vụ</strong></div><div class="award-year">2025</div></div>
+    <div class="award-row"><div class="award-icon"><i class="fas fa-award"></i></div><div class="award-text"><strong data-vi="Bằng khen hoàn thành xuất sắc" data-en="Commendation for Outstanding Performance">Bằng khen hoàn thành xuất sắc</strong> — Tima Group</div><div class="award-year">2022</div></div>
+    <div class="award-row"><div class="award-icon"><i class="fas fa-graduation-cap"></i></div><div class="award-text"><strong data-vi="Học bổng Sumitomo Corporation" data-en="Sumitomo Corporation Scholarship">Học bổng Sumitomo Corporation</strong></div><div class="award-year">2021–22</div></div>
+    <div class="award-row"><div class="award-icon"><i class="fas fa-star"></i></div><div class="award-text"><strong data-vi="Sinh viên 5 tốt" data-en="Five Good Merits Student">Sinh viên 5 tốt</strong> — <span data-vi="cấp Thành phố Hà Nội & cấp Trường HUST" data-en="Hanoi City level & HUST level">cấp Thành phố Hà Nội &amp; cấp Trường HUST</span></div><div class="award-year">2021 &amp; 2022</div></div>
+    <div class="award-row"><div class="award-icon"><i class="fas fa-star"></i></div><div class="award-text" data-vi="Học bổng xuất sắc — Khoa Toán–Tin, HUST (nhiều năm)" data-en="Excellence Scholarship — Dept. of Mathematics & Informatics, HUST (multiple years)">Học bổng xuất sắc — Khoa Toán–Tin, HUST (nhiều năm)</div><div class="award-year">—</div></div>
   </div>
 </section>
 
 <!-- ═══ CERTS ═══ -->
-<section class="cs" id="certs">
-  <div class="sl">Certifications</div>
-  <h2 class="st">Chứng chỉ</h2>
-  <div class="ce-list">
-    <div class="ce-row fi"><span class="ce-nm">CS50: Introduction to Artificial Intelligence with Python</span><span class="ce-is">Harvard University · 2021</span></div>
-    <div class="ce-row fi"><span class="ce-nm">Machine Learning with Python</span><span class="ce-is">IBM / Coursera · 2021</span></div>
-    <div class="ce-row fi"><span class="ce-nm">Deep Learning with TensorFlow</span><span class="ce-is">IBM · 2021</span></div>
-    <div class="ce-row fi"><span class="ce-nm">Python Machine Learning, Deep Learning, Pandas, Matplotlib</span><span class="ce-is">Udemy · 2021</span></div>
-    <div class="ce-row fi"><span class="ce-nm">Blockchain Mathematics &amp; Computing</span><span class="ce-is">VIASM · 2021</span></div>
-    <div class="ce-row fi"><span class="ce-nm">CCNA: Introduction to Networks</span><span class="ce-is">Cisco · 2022</span></div>
+<section class="section" id="certs">
+  <div class="section-title fi" data-vi="Chứng chỉ" data-en="Certifications">Chứng chỉ</div>
+  <div class="certs-list fi">
+    <div class="cert-row"><span class="cert-name">CS50: Introduction to AI with Python</span><span class="cert-issuer">Harvard · 2021</span></div>
+    <div class="cert-row"><span class="cert-name">Machine Learning with Python</span><span class="cert-issuer">IBM / Coursera · 2021</span></div>
+    <div class="cert-row"><span class="cert-name">Deep Learning with TensorFlow</span><span class="cert-issuer">IBM · 2021</span></div>
+    <div class="cert-row"><span class="cert-name">Python ML, Deep Learning, Pandas</span><span class="cert-issuer">Udemy · 2021</span></div>
+    <div class="cert-row"><span class="cert-name">Blockchain Mathematics &amp; Computing</span><span class="cert-issuer">VIASM · 2021</span></div>
+    <div class="cert-row"><span class="cert-name">CCNA: Introduction to Networks</span><span class="cert-issuer">Cisco · 2022</span></div>
   </div>
 </section>
 
 <!-- ═══ ACTIVITIES ═══ -->
-<section class="cs" id="activities">
-  <div class="sl">Activities &amp; Community</div>
-  <h2 class="st">Hoạt động</h2>
-  <div class="ac-list">
-    <div class="ac-item fi">
-      <div class="ac-ic"><i class="fas fa-hands-helping"></i></div>
-      <div>
-        <div class="ac-title">Tình nguyện viên — Phòng chống dịch COVID-19</div>
-        <div class="ac-sub">Tham gia công tác phòng dịch cộng đồng trong giai đoạn đại dịch 2021.</div>
-      </div>
-    </div>
-    <div class="ac-item fi">
-      <div class="ac-ic"><i class="fas fa-heart"></i></div>
-      <div>
-        <div class="ac-title">Tình nguyện viên — Quỹ The CC Foundation</div>
-        <div class="ac-sub">Tham gia hoạt động thiện nguyện và hỗ trợ cộng đồng.</div>
-      </div>
-    </div>
-    <div class="ac-item fi">
-      <div class="ac-ic"><i class="fas fa-university"></i></div>
-      <div>
-        <div class="ac-title">Tình nguyện viên — Viện Toán Ứng dụng &amp; Tin học, HUST</div>
-        <div class="ac-sub">Hỗ trợ các hoạt động học thuật, sự kiện và công tác sinh viên của Viện.</div>
-      </div>
-    </div>
+<section class="section" id="activities">
+  <div class="section-title fi" data-vi="Hoạt động" data-en="Activities">Hoạt động</div>
+  <div class="act-list fi">
+    <div class="act-card"><div class="act-icon"><i class="fas fa-hands-helping"></i></div><div><div class="act-title" data-vi="Tình nguyện — Phòng chống COVID-19" data-en="Volunteer — COVID-19 Response">Tình nguyện — Phòng chống COVID-19</div><div class="act-sub" data-vi="Tham gia công tác phòng dịch cộng đồng giai đoạn đại dịch 2021." data-en="Community pandemic prevention work during the 2021 outbreak.">Tham gia công tác phòng dịch cộng đồng giai đoạn đại dịch 2021.</div></div></div>
+    <div class="act-card"><div class="act-icon"><i class="fas fa-heart"></i></div><div><div class="act-title" data-vi="Tình nguyện — Quỹ The CC Foundation" data-en="Volunteer — The CC Foundation">Tình nguyện — Quỹ The CC Foundation</div><div class="act-sub" data-vi="Tham gia hoạt động thiện nguyện và hỗ trợ cộng đồng." data-en="Participated in charitable and community support activities.">Tham gia hoạt động thiện nguyện và hỗ trợ cộng đồng.</div></div></div>
+    <div class="act-card"><div class="act-icon"><i class="fas fa-university"></i></div><div><div class="act-title" data-vi="Tình nguyện — Viện Toán Ứng dụng, HUST" data-en="Volunteer — School of Applied Math, HUST">Tình nguyện — Viện Toán Ứng dụng, HUST</div><div class="act-sub" data-vi="Hỗ trợ hoạt động học thuật và sinh viên tại Viện." data-en="Supported academic activities and student programs at the Institute.">Hỗ trợ hoạt động học thuật và sinh viên tại Viện.</div></div></div>
   </div>
 </section>
 
-<footer>
-  © 2025 Nguyễn Hữu Thuật &nbsp;·&nbsp; Hà Nội, Việt Nam &nbsp;·&nbsp;
-  <a href="mailto:thuatngh@gmail.com" style="color:var(--em)">thuatngh@gmail.com</a>
+<footer class="footer fi">
+  <div class="footer-left">© 2025 Nguyễn Hữu Thuật · Hà Nội, Việt Nam</div>
+  <div class="footer-links">
+    <a href="https://github.com/NguyenHuuThuat" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/nguyenhuuthuatbk/" target="_blank">LinkedIn</a>
+    <a href="https://twitter.com/HuuThuatBK" target="_blank">Twitter</a>
+    <a href="https://www.facebook.com/NguyenHuuThuatBK/" target="_blank">Facebook</a>
+    <a href="mailto:thuatngh@gmail.com">Email</a>
+  </div>
 </footer>
 
-</div><!-- /#mn -->
+</div><!-- /.page-wrap -->
 
 <script>
-const io=new IntersectionObserver(ee=>{ee.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),i*60);io.unobserve(e.target);}});},{threshold:.06});
+/* ── CLOSE MOBILE ── */
+function closeMobile(){document.getElementById('mobileMenu').classList.remove('open')}
+
+/* ── DROPDOWN ── */
+function toggleDD(id){
+  document.querySelectorAll('.dropdown').forEach(d=>{if(d.id!==id)d.classList.remove('open')});
+  document.getElementById(id).classList.toggle('open');
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.dropdown-wrap'))
+    document.querySelectorAll('.dropdown').forEach(d=>d.classList.remove('open'));
+});
+
+/* ── THEME ── */
+const themes={github:'GitHub',vscode:'VS Code',tokyo:'Tokyo',catppuccin:'Mocha',solarized:'Solar',light:'Light'};
+function setTheme(t,label){
+  document.body.dataset.theme=t;
+  document.getElementById('themeLabel').textContent=label;
+  document.querySelectorAll('#theme-dd .dropdown-item').forEach((el,i)=>{
+    el.classList.toggle('active',Object.keys(themes)[i]===t);
+  });
+  const navBgs={github:'rgba(13,17,23,.92)',vscode:'rgba(30,30,30,.92)',tokyo:'rgba(26,27,38,.92)',catppuccin:'rgba(30,30,46,.92)',solarized:'rgba(0,43,54,.92)',light:'rgba(255,255,255,.92)'};
+  document.querySelector('.topnav').style.background=navBgs[t]||navBgs.github;
+  localStorage.setItem('theme',t);
+  document.getElementById('theme-dd').classList.remove('open');
+}
+
+/* ── LANGUAGE ── */
+let currentLang='vi';
+const heroBioVI=`Tốt nghiệp <strong>Top 3</strong> Đại học và Thạc sĩ ngành Toán–Tin tại HUST. Hơn <strong>7 năm kinh nghiệm</strong> trong AI &amp; Data Science, chuyên sâu về <strong>ML, Deep Learning, Computer Vision và NLP/LLM</strong>.<br>Đã triển khai các hệ thống AI thực tế tại <strong>ngân hàng, fintech và e-commerce</strong>. Nền tảng toán học vững kết hợp khả năng kỹ thuật end-to-end — từ nghiên cứu đến triển khai vận hành.`;
+const heroBioEN=`Master's graduate in Mathematics &amp; Informatics from HUST, <strong>Top 3 of class</strong>. Over <strong>7 years</strong> of experience in AI/DS with deep expertise in <strong>ML, Deep Learning, Computer Vision, and NLP/LLM</strong>.<br>Proven track record delivering production AI systems in <strong>banking, fintech, and e-commerce</strong>. Strong mathematical foundations combined with end-to-end engineering — from research to deployment.`;
+
+function setLang(lang){
+  currentLang=lang;
+  document.getElementById('langLabel').textContent=lang.toUpperCase();
+  document.getElementById('heroBio').innerHTML=lang==='vi'?heroBioVI:heroBioEN;
+  document.querySelectorAll('[data-vi][data-en]').forEach(el=>{
+    const val=el.dataset[lang];
+    if(val!==undefined) el.textContent=val;
+  });
+  document.querySelectorAll('.exp-summary[data-vi][data-en]').forEach(el=>{
+    el.textContent=el.dataset[lang];
+  });
+  document.querySelectorAll('.topnav-links a[data-vi]').forEach(a=>{
+    a.textContent=a.dataset[lang]||a.textContent;
+  });
+  document.querySelectorAll('#lang-dd .dropdown-item').forEach((el,i)=>{
+    el.classList.toggle('active',i===(lang==='vi'?0:1));
+  });
+  document.getElementById('lang-dd').classList.remove('open');
+  localStorage.setItem('lang',lang);
+}
+
+/* ── RESTORE SAVED PREFS ── */
+const savedTheme=localStorage.getItem('theme')||'github';
+const savedLang=localStorage.getItem('lang')||'vi';
+if(savedTheme!=='github') setTheme(savedTheme,themes[savedTheme]);
+if(savedLang!=='vi') setLang(savedLang);
+
+/* ── FADE IN ── */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('on'),i*55);
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.05});
 document.querySelectorAll('.fi').forEach(el=>io.observe(el));
-const nl=document.querySelectorAll('.nv a');
-const so=new IntersectionObserver(ee=>{ee.forEach(e=>{if(e.isIntersecting)nl.forEach(a=>a.classList.toggle('act',a.getAttribute('href')==='#'+e.target.id));});},{threshold:.2});
-document.querySelectorAll('section[id]').forEach(s=>so.observe(s));
-document.querySelectorAll('.nv a').forEach(a=>a.addEventListener('click',()=>document.getElementById('sb').classList.remove('open')));
+
+/* ── SKILL BARS ── */
+const skObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.sk-fill').forEach(bar=>{
+        setTimeout(()=>{bar.style.width=(bar.dataset.w||'70')+'%'},150);
+      });
+      skObs.unobserve(e.target);
+    }
+  });
+},{threshold:.1});
+document.querySelectorAll('.skills-grid').forEach(el=>skObs.observe(el));
+
+/* ── ACTIVE NAV ── */
+const navAs=document.querySelectorAll('.topnav-links a');
+const secObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)
+      navAs.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));
+  });
+},{threshold:.25});
+document.querySelectorAll('section[id]').forEach(s=>secObs.observe(s));
 </script>
 </body>
 </html>
