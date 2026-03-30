@@ -576,7 +576,6 @@ a:hover{text-decoration:underline}
       </div>
     </div>
 
-    <!-- FIX: Link bài báo đã được gắn đúng href -->
     <div class="exp-item fi">
       <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
       <div class="exp-body">
@@ -606,7 +605,6 @@ a:hover{text-decoration:underline}
       </div>
     </div>
 
-    <!-- FIX: Luận văn ThS — mô tả đúng pipeline, bỏ ACO -->
     <div class="exp-item fi">
       <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
       <div class="exp-body">
@@ -614,7 +612,8 @@ a:hover{text-decoration:underline}
           <div class="exp-role" data-vi="Dự án Học thuật" data-en="Academic Projects">Dự án Học thuật</div>
           <div class="exp-date">2018 — 2025</div>
         </div>
-        <div class="exp-company">Đại học Bách khoa Hà Nội (HUST)</div>
+        <!-- FIX 1: Added data-vi / data-en to school name in exp-company -->
+        <div class="exp-company" data-vi="Đại học Bách khoa Hà Nội (HUST)" data-en="Hanoi University of Science and Technology (HUST)">Đại học Bách khoa Hà Nội (HUST)</div>
         <ul class="exp-bullets">
           <li>
             <strong data-vi="Luận văn Thạc sĩ" data-en="Master's Thesis">Luận văn Thạc sĩ</strong> —
@@ -637,10 +636,10 @@ a:hover{text-decoration:underline}
   <div class="section-title fi" data-vi="Học vấn" data-en="Education">Học vấn</div>
   <div class="edu-list">
 
-    <!-- FIX: ThS — GPA 3.8, bỏ Top 3 -->
     <div class="edu-card fi">
       <div class="edu-row">
-        <div class="edu-school">Đại học Bách khoa Hà Nội (HUST)</div>
+        <!-- FIX 1: Added data-vi / data-en to edu-school -->
+        <div class="edu-school" data-vi="Đại học Bách khoa Hà Nội (HUST)" data-en="Hanoi University of Science and Technology (HUST)">Đại học Bách khoa Hà Nội (HUST)</div>
         <div class="edu-period">06/2023 — 06/2025</div>
       </div>
       <div class="edu-degree" data-vi="Thạc sĩ · Toán - Tin học" data-en="Master's · Mathematics & Informatics">Thạc sĩ · Toán - Tin học</div>
@@ -651,10 +650,10 @@ a:hover{text-decoration:underline}
       <div class="edu-tags"><span class="edu-tag">Credit Scoring</span><span class="edu-tag">Income Estimation</span><span class="edu-tag">Event Trigger</span><span class="edu-tag">Pipeline</span><span class="edu-tag">VinIF</span></div>
     </div>
 
-    <!-- FIX: ĐH — "Very Good", bỏ Top 3 trong badge -->
     <div class="edu-card fi">
       <div class="edu-row">
-        <div class="edu-school">Đại học Bách khoa Hà Nội (HUST)</div>
+        <!-- FIX 1: Added data-vi / data-en to edu-school -->
+        <div class="edu-school" data-vi="Đại học Bách khoa Hà Nội (HUST)" data-en="Hanoi University of Science and Technology (HUST)">Đại học Bách khoa Hà Nội (HUST)</div>
         <div class="edu-period">08/2018 — 08/2022</div>
       </div>
       <div class="edu-degree" data-vi="Cử nhân · Toán - Tin học" data-en="Bachelor's · Mathematics & Informatics">Cử nhân · Toán - Tin học</div>
@@ -742,6 +741,7 @@ a:hover{text-decoration:underline}
     <div class="cert-row"><span class="cert-name">Machine Learning with Python</span><span class="cert-issuer">IBM / Coursera · 2021</span></div>
     <div class="cert-row"><span class="cert-name">Deep Learning with TensorFlow</span><span class="cert-issuer">IBM · 2021</span></div>
     <div class="cert-row"><span class="cert-name">Python ML, Deep Learning, Pandas</span><span class="cert-issuer">Udemy · 2021</span></div>
+    <div class="cert-row"><span class="cert-name">Advanced Architecting on AWS</span><span class="cert-issuer">AWS · 2026</span></div>
     <div class="cert-row"><span class="cert-name">Blockchain Mathematics &amp; Computing</span><span class="cert-issuer">VIASM · 2021</span></div>
     <div class="cert-row"><span class="cert-name">CCNA: Introduction to Networks</span><span class="cert-issuer">Cisco · 2022</span></div>
   </div>
@@ -751,6 +751,8 @@ a:hover{text-decoration:underline}
 <section class="section" id="activities">
   <div class="section-title fi" data-vi="Hoạt động" data-en="Activities">Hoạt động</div>
   <div class="act-list fi">
+    <!-- FIX 2: New activity card for We are Hoteliers 2026 -->
+    <div class="act-card"><div class="act-icon"><i class="fas fa-microphone-alt"></i></div><div><div class="act-title" data-vi="Diễn giả & Ban Giám khảo — We are Hoteliers" data-en="Speaker & Judge — We are Hoteliers">Diễn giả &amp; Ban Giám khảo — We are Hoteliers</div><div class="act-sub" data-vi="Diễn giả và thành viên Ban Giám khảo tại cuộc thi We are Hoteliers do Trường Đại học Ngoại thương tổ chức năm 2026." data-en="Speaker and member of the Judging Panel at the We are Hoteliers competition organized by Foreign Trade University (FTU), 2026.">Diễn giả và thành viên Ban Giám khảo tại cuộc thi We are Hoteliers do Trường Đại học Ngoại thương tổ chức năm 2026.</div></div></div>
     <div class="act-card"><div class="act-icon"><i class="fas fa-hands-helping"></i></div><div><div class="act-title" data-vi="Tình nguyện — Phòng chống COVID-19" data-en="Volunteer — COVID-19 Response">Tình nguyện — Phòng chống COVID-19</div><div class="act-sub" data-vi="Tham gia công tác phòng dịch cộng đồng giai đoạn đại dịch 2021." data-en="Community pandemic prevention work during the 2021 outbreak.">Tham gia công tác phòng dịch cộng đồng giai đoạn đại dịch 2021.</div></div></div>
     <div class="act-card"><div class="act-icon"><i class="fas fa-heart"></i></div><div><div class="act-title" data-vi="Tình nguyện — Quỹ The CC Foundation" data-en="Volunteer — The CC Foundation">Tình nguyện — Quỹ The CC Foundation</div><div class="act-sub" data-vi="Tham gia hoạt động thiện nguyện và hỗ trợ cộng đồng." data-en="Participated in charitable and community support activities.">Tham gia hoạt động thiện nguyện và hỗ trợ cộng đồng.</div></div></div>
     <div class="act-card"><div class="act-icon"><i class="fas fa-university"></i></div><div><div class="act-title" data-vi="Tình nguyện — Viện Toán Ứng dụng, HUST" data-en="Volunteer — School of Applied Math, HUST">Tình nguyện — Viện Toán Ứng dụng, HUST</div><div class="act-sub" data-vi="Hỗ trợ hoạt động học thuật và sinh viên tại Viện." data-en="Supported academic activities and student programs at the Institute.">Hỗ trợ hoạt động học thuật và sinh viên tại Viện.</div></div></div>
@@ -807,6 +809,7 @@ function setLang(lang){
   currentLang=lang;
   document.getElementById('langLabel').textContent=lang.toUpperCase();
   document.getElementById('heroBio').innerHTML=lang==='vi'?heroBioVI:heroBioEN;
+  /* FIX 1: selector now also covers .edu-school and any element with data-vi/data-en */
   document.querySelectorAll('[data-vi][data-en]').forEach(el=>{
     const val=el.dataset[lang];
     if(val!==undefined) el.textContent=val;
